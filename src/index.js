@@ -1,32 +1,35 @@
 import {Component} from "preact"
+import Router from "preact-router"
 import "./index.less"
 import "./manifest.json"
-import MainTitle from "./components/maintitle"
-import Box from "./components/box"
-import Split from "./components/split"
-import IconLink from "./components/iconlink"
-import {faDiscord, faReddit, faSteam} from "@fortawesome/free-brands-svg-icons"
-import ListIconBox from "./components/listiconbox"
+import Homepage from './routes/homepage';
+import RygNavbar from './routes/rygnavbar';
+import Diario from './routes/diario';
+import Wiki from './routes/wiki';
+import { createHashHistory } from 'history';
 
 export default class Index extends Component {
+	componentDidMount() {
+		this.state = {
+			"pathname": window.location.hash.substr(1)
+		}
+	}
+
+	onRouteChange = e => {
+		this.setState({
+			"pathname": window.location.hash.substr(1)
+		});
+	};
+
 	render() {
 		return (
 			<div>
-				<MainTitle imgsrc={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} text={"Royal Games"} />
-				<Split>
-					<Box left={"Benvenuto"}>Benvenuto al sito web della Royal Games! E' ancora <b>in costruzione</b>, ma almeno non dice più <i>not found</i> <code>:)</code></Box>
-					<ListIconBox left={"Link utili"}>
-						<li>
-							<IconLink icon={faDiscord} href={"https://discord.gg/UpuU9Y4"}>Discord</IconLink>
-						</li>
-						<li>
-							<IconLink icon={faSteam} href={"https://steamcommunity.com/groups/royalgamescastle"}>Steam</IconLink>
-						</li>
-						<li>
-							<IconLink icon={faReddit} href={"https://www.reddit.com/r/royalgames"}>Reddit</IconLink>
-						</li>
-					</ListIconBox>
-				</Split>
+				<RygNavbar pathname={this.state.pathname}/>
+				<Router onChange={this.onRouteChange} history={createHashHistory()}>
+					<Homepage path={"/"}/>
+					<Diario path={"/diario"}/>
+					<Wiki path={"/wiki"}/>
+				</Router>
 			</div>
 		)
 	}

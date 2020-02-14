@@ -5,7 +5,7 @@ export default class MainTitle extends Component {
     render() {
         return (
             <div class={style.title}>
-                <img class={style.image} src={this.props.imgsrc} alt={""} />
+                <img class={style.image} src={this.props.imgsrc} alt={this.props.imgalt} />
                 <span class={style.text}>
                     {this.props.text}
                 </span>
