@@ -1,15 +1,14 @@
 {
-  "private": true,
   "name": "rygweb",
   "version": "0.1.0",
-  "license": "MIT",
+  "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
     "lint": "eslint src",
-    "publish": "gh-pages"
+    "publish": "preact build && gh-pages --dist build"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
