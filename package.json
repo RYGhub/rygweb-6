@@ -1,6 +1,6 @@
 {
   "name": "rygweb",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
