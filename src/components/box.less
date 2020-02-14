@@ -1,0 +1,53 @@
+@import "../styles/constants.less";
+
+.box {
+    margin: 8px;
+}
+
+.single {
+    background-color: @bg-light;
+
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.top {
+    display: grid;
+
+    color: @accent;
+    background-color: @bg-lighter;
+
+    font-size: smaller;
+    font-weight: bold;
+
+    padding: 4px;
+    border-radius: 4px 4px 0 0;
+}
+
+.bottom {
+    background-color: @bg-light;
+
+    padding: 8px;
+    border-radius: 0 0 4px 4px;
+}
+
+.left {
+    width: 100%;
+    grid-column: 1;
+
+    text-align: left;
+}
+
+.center {
+    width: 100%;
+    grid-column: 2;
+
+    text-align: center;
+}
+
+.right {
+    width: 100%;
+    grid-column: 3;
+
+    text-align: right;
+}

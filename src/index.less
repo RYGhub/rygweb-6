@@ -1,0 +1,44 @@
+@import "./styles/constants.less";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: @bg;
+  color: @fg;
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  color: @accent;
+  font-weight: normal;
+}
+
+a {
+  color: @link;
+  text-decoration: none;
+
+  &:hover {
+    color: #4affff;
+  }
+
+  &:active {
+    color: #ffffff;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+b {
+  color: @accent;
+}
+
+code {
+  font-family: "Consolas", "Source Code Pro", monospace;
+}

@@ -1,0 +1,15 @@
+import {Component} from "preact"
+import style from "./maintitle.less"
+
+export default class MainTitle extends Component {
+    render() {
+        return (
+            <div class={style.title}>
+                <img class={style.image} src={this.props.imgsrc} alt={""} />
+                <span class={style.text}>
+                    {this.props.text}
+                </span>
+            </div>
+        )
+    }
+}
