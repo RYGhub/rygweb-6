@@ -1,12 +1,15 @@
 import {Component} from "preact"
 import Router from "preact-router"
-import "./index.less"
-import "./manifest.json"
+import style from "./index.less"
+import manifest from "./meta/manifest.json"
+import cname from "./meta/CNAME"
+import nojekyll from "./meta/.nojekyll"
 import Homepage from './routes/homepage';
 import RygNavbar from './routes/rygnavbar';
 import Diario from './routes/diario';
 import Wiki from './routes/wiki';
 import { createHashHistory } from 'history';
+import Quattrocentoquattro from './routes/quattrocentoquattro';
 
 export default class Index extends Component {
 	componentDidMount() {
@@ -29,6 +32,7 @@ export default class Index extends Component {
 					<Homepage path={"/"}/>
 					<Diario path={"/diario"}/>
 					<Wiki path={"/wiki"}/>
+					<Quattrocentoquattro default/>
 				</Router>
 			</div>
 		)
