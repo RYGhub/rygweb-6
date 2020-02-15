@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import style from './navbarlink.less';
 
-export default class Navbarlink extends Component {
+export default class NavbarLink extends Component {
 	render() {
 		if (this.props.pathname === this.props.href) {
 			return (

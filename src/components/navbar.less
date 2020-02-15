@@ -1,30 +1,35 @@
 @import "../styles/constants.less";
 
 .navbar {
-    display: grid;
+    display: flex;
     align-items: center;
 
     height: 40px;
     padding: 4px;
+
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .left {
     width: 100%;
-    grid-column: 1;
     text-align: left;
     height: 32px;
+    margin-right: 16px;
 }
 
 .center {
     width: 100%;
-    grid-column: 2;
     text-align: center;
     height: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
 .right {
     width: 100%;
-    grid-column: 3;
     text-align: right;
     height: 32px;
+    margin-left: 16px;
 }

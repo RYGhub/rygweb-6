@@ -17,10 +17,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-h1, h2, h3 {
-  text-align: center;
-}
-
 a {
   color: @link;
   text-decoration: none;
@@ -44,4 +40,12 @@ b {
 
 code {
   font-family: "Consolas", "Source Code Pro", monospace;
+}
+
+blockquote {
+  color: @fg;
+  border-left: 3px solid @fg;
+  background-color: fade(@fg, 10%);
+  padding: 4px 4px 4px 8px;
+  margin: 8px;
 }

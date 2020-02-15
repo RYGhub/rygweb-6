@@ -4,41 +4,80 @@
     color: @lime;
     border-left: 3px solid @lime;
     background-color: fade(@lime, 10%);
-    padding: 4px 4px 4px 8px;
-    margin: 8px;
 
     display: grid;
     grid-row-gap: 4px;
     grid-column-gap: 16px;
 }
 
-.topleft {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-    text-align: left;
+.contents {
+    display: grid;
+    grid-row-gap: 4px;
+    grid-column-gap: 16px;
 }
 
-.bottomleft {
-    grid-column: 1;
-    grid-row: 2;
-    align-self: end;
-    text-align: left;
+@media (max-width: 792px) {
+    .topleft {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: 1;
+        align-self: start;
+        text-align: left;
+    }
+
+    .bottomleft {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: end;
+        text-align: left;
+    }
+
+    .topright {
+        grid-column: 1;
+        grid-row: 3;
+        align-self: end;
+        text-align: left;
+    }
+
+    .bottomright {
+        grid-column: 2;
+        grid-row: 3;
+        align-self: end;
+        text-align: right;
+    }
 }
 
-.topright {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
-    text-align: right;
+@media (min-width: 793px) {
+    .topleft {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: start;
+        text-align: left;
+    }
+
+    .bottomleft {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: end;
+        text-align: left;
+    }
+
+    .topright {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: start;
+        text-align: right;
+    }
+
+    .bottomright {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: end;
+        text-align: right;
+    }
 }
 
-.bottomright {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: end;
-    text-align: right;
-}
+
 
 .text {
 
@@ -49,7 +88,7 @@
 }
 
 .save {
-    font-size: smaller;
+    font-size: x-small;
 }
 
 .context {
@@ -64,19 +103,20 @@
 
 }
 
+.diarioid {
+    font-family: @mono;
+}
+
 .spoiler {
     color: @red;
     background-color: fade(@red, 10%);
     border-left: 3px solid @red;
+}
 
-    .text {
-        color: transparent;
-        text-shadow: 0 0 8px @red;
+.spoiler .contents {
+    filter: blur(4px);
 
-        &:hover {
-            color: @red;
-            text-shadow: none;
-        }
+    &:hover {
+        filter: none;
     }
-
 }

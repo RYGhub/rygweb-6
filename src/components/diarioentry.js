@@ -43,32 +43,34 @@ export default class DiarioEntry extends Component {
 
 		let creator = "";
 		if (this.props.data.creator !== null) {
-			creator = <span><RoyalnetUser class={style.creator} data={this.props.data.creator}/>&nbsp;|&nbsp;</span>
+			creator = <span><RoyalnetUser class={style.creator} data={this.props.data.creator}/>&#32;|&#32;</span>
 		}
 
 		return (
 			<blockquote class={mainclass}>
-				<div class={style.topleft}>
-					<div class={style.media}>
-						{media}
+				<div class={style.contents}>
+					<div className={style.topleft}>
+						<div className={style.media}>
+							{media}
+						</div>
+						<div className={style.text}>
+							{this.props.data.text}
+						</div>
 					</div>
-					<div class={style.text}>
-						{this.props.data.text}
+					<div className={style.bottomleft}>
+						{info}
 					</div>
-				</div>
-				<div class={style.bottomleft}>
-					{info}
-				</div>
-				<div class={style.topright}>
-					<div class={style.save}>
-						{creator}
-						<time className={style.timestamp}>
-							{new Date(this.props.data.timestamp).toLocaleString()}
-						</time>
+					<div className={style.topright}>
+						<div className={style.save}>
+							{creator}
+							<time className={style.timestamp}>
+								{new Date(this.props.data.timestamp).toLocaleString()}
+							</time>
+						</div>
 					</div>
-				</div>
-				<div class={style.bottomright}>
-					 <a className={style.diarioid} href={`/diario/${this.props.data.diario_id}`}>#{this.props.data.diario_id}</a>
+					<div className={style.bottomright}>
+						<span className={style.diarioid}>#{this.props.data.diario_id}</span>
+					</div>
 				</div>
 			</blockquote>
 		);
