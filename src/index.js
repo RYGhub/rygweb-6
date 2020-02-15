@@ -1,5 +1,5 @@
-import {Component} from "preact"
-import Router from "preact-router"
+import { Component } from 'preact';
+import { Route, Router } from 'preact-router'
 import style from "./index.less"
 import manifest from "./meta/manifest.json"
 import cname from "./meta/CNAME"
@@ -11,7 +11,8 @@ import { createHashHistory } from 'history';
 import Quattrocentoquattro from './routes/quattrocentoquattro';
 
 export default class Index extends Component {
-	componentDidMount() {
+	constructor() {
+		super();
 		this.state = {
 			"pathname": window.location.hash.substr(1)
 		}
@@ -28,9 +29,9 @@ export default class Index extends Component {
 			<div>
 				<RygNavbar pathname={this.state.pathname}/>
 				<Router onChange={this.onRouteChange} history={createHashHistory()}>
-					<Homepage path={"/"}/>
-					<Diario path={"/diario"}/>
-					<Quattrocentoquattro default/>
+					<Route component={Homepage} path={"/"}/>
+					<Route component={Diario} path={"/diario/"}/>
+					<Route component={Quattrocentoquattro} default/>
 				</Router>
 			</div>
 		)

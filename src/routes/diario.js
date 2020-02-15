@@ -7,11 +7,15 @@ import PageButtons from '../components/pagebuttons';
 import Box from '../components/box';
 
 export default class Diario extends Component {
-	componentDidMount() {
+	constructor() {
+		super();
 		this.state = {
 			"page": 1,
 			"data": null
 		};
+	}
+
+	componentDidMount() {
 		this.getData();
 	}
 

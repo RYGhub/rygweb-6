@@ -1,12 +1,12 @@
-import {Component} from "preact"
-import style from "./iconlink.less"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Component} from "preact";
+import style from "./iconlink.less";
+import {Icon, icons} from "./icon";
 
 export default class IconLink extends Component {
     render() {
         return (
             <a href={this.props.href}>
-                <FontAwesomeIcon icon={this.props.icon} />
+                <Icon icon={this.props.icon}/>
                 &nbsp;
                 {this.props.children}
             </a>
