@@ -16,40 +16,41 @@ export default class Diario extends Component {
 	}
 
 	componentDidMount() {
-		this.getData();
+		this.getData(this.state.page);
 	}
 
-	getData = () => {
-		fetch("https://rygapi.steffo.eu/api/diario/list/v1?page=-" + this.state.page).then((response) => {
+	getData = (page) => {
+		fetch("https://rygapi.steffo.eu/api/diario/list/v1?page=-" + page).then((response) => {
 			return response.json();
 		}).then((json) => {
-			this.setState({
-				"data": json.data
+			this.setState((state) => {
+				if(state.page !== page) {
+					return {}
+				}
+				else {
+					return {
+						"page": page,
+						"data": json.data
+					}
+				}
 			});
 		})
 	};
 
 	previousPage = () => {
-		this.setState((state) => {
-			if (state.page <= 1) {
-				return {}
-			}
-			return {
-				"page": state.page - 1,
-				"data": null
-			}
+		this.getData(this.state.page - 1);
+		this.setState({
+			"page": this.state.page - 1,
+			"data": null
 		});
-		this.getData();
 	};
 
 	nextPage = () => {
-		this.setState((state) => {
-			return {
-				"page": state.page + 1,
-				"data": null
-			}
+		this.getData(this.state.page + 1);
+		this.setState({
+			"page": this.state.page + 1,
+			"data": null
 		});
-		this.getData();
 	};
 
 	render() {
@@ -68,7 +69,7 @@ export default class Diario extends Component {
 
 		let pageButtons = (
 			<span>
-				<span>Pagina {this.state.page}</span>&nbsp;<PageButtons onPreviousClick={this.previousPage} onNextClick={this.nextPage}/>
+				<span>Pagina {this.state.page}&nbsp;<PageButtons onPreviousClick={this.previousPage} onNextClick={this.nextPage}/></span>
 			</span>
 		);
 

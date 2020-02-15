@@ -1,20 +1,8 @@
 const path = require('path');
 
 
-export default (config, env, helpers) => {
-	config.module.loaders[4].include = [
-		path.resolve(__dirname, 'src', 'routes'),
-		path.resolve(__dirname, 'src', 'components'),
-		path.resolve(__dirname, 'src', 'meta'),
-	];
-
-	config.module.loaders[5].exclude = [
-		path.resolve(__dirname, 'src', 'routes'),
-		path.resolve(__dirname, 'src', 'components'),
-		path.resolve(__dirname, 'src', 'meta'),
-	];
-
-	config.module.loaders.push(
+export default function (config, env, helpers) {
+	config.module.rules.push(
 		{
 			test: /\.nojekyll$/,
 			loader: 'file-loader',
@@ -23,7 +11,7 @@ export default (config, env, helpers) => {
 			}
 		}
 	);
-	config.module.loaders.push(
+	config.module.rules.push(
 		{
 			test: /CNAME$/,
 			loader: 'file-loader',

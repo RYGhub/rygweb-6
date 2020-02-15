@@ -1,6 +1,6 @@
 {
   "name": "rygweb",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
@@ -16,25 +16,18 @@
     "build/*"
   ],
   "devDependencies": {
-    "eslint-config-synacor": "^1.1.0",
     "if-env": "^1.0.0",
-    "preact-cli": "^2.0.0"
+    "preact-cli": "^3.0.0-rc.8"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.26",
-    "@fortawesome/free-brands-svg-icons": "^5.12.0",
-    "@fortawesome/free-regular-svg-icons": "^5.12.0",
-    "@fortawesome/free-solid-svg-icons": "^5.12.0",
-    "@fortawesome/react-fontawesome": "^0.1.8",
     "css-loader": "^3.4.2",
     "file-loader": "^5.0.2",
     "history": "^4.10.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "preact": "^8.5.2",
-    "preact-compat": "^3.17.0",
-    "preact-render-to-string": "^4.1.0",
-    "preact-router": "^2.6.1",
+    "preact": "^10.3.1",
+    "preact-render-to-string": "^5.1.4",
+    "preact-router": "^3.2.1",
     "style-loader": "^1.1.3"
   }
 }
