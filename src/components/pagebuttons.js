@@ -7,8 +7,8 @@ export default class PageButtons extends Component {
 	render() {
 		return (
 			<span>
-				<button onClick={this.props.onPreviousClick}><FontAwesomeIcon icon={faChevronLeft}/></button>
-				<button onClick={this.props.onNextClick}><FontAwesomeIcon icon={faChevronRight}/></button>
+				<button class={style.button} onClick={this.props.onPreviousClick}><FontAwesomeIcon icon={faChevronLeft}/></button>
+				<button class={style.button} onClick={this.props.onNextClick}><FontAwesomeIcon icon={faChevronRight}/></button>
 			</span>
 		);
 	}

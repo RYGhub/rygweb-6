@@ -12,12 +12,17 @@ import Quattrocentoquattro from './routes/quattrocentoquattro';
 import WikiList from './routes/wikilist';
 import WikiPage from './routes/wikipage';
 import WikiEdit from './routes/wikiedit';
+import Login from './routes/login';
 
 export default class Index extends Component {
 	constructor() {
 		super();
 		this.state = {
-			"pathname": window.location.hash.substr(1)
+			"pathname": window.location.hash.substr(1),
+			"login_username": "",
+			"login_password": "",
+			"login_state": "waiting",
+			"logged_in": null
 		}
 	}
 
@@ -27,17 +32,44 @@ export default class Index extends Component {
 		});
 	};
 
+	onUsernameChange = e => {
+		this.setState({
+			"login_username": e.target.value
+		})
+	};
+
+	onPasswordChange = e => {
+		this.setState({
+			"login_password": e.target.value
+		})
+	};
+
+	onLoginClick = e => {
+		this.setState({
+			"login_state": "running"
+		});
+	};
+
 	render() {
 		return (
 			<div>
 				<RygNavbar pathname={this.state.pathname}/>
 				<Router onChange={this.onRouteChange} history={createHashHistory()}>
-					<Route component={Homepage} path={"/"}/>
-					<Route component={Diario} path={"/diario"}/>
-					<Route component={WikiList} path={"/wiki"}/>
-					<Route component={WikiPage} path={"/wiki/:page_id"}/>
-					<Route component={WikiEdit} path={"/wiki/:page_id/edit"}/>
-					<Route component={Quattrocentoquattro} default/>
+					<Homepage path={"/"}/>
+					<Diario path={"/diario"}/>
+					<WikiList path={"/wiki"}/>
+					<WikiPage path={"/wiki/:page_id"}/>
+					<WikiEdit path={"/wiki/:page_id/edit"}/>
+					<Login
+						path={"/login"}
+						usernameValue={this.state.login_username}
+						onUsernameChange={this.onUsernameChange}
+						passwordValue={this.state.login_password}
+						onPasswordChange={this.onPasswordChange}
+						loginState={this.state.login_state}
+						onLoginClick={this.onLoginClick}
+					/>
+					<Quattrocentoquattro default/>
 				</Router>
 			</div>
 		)

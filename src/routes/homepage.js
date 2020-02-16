@@ -33,7 +33,13 @@ export default class Homepage extends Component {
 					<Box left={"Novità del sito"}>
 						<section>
 							<h4>
-								2020-15-02
+								2020-02-16
+							</h4>
+							<ul>
+								<li>Aggiunta l'interfaccia di login (parziale)</li>
+							</ul>
+							<h4>
+								2020-02-15
 							</h4>
 							<ul>
 								<li>Aggiunto la Wiki (sola lettura)</li>
@@ -44,7 +50,7 @@ export default class Homepage extends Component {
 								<li>Ricreato parte dell'editor delle pagine della Wiki</li>
 							</ul>
 							<h4>
-								2020-14-02
+								2020-02-14
 							</h4>
 							<ul>
 								<li>Creato il sito</li>

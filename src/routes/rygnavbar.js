@@ -25,7 +25,7 @@ export default class RygNavbar extends Component {
 		];
 
 		let right = [
-			<NavbarLink href={"/profile/me"} pathname={this.props.pathname} disabled={true} title={"TODO"}>
+			<NavbarLink href={"/login"} pathname={this.props.pathname}>
 				Login&nbsp;
 				<img src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} class={style.avatar} alt={" 👤"}/>
 			</NavbarLink>

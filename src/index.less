@@ -49,3 +49,31 @@ blockquote {
     padding: 4px 4px 4px 8px;
     margin: 8px;
 }
+
+input[type="text"], input[type="password"] {
+    color: @fg;
+    background-color: @bg;
+    border: 1px solid @bg-lighter;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: medium;
+}
+
+button {
+    color: @fg;
+    background-color: @bg;
+    border: 1px solid @bg-lighter;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: medium;
+
+    &:hover {
+        background-color: @bg-light;
+        border: 1px solid @fg;
+    }
+
+    &:active {
+        background-color: @bg-lighter;
+        border: 1px solid @fg;
+    }
+}
