@@ -21,8 +21,8 @@ export default class Index extends Component {
 			"pathname": window.location.hash.substr(1),
 			"login_username": "",
 			"login_password": "",
-			"login_state": "waiting",
-			"logged_in": null
+			"login_status": "waiting",
+			"logged_in": JSON.parse(window.localStorage.getItem("logged_in"))
 		}
 	}
 
@@ -46,27 +46,47 @@ export default class Index extends Component {
 
 	onLoginClick = e => {
 		this.setState({
-			"login_state": "running"
+			"login_status": "running"
+		});
+		fetch("https://rygapi.steffo.eu/api/login/royalnet/v1", {
+			method: "POST",
+			headers: {
+				//Fix this in Royalnet first
+				//'Accept': 'application/json',
+				//'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				"username": this.state.login_username,
+				"password": this.state.login_password
+			})
+		}).then((response) => {
+			return response.json()
+		}).then((json) => {
+			this.setState({
+				"logged_in": json.data,
+				"login_status": "done"
+			});
+			window.localStorage.setItem("logged_in", JSON.stringify(json.data));
 		});
 	};
 
 	render() {
 		return (
 			<div>
-				<RygNavbar pathname={this.state.pathname}/>
+				<RygNavbar pathname={this.state.pathname} loggedIn={this.state.logged_in}/>
 				<Router onChange={this.onRouteChange} history={createHashHistory()}>
 					<Homepage path={"/"}/>
 					<Diario path={"/diario"}/>
 					<WikiList path={"/wiki"}/>
 					<WikiPage path={"/wiki/:page_id"}/>
-					<WikiEdit path={"/wiki/:page_id/edit"}/>
+					<WikiEdit path={"/wiki/:page_id/edit"} loggedIn={this.state.logged_in}/>
 					<Login
 						path={"/login"}
 						usernameValue={this.state.login_username}
 						onUsernameChange={this.onUsernameChange}
 						passwordValue={this.state.login_password}
 						onPasswordChange={this.onPasswordChange}
-						loginState={this.state.login_state}
+						loginStatus={this.state.login_status}
 						onLoginClick={this.onLoginClick}
 					/>
 					<Quattrocentoquattro default/>

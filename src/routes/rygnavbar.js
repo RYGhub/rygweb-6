@@ -24,11 +24,25 @@ export default class RygNavbar extends Component {
 			</NavbarLink>
 		];
 
+		let user;
+		if(this.props.loggedIn === null)
+			user = (
+				<NavbarLink href={"/login"} pathname={this.props.pathname}>
+					Login&nbsp;
+					<img src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} class={style.avatar} alt={" 👤"}/>
+				</NavbarLink>
+			);
+		else {
+			user = (
+				<NavbarLink href={"/profile"} disabled={true} title={"TODO"} pathname={this.props.pathname}>
+					{this.props.loggedIn.user.username}&nbsp;
+					<img src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} class={style.avatar} alt={" 👤"}/>
+				</NavbarLink>
+			);
+		}
+
 		let right = [
-			<NavbarLink href={"/login"} pathname={this.props.pathname}>
-				Login&nbsp;
-				<img src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} class={style.avatar} alt={" 👤"}/>
-			</NavbarLink>
+			user
 		];
 
 		return (

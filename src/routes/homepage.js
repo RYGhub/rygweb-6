@@ -36,7 +36,9 @@ export default class Homepage extends Component {
 								2020-02-16
 							</h4>
 							<ul>
-								<li>Aggiunta l'interfaccia di login (parziale)</li>
+								<li>Aggiunta l'interfaccia di login</li>
+								<li>Login persistente</li>
+								<li>Modifica pagine Wiki</li>
 							</ul>
 							<h4>
 								2020-02-15

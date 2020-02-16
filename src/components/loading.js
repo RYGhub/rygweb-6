@@ -7,7 +7,7 @@ export default class Loading extends Component {
 	render() {
 		return (
 			<span>
-				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Loading...
+				<FontAwesomeIcon icon={faSpinner} pulse={true}/> {this.props.text ? this.props.text : "Loading..."}
 			</span>
 		);
 	}
