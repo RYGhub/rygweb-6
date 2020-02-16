@@ -39,7 +39,7 @@ export default class WikiPage extends Component {
 		}
 
 		let right = (
-			<NavbarLink disabled={true} title={"TODO"} href={`/wiki/${this.props.page_id}/edit`}>Modifica</NavbarLink>
+			<a href={`/wiki/${this.props.page_id}/edit`}>Modifica</a>
 		);
 
 		return (

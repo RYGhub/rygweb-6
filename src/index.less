@@ -1,51 +1,51 @@
 @import "./styles/constants.less";
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: @bg;
-  color: @fg;
-  font-family: sans-serif;
+    background-color: @bg;
+    color: @fg;
+    font-family: @sans;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  color: @accent;
-  font-weight: normal;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: @accent;
+    font-weight: normal;
 }
 
 a {
-  color: @link;
-  text-decoration: none;
+    color: @link;
+    text-decoration: none;
 
-  &:hover {
-    color: #4affff;
-  }
+    &:hover {
+        color: #4affff;
+    }
 
-  &:active {
-    color: #ffffff;
-  }
+    &:active {
+        color: #ffffff;
+    }
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 b {
-  color: @accent;
+    color: @accent;
 }
 
 code {
-  font-family: "Consolas", "Source Code Pro", monospace;
+    font-family: @mono;
 }
 
 blockquote {
-  color: @fg;
-  border-left: 3px solid @fg;
-  background-color: fade(@fg, 10%);
-  padding: 4px 4px 4px 8px;
-  margin: 8px;
+    color: @fg;
+    border-left: 3px solid @fg;
+    background-color: fade(@fg, 10%);
+    padding: 4px 4px 4px 8px;
+    margin: 8px;
 }

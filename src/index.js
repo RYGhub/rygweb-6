@@ -1,9 +1,9 @@
 import { Component } from 'preact';
 import { Route, Router } from 'preact-router';
 import style from "./index.less";
-import manifest from "./meta/manifest.json";
-import cname from "./meta/CNAME";
-import nojekyll from "./meta/.nojekyll";
+import "./meta/manifest.json";
+import "./meta/CNAME";
+import "./meta/.nojekyll";
 import Homepage from './routes/homepage';
 import RygNavbar from './routes/rygnavbar';
 import Diario from './routes/diario';
@@ -11,6 +11,7 @@ import { createHashHistory } from 'history';
 import Quattrocentoquattro from './routes/quattrocentoquattro';
 import WikiList from './routes/wikilist';
 import WikiPage from './routes/wikipage';
+import WikiEdit from './routes/wikiedit';
 
 export default class Index extends Component {
 	constructor() {
@@ -35,6 +36,7 @@ export default class Index extends Component {
 					<Route component={Diario} path={"/diario"}/>
 					<Route component={WikiList} path={"/wiki"}/>
 					<Route component={WikiPage} path={"/wiki/:page_id"}/>
+					<Route component={WikiEdit} path={"/wiki/:page_id/edit"}/>
 					<Route component={Quattrocentoquattro} default/>
 				</Router>
 			</div>

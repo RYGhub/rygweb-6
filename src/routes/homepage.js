@@ -4,8 +4,8 @@ import MainTitle from '../components/maintitle';
 import Split from '../components/split';
 import Box from '../components/box';
 import ListIconBox from '../components/listiconbox';
-import IconLink from '../components/iconlink';
-import { Icon, icons } from '../components/icon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiscord, faReddit, faSteam, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 export default class Homepage extends Component {
 	render() {
@@ -18,16 +18,16 @@ export default class Homepage extends Component {
 				<Split>
 					<ListIconBox left={"Link utili"}>
 						<li>
-							<IconLink icon={icons["fa-discord"]} href={"https://discord.gg/UpuU9Y4"}>Discord</IconLink>
+							<a href={"https://discord.gg/UpuU9Y4"}><FontAwesomeIcon icon={faDiscord}/> Discord</a>
 						</li>
 						<li>
-							<IconLink icon={icons["fa-steam"]} href={"https://steamcommunity.com/groups/royalgamescastle"}>Steam</IconLink>
+							<a href={"https://steamcommunity.com/groups/royalgamescastle"}><FontAwesomeIcon icon={faSteam}/> Steam</a>
 						</li>
 						<li>
-							<IconLink icon={icons["fa-reddit"]} href={"https://www.reddit.com/r/royalgames"}>Reddit</IconLink>
+							<a href={"https://www.reddit.com/r/royalgames"}><FontAwesomeIcon icon={faReddit}/> Reddit</a>
 						</li>
 						<li>
-							<IconLink icon={icons["fa-youtube"]} href={"https://www.youtube.com/channel/UCR_ONjCjfmHKzHImw_SMvhA"}>YouTube</IconLink>
+							<a href={"https://www.youtube.com/channel/UCR_ONjCjfmHKzHImw_SMvhA"}><FontAwesomeIcon icon={faYoutube}/> YouTube</a>
 						</li>
 					</ListIconBox>
 					<Box left={"Novità del sito"}>
@@ -38,6 +38,10 @@ export default class Homepage extends Component {
 							<ul>
 								<li>Aggiunto la Wiki (sola lettura)</li>
 								<li>Migliorata visualizzazione del diario</li>
+								<li>Risolto il bug per cui <code>preact/compat</code> non funzionava</li>
+								<li>Sostituite le icone di <a href={"https://fontawesome.com/"}>font-awesome</a> a quelle di fork-awesome</li>
+								<li><a href={"https://github.com/Ichicoro"}>@Ichicoro</a>: Aggiunti nuovi font monospace</li>
+								<li>Ricreato parte dell'editor delle pagine della Wiki</li>
 							</ul>
 							<h4>
 								2020-14-02

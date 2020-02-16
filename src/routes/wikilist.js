@@ -2,7 +2,6 @@ import { Component } from 'preact';
 import style from './wikilist.less';
 import Loading from '../components/loading';
 import Box from '../components/box';
-import ListIconBox from '../components/listiconbox';
 import NavbarLink from '../components/navbarlink';
 
 export default class WikiList extends Component {

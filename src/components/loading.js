@@ -1,12 +1,13 @@
 import { Component } from 'preact';
 import style from './loading.less';
-import {Icon, icons} from "./icon";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default class Loading extends Component {
 	render() {
 		return (
 			<span>
-				<Icon icon={icons['fa-spinner'] + " " + icons['fa-pulse']}/> Loading...
+				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Loading...
 			</span>
 		);
 	}

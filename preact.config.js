@@ -2,6 +2,11 @@ const path = require('path');
 
 
 export default function (config, env, helpers) {
+	console.log(config);
+
+	config.resolve.alias["react"] = "preact/compat";
+	config.resolve.alias["react-dom"] = "preact/compat";
+
 	config.module.rules.push(
 		{
 			test: /\.nojekyll$/,
