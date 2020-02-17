@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import { Route, Router } from 'preact-router';
+import { route, Route, Router } from 'preact-router';
 import style from "./index.less";
 import "./meta/manifest.json";
 import "./meta/CNAME";
@@ -67,6 +67,7 @@ export default class Index extends Component {
 				"login_status": "done"
 			});
 			window.localStorage.setItem("logged_in", JSON.stringify(json.data));
+			route("/");
 		});
 	};
 
@@ -80,6 +81,7 @@ export default class Index extends Component {
 					<WikiList path={"/wiki"}/>
 					<WikiPage path={"/wiki/:page_id"}/>
 					<WikiEdit path={"/wiki/:page_id/edit"} loggedIn={this.state.logged_in}/>
+					<WikiEdit path={"/wiki/new"} page_id={null} loggedIn={this.state.logged_in}/>
 					<Login
 						path={"/login"}
 						usernameValue={this.state.login_username}

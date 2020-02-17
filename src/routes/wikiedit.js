@@ -29,17 +29,26 @@ export default class WikiEdit extends Component {
 	}
 
 	getData = () => {
-		fetch("https://rygapi.steffo.eu/api/wiki/get/v1?id=" + this.props.page_id).then((response) => {
-			return response.json();
-		}).then((json) => {
+		if(this.props.page_id !== null) {
+			fetch("https://rygapi.steffo.eu/api/wiki/get/v1?id=" + this.props.page_id).then((response) => {
+				return response.json();
+			}).then((json) => {
+				this.setState({
+					"status": "loaded",
+					"title": json.data.title,
+					"contents": json.data.contents,
+					"format": json.data.format,
+					"theme": json.data.theme
+				});
+			})
+		}
+		else {
 			this.setState({
 				"status": "loaded",
-				"title": json.data.title,
-				"contents": json.data.contents,
-				"format": json.data.format,
-				"theme": json.data.theme
+				"format": "markdown",
+				"theme": "default"
 			});
-		})
+		}
 	};
 
 	onTitleChange = e => {

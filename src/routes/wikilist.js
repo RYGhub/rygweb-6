@@ -39,8 +39,10 @@ export default class WikiList extends Component {
 			})
 		}
 
+		let right = <a href={"/wiki/new"}>Nuova</a>;
+
 		return (
-			<Box left={"Indice Wiki"}>
+			<Box left={"Indice Wiki"} right={right}>
 				<ul class={style.list}>
 					{pages}
 				</ul>
