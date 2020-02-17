@@ -19,8 +19,8 @@ export default class RygNavbar extends Component {
 				Wiki
 			</NavbarLink>,
 			" | ",
-			<NavbarLink pathname={this.props.pathname} disabled={true} title={"TODO"}>
-				Membri
+			<NavbarLink href={"/ilmonarcadelvalhalla2"} pathname={this.props.pathname}>
+				IMdV2
 			</NavbarLink>
 		];
 
@@ -34,7 +34,7 @@ export default class RygNavbar extends Component {
 			);
 		else {
 			user = (
-				<NavbarLink href={"/profile"} disabled={true} title={"TODO"} pathname={this.props.pathname}>
+				<NavbarLink href={"/user/me"} pathname={this.props.pathname}>
 					{this.props.loggedIn.user.username}&nbsp;
 					<img src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} class={style.avatar} alt={" 👤"}/>
 				</NavbarLink>

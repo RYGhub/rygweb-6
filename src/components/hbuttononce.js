@@ -3,6 +3,7 @@ import style from './hbuttononce.less';
 import HButton from './hbutton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Error from './error';
 
 export default class HButtonOnce extends Component {
 	render() {
@@ -14,6 +15,9 @@ export default class HButtonOnce extends Component {
 		}
 		else if(this.props.status === "done") {
 			return <HButton label={<span><FontAwesomeIcon icon={faCheck}/> {this.props.label}</span>} disabled={true}/>;
+		}
+		else {
+			return <Error>Invalid status for HButtonOnce: {this.props.status.toString()}</Error>
 		}
 	}
 }

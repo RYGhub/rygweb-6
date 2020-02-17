@@ -11,7 +11,7 @@ export default class Homepage extends Component {
 	render() {
 		return (
 			<div>
-				<MainTitle imgsrc={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} imgalt={"⭐ ️"} text={"Royal Games"} />
+				<MainTitle imgsrc={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} imgalt={"⭐"} text={"Royal Games"} />
 				<Box left={"Benvenuto"}>
 					Benvenuto al sito web della Royal Games! E' ancora <b>in costruzione</b>, ma almeno non dice più <i>not found</i> <code>:)</code>
 				</Box>
@@ -33,12 +33,21 @@ export default class Homepage extends Component {
 					<Box left={"Novità del sito"}>
 						<section>
 							<h4>
+								2020-02-17
+							</h4>
+							<ul>
+								<li>Aggiunta pagina "Il Monarca del Valhalla 2"</li>
+								<li>Aggiunte pagine profilo (semivuote)</li>
+								<li>Aggiunto cambio password</li>
+							</ul>
+							<h4>
 								2020-02-16
 							</h4>
 							<ul>
 								<li>Aggiunta l'interfaccia di login</li>
 								<li>Login persistente</li>
 								<li>Modifica pagine Wiki</li>
+								<li>Creazione pagine Wiki</li>
 							</ul>
 							<h4>
 								2020-02-15

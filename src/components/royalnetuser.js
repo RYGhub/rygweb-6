@@ -7,7 +7,7 @@ export default class RoyalnetUser extends Component {
 	render() {
 		let icon = "";
 		if(this.props.data.role === "Bot") {
-			icon = <FontAwesomeIcon icon={faRobot}/>
+			icon = <span><FontAwesomeIcon icon={faRobot}/>&nbsp;</span>
 		}
 		return (
 			<a href={"/user/" + this.props.data.uid}>{icon}{this.props.data.username}</a>
