@@ -1,5 +1,16 @@
 @import "../styles/constants.less";
 
 .linkslist {
-    column-width: 384px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    column-width: 192px;
+}
+
+.linkslist :not(:first-child) {
+    margin-top: 2px;
+}
+
+.linkslist :not(:last-child) {
+    margin-bottom: 2px;
 }

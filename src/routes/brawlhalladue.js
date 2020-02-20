@@ -1,5 +1,4 @@
 import { Component } from 'preact';
-import style from './brawlhalladue.less';
 import Box from '../components/box';
 import MainTitle from '../components/maintitle';
 import NomeDorato from '../components/nomedorato';
@@ -20,55 +19,58 @@ export default class BrawlhallaDue extends Component {
 						Il torneo è aperto a tutti i membri Royal Games, di qualsiasi livello di abilità: siamo tutti abbastanza scarsi, e l'obiettivo principale è divertirsi giocando a qualcosa di diverso dal solito, non vincere!
 					</p>
 					<p>
-						Il torneo si svolgerà interamente online nei giorni tra il 21 Febbraio e il 28 Febbraio, con l'eccezione della finale, che (se possibile per entrambi i finalisti) sarà giocata in LAN a casa di Steffo il 29 Febbraio.
+						Il torneo si svolgerà interamente online nei giorni dal 21 Febbraio, con l'eccezione della finale, che (se possibile per entrambi i finalisti) sarà giocata in LAN a casa di Steffo.
 					</p>
 				</Box>
 				<Box left={"Registrazione"}>
-					<h1><a href={"https://smash.gg/tournament/il-monarca-del-valhalla-2/register"}>Iscrivetevi al torneo su smash.gg!</a></h1>
+					Il periodo di iscrizione è terminato.
+				</Box>
+				<Box left={"Bracket"}>
+					<h1><a href={"https://smash.gg/tournament/il-monarca-del-valhalla-2/events/1v1/overview"}>Guarda il progresso del torneo su smash.gg!</a></h1>
+				</Box>
+				<Box left={"Casting"}>
+					<h1>Cerchiamo persone che commentino le partite!</h1>
+					<p>
+						Se ne avete voglia, contattate Steffo!
+					</p>
 				</Box>
 				<Box left={"Premi"}>
-					<p>
-						Il montepremi aumenterà all'aumentare dei partecipanti!
-					</p>
-					<p>
-						<small>Quindi cercate di convincere altri membri della RYG a partecipare!</small>
-					</p>
 					<blockquote>
 						<h4>1° posto</h4>
 						<ul>
-							<li>5 € di Credito Steam</li>
+							<li>10 € di Credito Steam</li>
 							<li><NomeDorato>Nome Dorato</NomeDorato> su Discord per due settimane</li>
-							<li>8 fiorygi</li>
+							<li>10 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
 						<h4>2° posto</h4>
 						<ul>
-							<li>7 fiorygi</li>
+							<li>8 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
 						<h4>3° posto</h4>
 						<ul>
-							<li>6 fiorygi</li>
+							<li>7 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
 						<h4>4° posto</h4>
 						<ul>
-							<li>5 fiorygi</li>
+							<li>6 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
 						<h4>5°, 6°, 7° e 8° posto</h4>
 						<ul>
-							<li>4 fiorygi</li>
+							<li>5 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
 						<h4>Tutti gli altri partecipanti</h4>
 						<ul>
-							<li>3 fiorygi</li>
+							<li>4 fiorygi</li>
 						</ul>
 					</blockquote>
 				</Box>

@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import style from './wikilist.less';
 import Loading from '../components/loading';
 import Box from '../components/box';
-import NavbarLink from '../components/navbarlink';
+import Link from '../components/link';
 
 export default class WikiList extends Component {
 	constructor() {
@@ -33,7 +33,7 @@ export default class WikiList extends Component {
 			pages = this.state.data.map((page) => {
 				return (
 					<li>
-						<NavbarLink href={"/wiki/" + page.page_id}>{page.title}</NavbarLink>
+						<Link href={"/wiki/" + page.page_id}>{page.title}</Link>
 					</li>
 				)
 			})

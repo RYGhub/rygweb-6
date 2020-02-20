@@ -61,6 +61,7 @@ input[type="text"], input[type="password"] {
     &:disabled {
         color: grey;
         background-color: #1f1f1f;
+        cursor: not-allowed;
     }
 }
 
@@ -80,5 +81,11 @@ button {
     &:active {
         background-color: @bg-lighter;
         border: 1px solid @fg;
+    }
+
+    &.disabled {
+        color: grey;
+        background-color: #1f1f1f;
+        cursor: not-allowed;
     }
 }

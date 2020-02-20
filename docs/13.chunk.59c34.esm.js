@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{"4FRC":function(n,o,u){"use strict";u.r(o),function(n){u.d(o,"default",(function(){return t}));var e=u("hosL");u("rJaQ");class t extends e.Component{render(){return n("div",null,n("h1",null,"404 Not Found"),n("p",null,"Quello che stavi cercando non è qui."))}}}.call(this,u("hosL").h)},rJaQ:function(){}}]);
-//# sourceMappingURL=13.chunk.59c34.esm.js.map

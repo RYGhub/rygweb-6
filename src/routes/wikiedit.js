@@ -3,12 +3,9 @@ import SimpleMDEEditor from 'react-simplemde-editor';
 import Box from '../components/box';
 import "easymde/dist/easymde.min.css";
 import "../styles/override-easymde.less"
-import Todo from '../components/todo';
 import Loading from '../components/loading';
-import style from '../components/wikimdrenderer.less';
-import HInput from '../components/hinput';
-import HButton from '../components/hbutton';
-import HButtonOnce from '../components/hbuttononce';
+import HInput from '../components/forms/hinput';
+import HButton from '../components/forms/hbutton';
 import Error from '../components/error';
 import {route} from 'preact-router';
 

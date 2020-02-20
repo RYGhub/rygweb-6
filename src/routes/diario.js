@@ -1,6 +1,4 @@
 import { Component } from 'preact';
-import style from './diario.less';
-import Todo from '../components/todo';
 import DiarioEntry from '../components/diarioentry';
 import Loading from '../components/loading';
 import PageButtons from '../components/pagebuttons';
