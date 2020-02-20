@@ -1,7 +1,7 @@
 import { Component } from 'preact';
-import Box from '../box';
-import HInput from '../forms/hinput';
-import HButtonOnce from '../forms/hbuttononce';
+import Box from './box';
+import HInput from './hinput';
+import HButtonOnce from './hbuttononce';
 
 export default class LoginBox extends Component {
 	render() {

@@ -1,8 +1,8 @@
 import { Component } from 'preact';
 import style from './wikipagebox.css';
-import Loading from '../loading';
-import MarkdownRenderer from '../renderers/markdownrenderer';
-import Box from '../box';
+import Loading from './loading';
+import MarkdownRenderer from './markdownrenderer';
+import Box from './box';
 
 export default class WikiPageBox extends Component {
 	constructor() {
@@ -17,7 +17,7 @@ export default class WikiPageBox extends Component {
 	}
 
 	getData = () => {
-		fetch("https://rygapi.steffo.eu/api/wiki/get/v1?id=" + this.props.page_id).then((response) => {
+		fetch("https://rygapi.steffo.eu/api/wiki/get/v1?id=" + this.props.pageId).then((response) => {
 			return response.json();
 		}).then((json) => {
 			this.setState({"data": json.data});
@@ -32,7 +32,7 @@ export default class WikiPageBox extends Component {
 		else if(this.state.data.format === "markdown") {
 			page_contents = (
 				<div>
-					<h1 className={style.title}>{this.props.data.title}</h1>
+					<h1 className={style.title}>{this.state.data.title}</h1>
 					<MarkdownRenderer data={this.state.data}/>
 				</div>
 			)

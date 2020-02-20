@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import HButton from './hbutton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import Error from '../error';
+import Error from './error';
 
 export default class HButtonOnce extends Component {
 	render() {

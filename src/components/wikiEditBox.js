@@ -1,15 +1,15 @@
 import { Component } from 'preact';
 import SimpleMDEEditor from 'react-simplemde-editor';
-import Box from '../components/box';
+import Box from './box';
 import "easymde/dist/easymde.min.css";
 import "../styles/override-easymde.less"
 import Loading from '../components/loading';
-import HInput from '../components/forms/hinput';
-import HButton from '../components/forms/hbutton';
+import HInput from '../components/hinput';
+import HButton from '../components/hbutton';
 import Error from '../components/error';
 import {route} from 'preact-router';
 
-export default class WikiEdit extends Component {
+export default class WikiEditBox extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -26,8 +26,8 @@ export default class WikiEdit extends Component {
 	}
 
 	getData = () => {
-		if(this.props.page_id !== null) {
-			fetch("https://rygapi.steffo.eu/api/wiki/get/v1?id=" + this.props.page_id).then((response) => {
+		if(this.props.pageId !== null) {
+			fetch("https://rygapi.steffo.eu/api/wiki/get/v1?id=" + this.props.pageId).then((response) => {
 				return response.json();
 			}).then((json) => {
 				this.setState({
@@ -80,7 +80,7 @@ export default class WikiEdit extends Component {
 			method: "POST",
 			body: JSON.stringify({
 				"token": this.props.loggedIn.token,
-				"id": this.props.page_id,
+				"id": this.props.pageId,
 				"title": this.state.title,
 				"format": this.state.format,
 				"theme": this.state.theme,
@@ -89,7 +89,7 @@ export default class WikiEdit extends Component {
 		}).then((response) => {
 			return response.json()
 		}).then((json) => {
-			route(`/wiki/${this.props.page_id}`)
+			this.props.onEditComplete();
 		})
 	};
 

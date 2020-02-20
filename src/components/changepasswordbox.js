@@ -1,8 +1,8 @@
 import { Component } from 'preact';
-import HInput from '../forms/hinput';
-import HButtonOnce from '../forms/hbuttononce';
-import Success from '../success';
-import Box from '../box';
+import HInput from './hinput';
+import HButtonOnce from './hbuttononce';
+import Success from './success';
+import Box from './box';
 
 export default class ChangePasswordBox extends Component {
 	constructor() {
