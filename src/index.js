@@ -23,6 +23,7 @@ import UserProfile from './routes/userprofile';
 import Error from './components/error';
 import WikiList from './routes/wikilist';
 
+
 export default class Index extends Component {
 	constructor() {
 		super();
@@ -92,12 +93,9 @@ export default class Index extends Component {
 	};
 
 	render() {
-		let contents;
-		if(this.state.error !== null) {
-			contents = <Error>Errore: {this.state.errorInfo}</Error>
-		}
-		else {
-			contents = (
+		return (
+			<div>
+				<RygNavbar pathname={this.state.pathname} loggedIn={this.state.logged_in}/>
 				<Router onChange={this.onRouteChange} history={createHashHistory()}>
 					<Homepage path={"/"}/>
 					<Diario path={"/diario"}/>
@@ -119,13 +117,6 @@ export default class Index extends Component {
 					/>
 					<Error default>Pagina non trovata.</Error>
 				</Router>
-			)
-		}
-
-		return (
-			<div>
-				<RygNavbar pathname={this.state.pathname} loggedIn={this.state.logged_in}/>
-				{contents}
 			</div>
 		)
 	}
