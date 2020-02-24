@@ -52,15 +52,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/icon.png"
   },
   {
-    "revision": "df6e6882061cf479e246",
+    "revision": "17d4526efce27f537bc8",
+    "url": "/bundle.6797c.esm.js"
+  },
+  {
+    "revision": "17d4526efce27f537bc8",
     "url": "/bundle.afd50.css"
   },
   {
-    "revision": "df6e6882061cf479e246",
-    "url": "/bundle.bd16a.esm.js"
-  },
-  {
-    "revision": "522d11968a4b27d6a897c1b47b1cb477",
+    "revision": "84af5c89850508b0ab74a7968f1b30dc",
     "url": "/index.html"
   },
   {

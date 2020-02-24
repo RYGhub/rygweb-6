@@ -89,7 +89,7 @@ export default class WikiEditBox extends Component {
 		}).then((response) => {
 			return response.json()
 		}).then((json) => {
-			this.props.onEditComplete();
+			route(`/wiki/${json.data.page_id}`)
 		})
 	};
 
