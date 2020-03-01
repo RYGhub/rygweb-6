@@ -1,4 +1,4 @@
-import "preact/debug";
+import { Component } from 'preact';
 
 // noinspection ES6UnusedImports
 import style from "./index.less";
@@ -9,12 +9,11 @@ import _cname from "./meta/CNAME";
 // noinspection ES6UnusedImports
 import _nojekyll from "./meta/.nojekyll";
 
-import { Component } from 'preact';
-import { route, Router } from 'preact-router';
+import { Router, route } from 'preact-router';
+import { createHashHistory } from 'history';
 import Homepage from './routes/homepage';
 import RygNavbar from './routes/rygnavbar';
 import Diario from './routes/diario';
-import { createHashHistory } from 'history';
 import WikiPageBox from './components/wikipagebox';
 import WikiEditBox from './components/wikiEditBox';
 import LoginBox from './components/loginbox';
@@ -24,6 +23,7 @@ import Error from './components/error';
 import WikiList from './routes/wikilist';
 
 
+// noinspection JSUnusedGlobalSymbols
 export default class Index extends Component {
 	constructor() {
 		super();
