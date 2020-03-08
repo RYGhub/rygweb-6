@@ -46,31 +46,38 @@ export default class BrawlhallaDue extends Component {
 					<blockquote>
 						<h4>2° posto</h4>
 						<ul>
-							<li>8 fiorygi</li>
+							<li><NomeDorato>Nome Dorato</NomeDorato> su Discord per due settimane</li>
+							<li>9 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
 						<h4>3° posto</h4>
 						<ul>
+							<li>9 fiorygi</li>
+						</ul>
+					</blockquote>
+					<blockquote>
+						<h4>5° posto</h4>
+						<ul>
+							<li>8 fiorygi</li>
+						</ul>
+					</blockquote>
+					<blockquote>
+						<h4>7° posto</h4>
+						<ul>
 							<li>7 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
-						<h4>4° posto</h4>
+						<h4>9° posto</h4>
 						<ul>
 							<li>6 fiorygi</li>
 						</ul>
 					</blockquote>
 					<blockquote>
-						<h4>5°, 6°, 7° e 8° posto</h4>
+						<h4>13° posto</h4>
 						<ul>
 							<li>5 fiorygi</li>
-						</ul>
-					</blockquote>
-					<blockquote>
-						<h4>Tutti gli altri partecipanti</h4>
-						<ul>
-							<li>4 fiorygi</li>
 						</ul>
 					</blockquote>
 				</Box>

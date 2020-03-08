@@ -3,3 +3,12 @@
     font-family: "Verdana", sans-serif;
     font-size: 48px;
 }
+
+pre {
+    color: #dfdfdf;
+    background-color: #1f1f1f;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding: 4px;
+    border-radius: 4px;
+}
