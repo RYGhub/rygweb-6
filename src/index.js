@@ -34,18 +34,24 @@ export default class Index extends Component {
 			"login_username": "",
 			"login_password": "",
 			"login_status": "waiting",
-			"logged_in": JSON.parse(window.localStorage.getItem("logged_in"))
+			"logged_in": null
 		}
 	}
 
-	/*
-	componentDidCatch(error, errorInfo) {
-		this.setState({
-			"error": error,
-			"errorInfo": errorInfo
-		});
+	componentDidMount() {
+		let login_store = JSON.parse(window.localStorage.getItem("logged_in"));
+		if(login_store !== null) {
+			fetch(`https://rygapi.steffo.eu/api/token/info/v1?token=${login_store.token}`).then((response) => response.json()).then((data => {
+				let expiration = new Date(data.expiration);
+				let now = new Date();
+				if(expiration >= now ) {
+					this.setState({
+						"logged_in": data
+					})
+				}
+			}))
+		}
 	};
-	 */
 
 	onRouteChange = e => {
 		this.setState({

@@ -2,6 +2,7 @@ import { Component } from 'preact';
 import Box from '../components/box';
 import MainTitle from '../components/maintitle';
 import NomeDorato from '../components/nomedorato';
+import Split from '../components/split';
 
 export default class BrawlhallaDue extends Component {
 	render() {
@@ -26,13 +27,25 @@ export default class BrawlhallaDue extends Component {
 					Il periodo di iscrizione è terminato.
 				</Box>
 				<Box left={"Bracket"}>
-					<h1><a href={"https://smash.gg/tournament/il-monarca-del-valhalla-2/events/1v1/overview"}>Guarda il progresso del torneo su smash.gg!</a></h1>
+					Il torneo è concluso. <a href={"https://smash.gg/tournament/il-monarca-del-valhalla-2/events/1v1/overview"}>Guarda i risultati completi su smash.gg!</a>
 				</Box>
-				<Box left={"Casting"}>
-					<h1>Cerchiamo persone che commentino le partite!</h1>
-					<p>
-						Se ne avete voglia, contattate Steffo!
-					</p>
+				<Box left={"Classifica finale"}>
+					<ol>
+						<li>Viktya</li>
+						<li>Steffo</li>
+						<li>xZefyr</li>
+						<li>Deadmeme</li>
+						<li>Mallllco</li>
+						<li>Tullest</li>
+						<li>Gattopardo</li>
+						<li>Alleander</li>
+						<li>Fre</li>
+						<li>Dima</li>
+						<li>Cookie</li>
+						<li>Gattopandacorno</li>
+						<li>Adry</li>
+						<li>Kitsune</li>
+					</ol>
 				</Box>
 				<Box left={"Premi"}>
 					<blockquote>
@@ -45,10 +58,15 @@ export default class BrawlhallaDue extends Component {
 					</blockquote>
 					<blockquote>
 						<h4>2° posto</h4>
-						<ul>
-							<li><NomeDorato>Nome Dorato</NomeDorato> su Discord per due settimane</li>
-							<li>9 fiorygi</li>
-						</ul>
+						<Split>
+							<ul>
+								<li><NomeDorato>Nome Dorato</NomeDorato> su Discord per due settimane</li>
+								<li>10 fiorygi</li>
+							</ul>
+							<ul>
+								<li>Steffo</li>
+							</ul>
+						</Split>
 					</blockquote>
 					<blockquote>
 						<h4>3° posto</h4>
