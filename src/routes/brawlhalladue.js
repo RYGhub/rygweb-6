@@ -58,15 +58,10 @@ export default class BrawlhallaDue extends Component {
 					</blockquote>
 					<blockquote>
 						<h4>2° posto</h4>
-						<Split>
-							<ul>
-								<li><NomeDorato>Nome Dorato</NomeDorato> su Discord per due settimane</li>
-								<li>10 fiorygi</li>
-							</ul>
-							<ul>
-								<li>Steffo</li>
-							</ul>
-						</Split>
+						<ul>
+							<li><NomeDorato>Nome Dorato</NomeDorato> su Discord per due settimane</li>
+							<li>10 fiorygi</li>
+						</ul>
 					</blockquote>
 					<blockquote>
 						<h4>3° posto</h4>
