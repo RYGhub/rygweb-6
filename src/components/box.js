@@ -20,7 +20,7 @@ export default class Box extends Component {
 		}
 
 		return (
-			<div class={style.box}>
+			<div class={style.box + " " + this.props.class}>
 				{inside}
 			</div>
 		);

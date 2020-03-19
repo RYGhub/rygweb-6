@@ -19,8 +19,8 @@ export default class RygNavbar extends Component {
 				Wiki
 			</Link>,
 			" | ",
-			<Link href={"/ilmonarcadelvalhalla2"} pathname={this.props.pathname}>
-				IMdV2
+			<Link href={"/wiki/7085934a-eb4a-4d39-84e6-c970b58b7f79"} pathname={this.props.pathname}>
+				Royalcraft 4
 			</Link>
 		];
 

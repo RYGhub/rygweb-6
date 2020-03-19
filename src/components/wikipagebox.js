@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import style from './wikipagebox.css';
+import style from './wikipagebox.less';
 import Loading from './loading';
 import MarkdownRenderer from './markdownrenderer';
 import Box from './box';
@@ -41,12 +41,12 @@ export default class WikiPageBox extends Component {
 			page_contents = "Formato sconosciuto: " + this.state.data.format;
 		}
 
-		let right = (
+		let right = [
 			<a href={`/wiki/${this.props.pageId}/edit`}>Modifica</a>
-		);
+		];
 
 		return (
-			<Box left={"Pagina Wiki"} right={right}>
+			<Box left={"Pagina Wiki"} right={right} class={style.page}>
 				{page_contents}
 			</Box>
 		);

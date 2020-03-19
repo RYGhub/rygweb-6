@@ -13,7 +13,12 @@ export default class Homepage extends Component {
 			<div>
 				<MainTitle imgsrc={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} imgalt={"⭐"} text={"Royal Games"} />
 				<Box left={"Benvenuto"}>
-					Benvenuto al sito web della Royal Games! E' ancora <b>in costruzione</b>, ma almeno non dice più <i>not found</i> <code>:)</code>
+					<p>
+						Benvenuto alla pagina Steam della Royal Games!
+					</p>
+					<p>
+						Siamo una piccola community amichevole principalmente dedicata al PC gaming.
+					</p>
 				</Box>
 				<Split>
 					<div>
@@ -33,57 +38,8 @@ export default class Homepage extends Component {
 								</li>
 							</ul>
 						</Box>
-						<Box left={<span>Attuali detentori del Nome Dorato</span>}>
-							Nessuno (<Link href={"/ilmonarcadelvalhalla2"}>per ora</Link>)
-						</Box>
 					</div>
-					<Box left={"Novità del sito"}>
-						<section>
-							<h4>
-								2020-02-19
-							</h4>
-							<ul>
-								<li>Fixato bug che impediva l'accesso al sito agli utenti non loggati</li>
-								<li>Riorganizzato parecchie parti di codice</li>
-							</ul>
-							<h4>
-								2020-02-17
-							</h4>
-							<ul>
-								<li>Aggiunta pagina "Il Monarca del Valhalla 2"</li>
-								<li>Aggiunte pagine profilo (semivuote)</li>
-								<li>Aggiunto cambio password</li>
-							</ul>
-							<h4>
-								2020-02-16
-							</h4>
-							<ul>
-								<li>Aggiunta l'interfaccia di login</li>
-								<li>Login persistente</li>
-								<li>Modifica pagine Wiki</li>
-								<li>Creazione pagine Wiki</li>
-							</ul>
-							<h4>
-								2020-02-15
-							</h4>
-							<ul>
-								<li>Aggiunto la Wiki (sola lettura)</li>
-								<li>Migliorata visualizzazione del diario</li>
-								<li>Risolto il bug per cui <code>preact/compat</code> non funzionava</li>
-								<li>Sostituite le icone di <Link href={"https://fontawesome.com/"}>font-awesome</Link> a quelle di fork-awesome</li>
-								<li><Link href={"https://github.com/Ichicoro"}>@Ichicoro</Link>: Aggiunti nuovi font monospace</li>
-								<li>Ricreato parte dell'editor delle pagine della Wiki</li>
-							</ul>
-							<h4>
-								2020-02-14
-							</h4>
-							<ul>
-								<li>Creato il sito</li>
-								<li>Aggiunto il visualizzatore del Diario</li>
-								<li>Aggiunte le icone di <Link href={"https://forkaweso.me/Fork-Awesome/"}>fork-awesome</Link></li>
-							</ul>
-						</section>
-					</Box>
+					<div/>
 				</Split>
 			</div>
 		);

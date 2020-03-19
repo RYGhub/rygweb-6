@@ -7,7 +7,7 @@ export default class HInput extends Component {
 		return (
 			<label class={style.label}>
 				<div class={style.text}>{this.props.label}</div>
-				<input class={style.input} type={this.props.type} value={this.props.value} onChange={this.props.onChange} disabled={this.props.disabled}/>
+				<input class={style.input} type={this.props.type} value={this.props.value} onChange={this.props.onChange} disabled={this.props.disabled} name={this.props.name}/>
 			</label>
 		);
 	}

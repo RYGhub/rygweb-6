@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import HButton from './hbutton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Error from './error';
 
 export default class HButtonOnce extends Component {
@@ -14,6 +14,9 @@ export default class HButtonOnce extends Component {
 		}
 		else if(this.props.status === "done") {
 			return <HButton label={<span><FontAwesomeIcon icon={faCheck}/> {this.props.label}</span>} disabled={true}/>;
+		}
+		else if(this.props.status === "error") {
+			return <HButton label={<span><FontAwesomeIcon icon={faExclamationCircle}/> {this.props.label}</span>} onClick={this.props.onClick}/>;
 		}
 		else {
 			return <Error>Invalid status for HButtonOnce: {this.props.status.toString()}</Error>
