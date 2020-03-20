@@ -1,0 +1,21 @@
+@import "../styles/constants.less";
+
+.fiorygi {
+    font-size: x-large;
+}
+
+.transactiontable {
+    width: 100%;
+
+    .amount {
+        text-align: right;
+
+        &.positive {
+            color: @lime;
+        }
+
+        &.negative {
+            color: @red;
+        }
+    }
+}

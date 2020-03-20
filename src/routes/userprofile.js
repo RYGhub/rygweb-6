@@ -4,9 +4,8 @@ import MainTitle from '../components/maintitle';
 import ChangePasswordBox from '../components/changepasswordbox';
 import UserInfoBox from '../components/userInfoBox';
 import Box from '../components/box';
-import HButton from '../components/hbutton';
-import HButtonOnce from '../components/hbuttononce';
 import LogoutBox from '../components/logoutBox';
+import FiorygiBox from '../components/fiorygiBox';
 
 export default class UserProfile extends Component {
 	constructor() {
@@ -17,7 +16,15 @@ export default class UserProfile extends Component {
 	}
 
 	componentDidMount() {
-		this.getData();
+		if(this.props.userId) {
+			this.getData();
+		}
+	}
+
+	componentDidUpdate(previousProps, previousState, snapshot) {
+		if(previousProps.userId !== this.props.userId && this.props.userId) {
+			this.getData();
+		}
 	}
 
 	getData = () => {
@@ -38,6 +45,7 @@ export default class UserProfile extends Component {
 		return (
 			<div>
 				<MainTitle imgsrc={"https://combo.steffo.eu/open/ryg/GenericUser.png"} imgalt={"👤"} text={this.state.data.username}/>
+				<FiorygiBox user={this.state.data}/>
 				<UserInfoBox user={this.state.data}/>
 				{thisIsMyProfile ? <ChangePasswordBox loggedIn={this.props.loggedIn}/> : ""}
 				{thisIsMyProfile ? <LogoutBox onLogoutClick={this.props.onLogoutClick}/> : ""}

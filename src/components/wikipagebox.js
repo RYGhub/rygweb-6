@@ -25,20 +25,23 @@ export default class WikiPageBox extends Component {
 	};
 
 	render() {
-		let page_contents;
-		if(this.state.data === null) {
-			page_contents = <Loading/>
-		}
-		else if(this.state.data.format === "markdown") {
-			page_contents = (
-				<div>
-					<h1 className={style.title}>{this.state.data.title}</h1>
-					<MarkdownRenderer data={this.state.data}/>
-				</div>
-			)
-		}
-		else {
-			page_contents = "Formato sconosciuto: " + this.state.data.format;
+		let title = <Loading/>;
+		let contents = <Loading/>;
+
+		if(this.state.data != null) {
+			title = this.state.data.title;
+
+			if(this.state.data.format === "markdown") {
+				contents = (
+					<div>
+						{this.props.hideTitle ? "" : <h1 className={style.title}>{this.state.data.title}</h1>}
+						<MarkdownRenderer data={this.state.data}/>
+					</div>
+				)
+			}
+			else {
+				contents = "Formato sconosciuto: " + this.state.data.format;
+			}
 		}
 
 		let right = [
@@ -46,8 +49,8 @@ export default class WikiPageBox extends Component {
 		];
 
 		return (
-			<Box left={"Pagina Wiki"} right={right} class={style.page}>
-				{page_contents}
+			<Box left={this.props.titleInBox ? title : "Wiki"} right={right} class={style.page}>
+				{contents}
 			</Box>
 		);
 	}

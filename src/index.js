@@ -13,15 +13,14 @@ import { Router, route } from 'preact-router';
 import { createHashHistory } from 'history';
 import Homepage from './routes/homepage';
 import RygNavbar from './routes/rygnavbar';
-import Diario from './routes/diario';
 import WikiPageBox from './components/wikipagebox';
 import WikiEditBox from './components/wikiEditBox';
-import LoginBox from './components/loginbox';
 import BrawlhallaDue from './routes/brawlhalladue';
 import UserProfile from './routes/userprofile';
 import Error from './components/error';
 import WikiList from './routes/wikilist';
 import Login from './routes/login';
+import Diario from './routes/diario';
 
 
 // noinspection JSUnusedGlobalSymbols
