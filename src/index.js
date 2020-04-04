@@ -21,6 +21,7 @@ import Error from './components/error';
 import WikiList from './routes/wikilist';
 import Login from './routes/login';
 import Diario from './routes/diario';
+import Members from './routes/members';
 
 
 // noinspection JSUnusedGlobalSymbols
@@ -97,6 +98,7 @@ export default class Index extends Component {
 					<BrawlhallaDue path={"/ilmonarcadelvalhalla2"}/>
 					<UserProfile path={"/user/:userId"} loggedIn={this.state.logged_in}/>
 					<UserProfile path={"/user/me"} userId={this.state.logged_in ? this.state.logged_in.user.uid : null} loggedIn={this.state.logged_in} onLogoutClick={this.onLogoutClick}/>
+					<Members path={"/members"}/>
 					<Login path={"/login"} onSuccessfulLogin={this.onSuccessfulLogin}/>
 					<Error default>Pagina non trovata.</Error>
 				</Router>

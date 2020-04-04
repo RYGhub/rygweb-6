@@ -1,11 +1,6 @@
 import { Component } from 'preact';
-import style from './homepage.less';
 import MainTitle from '../components/maintitle';
 import Split from '../components/split';
-import Box from '../components/box';
-import Link from '../components/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faReddit, faSteam, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import WikiPageBox from '../components/wikipagebox';
 
 export default class Homepage extends Component {

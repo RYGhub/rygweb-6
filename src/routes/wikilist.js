@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import WikiListBox from '../components/wikilistbox';
+import WikiListBox from '../components/wikiListBox';
 import WikiPageBox from '../components/wikipagebox';
 
 export default class WikiList extends Component {
