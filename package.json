@@ -33,6 +33,7 @@
     "preact": "^10.4.0",
     "preact-render-to-string": "^5.1.6",
     "preact-router": "^3.2.1",
+    "react-chartjs-2": "^2.9.0",
     "react-simplemde-editor": "^4.1.0",
     "showdown": "^1.9.1",
     "style-loader": "^1.1.4"

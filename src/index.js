@@ -22,6 +22,7 @@ import WikiList from './routes/wikilist';
 import Login from './routes/login';
 import Diario from './routes/diario';
 import Members from './routes/members';
+import ErrorCatcher from './components/errorCatcher';
 
 
 // noinspection JSUnusedGlobalSymbols
@@ -88,20 +89,22 @@ export default class Index extends Component {
 		return (
 			<div>
 				<RygNavbar pathname={this.state.pathname} loggedIn={this.state.logged_in}/>
-				<Router onChange={this.onRouteChange} history={createHashHistory()}>
-					<Homepage path={"/"}/>
-					<Diario path={"/diario"}/>
-					<WikiList path={"/wiki"}/>
-					<WikiPageBox path={"/wiki/:pageId"}/>
-					<WikiEditBox path={"/wiki/:pageId/edit"} loggedIn={this.state.logged_in}/>
-					<WikiEditBox path={"/wiki/new"} pageId={null} loggedIn={this.state.logged_in}/>
-					<BrawlhallaDue path={"/ilmonarcadelvalhalla2"}/>
-					<UserProfile path={"/user/:userId"} loggedIn={this.state.logged_in}/>
-					<UserProfile path={"/user/me"} userId={this.state.logged_in ? this.state.logged_in.user.uid : null} loggedIn={this.state.logged_in} onLogoutClick={this.onLogoutClick}/>
-					<Members path={"/members"}/>
-					<Login path={"/login"} onSuccessfulLogin={this.onSuccessfulLogin}/>
-					<Error default>Pagina non trovata.</Error>
-				</Router>
+				<ErrorCatcher>
+					<Router onChange={this.onRouteChange} history={createHashHistory()}>
+						<Homepage path={"/"}/>
+						<Diario path={"/diario"}/>
+						<WikiList path={"/wiki"}/>
+						<WikiPageBox path={"/wiki/:pageId"}/>
+						<WikiEditBox path={"/wiki/:pageId/edit"} loggedIn={this.state.logged_in}/>
+						<WikiEditBox path={"/wiki/new"} pageId={null} loggedIn={this.state.logged_in}/>
+						<BrawlhallaDue path={"/ilmonarcadelvalhalla2"}/>
+						<UserProfile path={"/user/:userId"} loggedIn={this.state.logged_in}/>
+						<UserProfile path={"/user/me"} userId={this.state.logged_in ? this.state.logged_in.user.uid : null} loggedIn={this.state.logged_in} onLogoutClick={this.onLogoutClick}/>
+						<Members path={"/members"}/>
+						<Login path={"/login"} onSuccessfulLogin={this.onSuccessfulLogin}/>
+						<Error default>Pagina non trovata.</Error>
+					</Router>
+				</ErrorCatcher>
 			</div>
 		)
 	}

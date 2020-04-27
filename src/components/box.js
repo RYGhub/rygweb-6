@@ -1,28 +1,20 @@
 import { Component } from 'preact';
 import style from './box.less';
+import extendableClasses from "../utils/extendableClasses";
 
 
 export default class Box extends Component {
 	render() {
-		let inside = null;
-		if(this.props.left !== undefined || this.props.center !== undefined || this.props.right !== undefined) {
-			inside = [
-			<div class={style.top}>
-				{this.props.left !== undefined ? <div className={style.left}>{this.props.left}</div> : null}
-				{this.props.center !== undefined ? <div class={style.center}>{this.props.center}</div> : null}
-				{this.props.right !== undefined ? <div class={style.right}>{this.props.right}</div> : null}
-			</div>,
-			<div class={style.bottom}>{this.props.children}</div>
-		]
-		}
-		else {
-			inside = <div class={style.single}>{this.props.children}</div>
-		}
-
 		return (
-			<div class={style.box + " " + this.props.class}>
-				{inside}
+			<div class={extendableClasses(style.box, this.props.class)}>
+				<div class={extendableClasses(style.top, this.props.classTop)}>
+					{this.props.left !== undefined ? <div class={extendableClasses(style.left, this.props.classLeft)}>{this.props.left}</div> : null}
+					{this.props.right !== undefined ? <div class={extendableClasses(style.right, this.props.classRight)}>{this.props.right}</div> : null}
+				</div>
+				<div class={extendableClasses(style.bottom, this.props.classBottom)}>
+					{this.props.children}
+				</div>
 			</div>
-		);
+		)
 	}
 }
