@@ -23,6 +23,7 @@ import Login from './routes/login';
 import Diario from './routes/diario';
 import Members from './routes/members';
 import ErrorCatcher from './components/errorCatcher';
+import Stats from './routes/stats';
 
 
 // noinspection JSUnusedGlobalSymbols
@@ -101,6 +102,7 @@ export default class Index extends Component {
 						<UserProfile path={"/user/:userId"} loggedIn={this.state.logged_in}/>
 						<UserProfile path={"/user/me"} userId={this.state.logged_in ? this.state.logged_in.user.uid : null} loggedIn={this.state.logged_in} onLogoutClick={this.onLogoutClick}/>
 						<Members path={"/members"}/>
+						<Stats path={"/stats"}/>
 						<Login path={"/login"} onSuccessfulLogin={this.onSuccessfulLogin}/>
 						<Error default>Pagina non trovata.</Error>
 					</Router>

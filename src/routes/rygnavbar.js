@@ -22,6 +22,10 @@ export default class RygNavbar extends Component {
 			<Link href={"/members"} pathname={this.props.pathname}>
 				Membri
 			</Link>,
+			" | ",
+			<Link href={"/stats"} pathname={this.props.pathname}>
+				Statistiche
+			</Link>,
 		];
 
 		let user;
