@@ -1,24 +1,46 @@
-.title {
-    text-align: center;
-    font-family: "Verdana", sans-serif;
-    font-size: 48px;
-}
-
-pre {
-    color: #dfdfdf;
-    background-color: #1f1f1f;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    padding: 4px;
-    border-radius: 4px;
-}
+@import "../styles/constants.less";
 
 .page {
-    p:first-child {
+    h1, h2, h3, h4, h5, h6 {
         margin-top: 16px;
+        margin-bottom: 16px;
     }
 
-    p:last-child {
+    p {
+        margin: 16px 0;
+
+        &:first-child {
+            margin-top: 16px;
+        }
+
+        &:last-child {
+            margin-bottom: 16px;
+        }
+    }
+
+    pre {
+        color: @disabledfg;
+        background-color: @disabledbg;
+        border: 1px solid @plusplus;
+        padding: 4px;
+        border-radius: 4px;
+
+        margin-top: 16px;
         margin-bottom: 16px;
+    }
+
+    table {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 48px;
+    }
+
+    .contents {
+        font-size: 18px;
+        font-family: @text;
     }
 }

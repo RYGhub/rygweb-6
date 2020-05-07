@@ -42,7 +42,7 @@ export default class FiorygiBox extends Component {
 				<div>
 					<InvisiTable class={style.transactiontable}>
 						<tbody>
-							<tr class={style.fiorygi}>
+							<tr class={style.current}>
 								<td class={style.amount}><ChangeNumber>{this.state.data.fiorygi}</ChangeNumber></td>
 								<td>fiorygi totali</td>
 							</tr>

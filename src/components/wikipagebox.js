@@ -35,7 +35,9 @@ export default class WikiPageBox extends Component {
 				contents = (
 					<div>
 						{this.props.hideTitle ? "" : <h1 className={style.title}>{this.state.data.title}</h1>}
-						<MarkdownRenderer data={this.state.data}/>
+						<div className={style.contents}>
+							<MarkdownRenderer data={this.state.data}/>
+						</div>
 					</div>
 				)
 			}

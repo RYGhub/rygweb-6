@@ -4,15 +4,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/icon.png"
   },
   {
-    "revision": "a020bad388df3a144d03",
-    "url": "/bundle.a020b.js"
+    "revision": "9a61c2637ac156cc381e",
+    "url": "/bundle.5cdc2.css"
   },
   {
-    "revision": "a020bad388df3a144d03",
-    "url": "/bundle.b9987.css"
+    "revision": "9a61c2637ac156cc381e",
+    "url": "/bundle.9a61c.js"
   },
   {
-    "revision": "7e3f855b4c4b73d344c740c761889de7",
+    "revision": "4377fa779b61849962ef68ba2712c24b",
     "url": "/index.html"
   },
   {
@@ -28,12 +28,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/route-brawlhalladue.chunk.f1c3c.js"
   },
   {
-    "revision": "dcb802913fa2f41ce64b",
-    "url": "/route-diario.chunk.5536e.css"
+    "revision": "d566f7015e7de9ad1781",
+    "url": "/route-diario.chunk.37571.css"
   },
   {
-    "revision": "dcb802913fa2f41ce64b",
-    "url": "/route-diario.chunk.dcb80.js"
+    "revision": "d566f7015e7de9ad1781",
+    "url": "/route-diario.chunk.d566f.js"
   },
   {
     "revision": "7a7e506e32f322a8793c",
@@ -68,12 +68,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/route-stats.chunk.7e157.js"
   },
   {
-    "revision": "504fe6760bd23a08fea6",
-    "url": "/route-userprofile.chunk.504fe.js"
+    "revision": "7c193de2fe1409837170",
+    "url": "/route-userprofile.chunk.55e8b.css"
   },
   {
-    "revision": "504fe6760bd23a08fea6",
-    "url": "/route-userprofile.chunk.d7bec.css"
+    "revision": "7c193de2fe1409837170",
+    "url": "/route-userprofile.chunk.7c193.js"
   },
   {
     "revision": "15364632be53bc8af566",
@@ -88,7 +88,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sw-debug.js"
   },
   {
-    "revision": "c7ec12e49dbe25c6de3c69d325ac4c4a",
+    "revision": "b9ef36ef9a3b147c8e23f74c57119e65",
     "url": "/sw-esm.js"
   },
   {
