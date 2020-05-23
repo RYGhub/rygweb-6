@@ -16,104 +16,150 @@ export default class Stats extends Component {
 	}
 
 	getData = () => {
-		fetch("https://rygapi.steffo.eu/api/cvstats/latest/v1").then((response) => {
+		fetch("https://rygapi.steffo.eu/api/cvstats/avg/v1").then((response) => {
 			return response.json();
 		}).then((json) => {
 			this.setState({"data": json.data});
 		})
 	};
 
-	generateChartJsData = (d, ds) => {
-		d.sort((a, b) => {
-			let date_a = new Date(a.timestamp);
-			let date_b = new Date(b.timestamp);
+	generateChartJsData = (d, key) => {
+		let labels = [
+			"00:00",
+			"01:00",
+			"02:00",
+			"03:00",
+			"04:00",
+			"05:00",
+			"06:00",
+			"07:00",
+			"08:00",
+			"09:00",
+			"10:00",
+			"11:00",
+			"12:00",
+			"13:00",
+			"14:00",
+			"15:00",
+			"16:00",
+			"17:00",
+			"18:00",
+			"19:00",
+			"20:00",
+			"21:00",
+			"22:00",
+			"23:00",
+		];
 
-			if(date_a < date_b) {
-				return -1;
-			}
-			else if(date_a > date_b) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
-		});
+		let datasets = [
+			{
+				label: "Membri online (ieri)",
+				data: d.map((item) => item["last_day"]["members_online"]),
+				backgroundColor: "#43b58144",
+				borderColor: "#43b581",
+				pointHitRadius: 10,
+				hidden: true,
+			},
+			{
+				label: "Membri online (ultima settimana)",
+				data: d.map((item) => item["last_week"]["members_online"]),
+				backgroundColor: "#43b58144",
+				borderColor: "#43b581",
+				pointHitRadius: 10,
+				borderDash: [20, 20],
+				hidden: true,
+			},
+			{
+				label: "Membri online (ultimo mese)",
+				data: d.map((item) => item["last_month"]["members_online"]),
+				backgroundColor: "#43b58144",
+				borderColor: "#43b581",
+				pointHitRadius: 10,
+				borderDash: [10, 10],
+				hidden: true,
+			},
+			{
+				label: "Membri online (media generale)",
+				data: d.map((item) => item["all_time"]["members_online"]),
+				backgroundColor: "#43b58144",
+				borderColor: "#43b581",
+				pointHitRadius: 10,
+				borderDash: [3, 3],
+				hidden: true,
+			},
 
-		let labels = d.map((item) => {
-			let date = new Date(item.timestamp);
-			return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-		});
+			{
+				label: "Membri connessi (ieri)",
+				data: d.map((item) => item["last_day"]["members_connected"]),
+				backgroundColor: "#00d8d144",
+				borderColor: "#00d8d1",
+				pointHitRadius: 10,
+				hidden: true,
+			},
+			{
+				label: "Membri connessi (ultima settimana)",
+				data: d.map((item) => item["last_week"]["members_connected"]),
+				backgroundColor: "#00d8d144",
+				borderColor: "#00d8d1",
+				pointHitRadius: 10,
+				borderDash: [20, 20],
+				hidden: true,
+			},
+			{
+				label: "Membri connessi (ultimo mese)",
+				data: d.map((item) => item["last_month"]["members_connected"]),
+				backgroundColor: "#00d8d144",
+				borderColor: "#00d8d1",
+				pointHitRadius: 10,
+				borderDash: [10, 10],
+				hidden: true,
+			},
+			{
+				label: "Membri connessi (media generale)",
+				data: d.map((item) => item["all_time"]["members_connected"]),
+				backgroundColor: "#00d8d144",
+				borderColor: "#00d8d1",
+				pointHitRadius: 10,
+				borderDash: [3, 3],
+				hidden: true,
+			},
 
-		let datasets = [];
-
-		datasets.push({
-			label: "Utenti totali",
-			data: d.map((item) => item.users_total),
-			backgroundColor: "#747f8d44",
-			borderColor: "#747f8d",
-			borderDash: [10, 10],
-			pointHitRadius: 10,
-			hidden: !ds.users_total,
-		});
-		datasets.push({
-			label: "Membri totali",
-			data: d.map((item) => item.members_total),
-			backgroundColor: "#747f8d44",
-			borderColor: "#747f8d",
-			pointHitRadius: 10,
-			hidden: !ds.members_total,
-		});
-		datasets.push({
-			label: "Utenti online",
-			data: d.map((item) => item.users_online),
-			backgroundColor: "#43b58144",
-			borderColor: "#43b581",
-			borderDash: [10, 10],
-			pointHitRadius: 10,
-			hidden: !ds.users_online,
-		});
-		datasets.push({
-			label: "Membri online",
-			data: d.map((item) => item.members_online),
-			backgroundColor: "#43b58144",
-			borderColor: "#43b581",
-			pointHitRadius: 10,
-			hidden: !ds.members_online,
-		});
-		datasets.push({
-			label: "Utenti connessi",
-			data: d.map((item) => item.users_connected),
-			backgroundColor: "#00d8d144",
-			borderColor: "#00d8d1",
-			borderDash: [10, 10],
-			pointHitRadius: 10,
-			hidden: !ds.users_connected,
-		});
-		datasets.push({
-			label: "Membri connessi",
-			data: d.map((item) => item.members_connected),
-			backgroundColor: "#00d8d144",
-			borderColor: "#00d8d1",
-			pointHitRadius: 10,
-			hidden: !ds.members_connected,
-		});
-		datasets.push({
-			label: "Utenti in gioco",
-			data: d.map((item) => item.users_playing),
-			backgroundColor: "#d88e0044",
-			borderColor: "#d88e00",
-			borderDash: [10, 10],
-			pointHitRadius: 10,
-			hidden: !ds.users_playing,
-		});
-		datasets.push({
-			label: "Membri in gioco",
-			data: d.map((item) => item.members_playing),
-			backgroundColor: "#d88e0044",
-			borderColor: "#d88e00",
-			pointHitRadius: 10,
-			hidden: !ds.members_playing,
-		});
+			{
+				label: "Membri in gioco (ieri)",
+				data: d.map((item) => item["last_day"]["members_playing"]),
+				backgroundColor: "#d88e0044",
+				borderColor: "#d88e00",
+				pointHitRadius: 10,
+				hidden: true,
+			},
+			{
+				label: "Membri in gioco (ultima settimana)",
+				data: d.map((item) => item["last_week"]["members_playing"]),
+				backgroundColor: "#d88e0044",
+				borderColor: "#d88e00",
+				pointHitRadius: 10,
+				borderDash: [20, 20],
+				hidden: true,
+			},
+			{
+				label: "Membri in gioco (ultimo mese)",
+				data: d.map((item) => item["last_month"]["members_playing"]),
+				backgroundColor: "#d88e0044",
+				borderColor: "#d88e00",
+				pointHitRadius: 10,
+				borderDash: [10, 10],
+				hidden: true,
+			},
+			{
+				label: "Membri in gioco (media generale)",
+				data: d.map((item) => item["all_time"]["members_playing"]),
+				backgroundColor: "#d88e0044",
+				borderColor: "#d88e00",
+				pointHitRadius: 10,
+				borderDash: [3, 3],
+				hidden: true,
+			},
+		];
 
 		return {
 			labels: labels,
@@ -124,13 +170,9 @@ export default class Stats extends Component {
 	render() {
 		return (
 			<div>
-				<Box left={"Attività dei membri"}>
+				<Box left={"Membri in cv"}>
 					{this.state.data !== null ?
-						<Line data={this.generateChartJsData(this.state.data, {
-							members_online: true,
-							members_connected: true,
-							members_playing: true,
-						})} height={600} options={{ maintainAspectRatio: false }}/>
+						<Line data={this.generateChartJsData(this.state.data)} height={600} options={{ maintainAspectRatio: false }}/>
 						: <Loading/>}
 				</Box>
 			</div>
