@@ -1,22 +1,16 @@
 {
+  "private": true,
   "name": "rygweb",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "AGPL-3.0-or-later",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "preact build --no-prerender --dest docs",
-    "serve": "npm run -s build && preact serve",
-    "dev": "preact watch",
-    "lint": "eslint src"
+    "start": "preact watch --template src/template.html",
+    "build": "preact build --template src/template.html --no-prerender --dest docs && git add docs",
+    "ghpages": "npm run -s build && git add . && cross-env-shell git commit -m \"$npm_package_version\" && git push && cross-env-shell hub release create -m \"$npm_package_version\" \"$npm_package_version\" && cross-env-shell sentry-cli releases set-commits \"$npm_package_version\" --auto && cross-env-shell sentry-cli releases deploys \"$npm_package_version\" new --env production -n \"gh-pages\""
   },
-  "eslintConfig": {
-    "extends": "eslint-config-synacor"
-  },
-  "eslintIgnore": [
-    "build/*"
-  ],
   "devDependencies": {
-    "if-env": "^1.0.0",
+    "@sentry/webpack-plugin": "^1.11.1",
+    "cross-env": "^7.0.2",
     "preact-cli": "^3.0.0-rc.10"
   },
   "dependencies": {
@@ -25,6 +19,8 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@sentry/browser": "^5.15.5",
+    "@sentry/integrations": "^5.15.5",
     "chart.js": "^2.9.3",
     "css-loader": "^3.5.2",
     "file-loader": "^5.1.0",
@@ -37,6 +33,7 @@
     "react-chartjs-2": "^2.9.0",
     "react-simplemde-editor": "^4.1.0",
     "showdown": "^1.9.1",
-    "style-loader": "^1.1.4"
+    "style-loader": "^1.1.4",
+    "bluelib": "^0.10.4"
   }
 }

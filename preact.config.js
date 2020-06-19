@@ -1,8 +1,11 @@
-const path = require('path');
+import SentryCliPlugin from "@sentry/webpack-plugin";
+const DefinePlugin = require("webpack/lib/DefinePlugin");
 
 
 export default function (config, env, helpers) {
+	// noinspection JSUnresolvedVariable
 	config.resolve.alias["react"] = "preact/compat";
+	// noinspection JSUnresolvedVariable
 	config.resolve.alias["react-dom"] = "preact/compat";
 
 	config.module.rules.push(
@@ -23,4 +26,19 @@ export default function (config, env, helpers) {
 			}
 		}
 	);
+
+	config.plugins.push(
+		new DefinePlugin({"process.env.RELEASE": `"${process.env.npm_package_version}"`})
+	);
+
+	if(env.production) {
+		config.plugins.push(
+			new SentryCliPlugin({
+				include: './docs',
+				ignoreFile: ".gitignore",
+				configFile: '.sentryclirc',
+				release: process.env.npm_package_version,
+			})
+		)
+	}
 };

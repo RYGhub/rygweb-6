@@ -1,10 +1,10 @@
-export default function extendableClasses(...args) {
+export default function concatClass(...args) {
     let result = "";
 
     for(let i = 0; i < args.length; i++) {
         let arg = args[i];
         if(arg instanceof Array) {
-            result += extendableClasses(...arg)
+            result += concatClass(...arg)
         }
         else if(typeof arg == "string" || arg instanceof String) {
             result += arg
