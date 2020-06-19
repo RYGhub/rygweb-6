@@ -1,6 +1,30 @@
+// Import debugging tools
+let Sentry = null;
+if(process.env.NODE_ENV === "development") {
+	console.debug("Initializing Preact Debugger...")
+	require("preact/debug");
+}
+else if(process.env.NODE_ENV === "production") {
+	console.debug("Initializing Sentry...")
+	Sentry = require("@sentry/browser");
+	let SentryIntegrations = require("@sentry/integrations")
+	// noinspection JSUnresolvedVariable
+	Sentry.init({
+		dsn: "https://9f5089346fd14e04a6f412638474dfec@o40131.ingest.sentry.io/5255500",
+		release: process.env.RELEASE,
+		environment: "production",
+		beforeSend(event, hint) {
+			if (event.exception) {
+				Sentry.showReportDialog({ eventId: event.event_id });
+			}
+			return event;
+		}
+	});
+}
+
 // noinspection ES6UnusedImports
 import "bluelib/dist/index.css";
-import { BoxColors, theme } from 'bluelib';
+import { theme } from 'bluelib';
 // noinspection ES6UnusedImports
 import _manifest from './meta/manifest.json';
 // noinspection ES6UnusedImports
@@ -19,6 +43,7 @@ import Link from './components/Link';
 import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
 import Error from './components/Error';
+import { RoyalnetInstanceUrl } from 'bluelib';
 
 
 export default function(props) {
@@ -34,23 +59,7 @@ export default function(props) {
 			<Link href={"/"}>
 				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
 				&nbsp;Royal Games
-			</Link>,
-			" | ",
-			<Link href={"#"}>
-				Diario
-			</Link>,
-			" | ",
-			<Link href={"#"}>
-				Wiki
-			</Link>,
-			" | ",
-			<Link href={"#"}>
-				Membri
-			</Link>,
-			" | ",
-			<Link href={"#"}>
-				Statistiche
-			</Link>,
+			</Link>
 		],
 		right: [
 			<Link href={"#"}>
@@ -62,6 +71,7 @@ export default function(props) {
 
 	return (
 		<CurrentPage.Provider value={currentPage}>
+		<RoyalnetInstanceUrl.Provider value={"http://lo.steffo.eu:44445"}>
 
 		<div id="app" class={theme.bluelib}>
 			<Header left={header.left} right={header.right}/>
@@ -78,6 +88,7 @@ export default function(props) {
 			</Footer>
 		</div>
 
+		</RoyalnetInstanceUrl.Provider>
 		</CurrentPage.Provider>
 	);
 }

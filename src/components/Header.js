@@ -1,9 +1,10 @@
 import style from "./Header.less";
+import concatClass from '../utils/concatClass';
 
 
 export default function (props) {
 	return (
-		<nav className={style.navbar}>
+		<nav className={concatClass(style.navbar, props.class)}>
 			<div className={style.left}>
 				{props.left}
 			</div>
