@@ -1,7 +1,9 @@
+import { Box } from 'bluelib';
+
 export default function (props) {
 	return (
-		<div>
-			test
-		</div>
+		<Box>
+			Ciao!
+		</Box>
 	);
 }

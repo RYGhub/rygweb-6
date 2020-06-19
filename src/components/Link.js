@@ -1,4 +1,3 @@
-import {Link} from 'preact-router/match';
 import concatClass from '../utils/concatClass';
 import style from "./Link.less";
 import { useContext } from 'preact/hooks';
@@ -15,7 +14,7 @@ export default function (props) {
 	}
 	else if(props.href === currentPage) {
 		return (
-			<span className={concatClass(style.link, style.current)} href={props.href}>{props.children}</span>
+			<span className={concatClass(style.link, style.current)}>{props.children}</span>
 		);
 	}
 

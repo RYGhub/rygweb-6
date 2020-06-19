@@ -1,6 +1,6 @@
 // noinspection ES6UnusedImports
 import "bluelib/dist/index.css";
-import {theme} from "bluelib";
+import { BoxColors, theme } from 'bluelib';
 // noinspection ES6UnusedImports
 import _manifest from './meta/manifest.json';
 // noinspection ES6UnusedImports
@@ -15,9 +15,10 @@ import Footer from './components/Footer';
 import Home from './routes/Home';
 import HeaderIcon from './components/HeaderIcon';
 
-import HeaderLink from './components/Link';
+import Link from './components/Link';
 import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
+import Error from './components/Error';
 
 
 export default function(props) {
@@ -30,32 +31,32 @@ export default function(props) {
 
 	let header = {
 		left: [
-			<HeaderLink href={"/"}>
+			<Link href={"/"}>
 				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
 				&nbsp;Royal Games
-			</HeaderLink>,
+			</Link>,
 			" | ",
-			<HeaderLink href={"/diario"}>
+			<Link href={"#"}>
 				Diario
-			</HeaderLink>,
+			</Link>,
 			" | ",
-			<HeaderLink href={"/wiki"}>
+			<Link href={"#"}>
 				Wiki
-			</HeaderLink>,
+			</Link>,
 			" | ",
-			<HeaderLink href={"/members"}>
+			<Link href={"#"}>
 				Membri
-			</HeaderLink>,
+			</Link>,
 			" | ",
-			<HeaderLink href={"/stats"}>
+			<Link href={"#"}>
 				Statistiche
-			</HeaderLink>,
+			</Link>,
 		],
 		right: [
-			<HeaderLink href={"#"}>
+			<Link href={"#"}>
 				Utonto
 				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} alt={"⭐ ️"}/>
-			</HeaderLink>
+			</Link>
 		]
 	};
 
@@ -66,7 +67,11 @@ export default function(props) {
 			<Header left={header.left} right={header.right}/>
 			<Router history={createHashHistory()} onChange={onPageChange}>
 				<Home path="/"/>
-				<div default>404</div>
+				<div default>
+					<Error>
+						Pagina non trovata.
+					</Error>
+				</div>
 			</Router>
 			<Footer>
 				<a href="https://github.com/Steffo99/ryg.steffo.eu">ryg.steffo.eu {process.env.RELEASE}</a>
