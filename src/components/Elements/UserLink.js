@@ -63,8 +63,8 @@ export default function (props) {
 	if(data.avatar_url) {
 		avatar = <Avatar src={data.avatar_url}/>;
 	}
-	else if(data.steam && data.steam.avatar) {
-		avatar = <Avatar src={data.steam.avatar}/>;
+	else if(data.steam.length > 0 && data.steam[0].avatar) {
+		avatar = <Avatar src={data.steam[0].avatar}/>;
 	}
 	else {
 		avatar = <Avatar src={"https://combo.steffo.eu/open/ryg/GenericUser.png"}/>

@@ -1,4 +1,6 @@
 // Import debugging tools
+import Wiki from './routes/Wiki';
+
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -76,7 +78,8 @@ export default function(props) {
 		<div id="app" class={theme.bluelib}>
 			<Header left={header.left} right={header.right}/>
 			<Router history={createHashHistory()} onChange={onPageChange}>
-				<Home path="/"/>
+				<Home path={"/"} />
+				<Wiki path={"/wiki/:id"}/>
 				<div default>
 					<Error>
 						Pagina non trovata.
