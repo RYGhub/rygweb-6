@@ -1,7 +1,8 @@
-import { Box } from 'bluelib';
-import IconLink from '../components/IconLink';
-import UserLink from '../components/UserLink';
+import { Box, stripTabs } from 'bluelib';
+import IconLink from '../components/Elements/IconLink';
+import UserLink from '../components/Elements/UserLink';
 import { Fragment } from 'preact';
+import RoyalMarkdown from '../components/Rendering/RoyalMarkdown';
 
 export default function (props) {
 	return (
@@ -23,8 +24,24 @@ export default function (props) {
 				<ul>
 					<li><UserLink uid={1}/></li>
 					<li><UserLink uid={2}/></li>
-					<li><UserLink uid={3}/></li>
+					<li><UserLink uid={999}/></li>
 				</ul>
+				Con gli alias:
+				<ul>
+					<li><UserLink alias={"steffo"}/></li>
+					<li><UserLink alias={"malco"}/></li>
+					<li><UserLink alias={"mallllco"}/></li>
+				</ul>
+			</Box>
+			<Box>
+				Questa è una prova di rendering RYG Markdown:
+				<RoyalMarkdown>{stripTabs(String.raw`
+					# ciaooooooooooo
+
+					[](/u/steffo)
+					
+					[AAAAAAAAAAAA](/u/vik)
+				`)}</RoyalMarkdown>
 			</Box>
 		</Fragment>
 	);

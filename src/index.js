@@ -1,13 +1,13 @@
 // Import debugging tools
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
-	console.debug("Initializing Preact Debugger...")
+	console.debug("Initializing Preact Debugger...");
 	require("preact/debug");
 }
 else if(process.env.NODE_ENV === "production") {
-	console.debug("Initializing Sentry...")
+	console.debug("Initializing Sentry...");
 	Sentry = require("@sentry/browser");
-	let SentryIntegrations = require("@sentry/integrations")
+	let SentryIntegrations = require("@sentry/integrations");
 	// noinspection JSUnresolvedVariable
 	Sentry.init({
 		dsn: "https://9f5089346fd14e04a6f412638474dfec@o40131.ingest.sentry.io/5255500",
@@ -34,15 +34,15 @@ import _nojekyll from './meta/.nojekyll';
 
 import Router from 'preact-router';
 import {createHashHistory} from 'history';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
 import Home from './routes/Home';
-import HeaderIcon from './components/HeaderIcon';
+import HeaderIcon from './components/Elements/HeaderIcon';
 
-import Link from './components/Link';
+import Link from './components/Elements/Link';
 import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
-import Error from './components/Error';
+import Error from './components/Elements/ErrorBox';
 import { RoyalnetInstanceUrl } from 'bluelib';
 
 

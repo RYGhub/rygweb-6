@@ -1,5 +1,5 @@
-import style from "./Header.less";
-import concatClass from '../utils/concatClass';
+import style from "../Layout/Header.less";
+import concatClass from '../../utils/concatClass';
 
 
 export default function (props) {
