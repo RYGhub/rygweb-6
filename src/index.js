@@ -1,6 +1,4 @@
 // Import debugging tools
-import Wiki from './routes/Wiki';
-
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -41,11 +39,12 @@ import Footer from './components/Layout/Footer';
 import Home from './routes/Home';
 import HeaderIcon from './components/Elements/HeaderIcon';
 
-import Link from './components/Elements/Link';
+import Link from './components/Elements/Links/Link';
 import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
-import Error from './components/Elements/ErrorBox';
 import { RoyalnetInstanceUrl } from 'bluelib';
+import ErrorBox from './components/Elements/ErrorBox';
+import Wiki from './routes/Wiki';
 
 
 export default function(props) {
@@ -79,12 +78,8 @@ export default function(props) {
 			<Header left={header.left} right={header.right}/>
 			<Router history={createHashHistory()} onChange={onPageChange}>
 				<Home path={"/"} />
-				<Wiki path={"/wiki/:id"}/>
-				<div default>
-					<Error>
-						Pagina non trovata.
-					</Error>
-				</div>
+				<Wiki path={"/w/:id"}/>
+				<ErrorBox default error={new Error("Page not found")}/>
 			</Router>
 			<Footer>
 				<a href="https://github.com/Steffo99/ryg.steffo.eu">ryg.steffo.eu {process.env.RELEASE}</a>

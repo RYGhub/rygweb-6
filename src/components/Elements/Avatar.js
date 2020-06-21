@@ -1,4 +1,4 @@
-import concatClass from '../../utils/concatClass';
+import { concatClass } from 'bluelib';
 import style from './Avatar.less';
 
 export default function (props) {

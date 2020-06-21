@@ -1,5 +1,5 @@
 import style from "./Header.less";
-import concatClass from '../../utils/concatClass';
+import { concatClass } from 'bluelib';
 
 
 export default function (props) {

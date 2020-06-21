@@ -1,7 +1,7 @@
-import concatClass from '../../utils/concatClass';
+import { concatClass } from 'bluelib';
 import style from "./Link.less";
 import { useContext } from 'preact/hooks';
-import CurrentPage from '../../contexts/CurrentPage';
+import CurrentPage from '../../../contexts/CurrentPage';
 
 export default function (props) {
 	const currentPage = useContext(CurrentPage);

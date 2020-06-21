@@ -2,8 +2,8 @@ import { useRoyalnetData } from 'bluelib';
 import Link from './Link';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import Avatar from './Avatar';
-import ErrorAbbr from './ErrorAbbr';
+import Avatar from '../Avatar';
+import ErrorAbbr from '../ErrorAbbr';
 
 
 export default function (props) {
@@ -34,7 +34,7 @@ export default function (props) {
 		apiBody = {"alias": props.alias.toLowerCase()};
 	}
 
-	let [data, error] = useRoyalnetData("GET", apiMethod, apiBody);
+	let [data, error, refresh] = useRoyalnetData("GET", apiMethod, apiBody);
 
 	if(error !== undefined) {
 		return (

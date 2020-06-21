@@ -1,5 +1,5 @@
 import IconLink from './IconLink';
-import ErrorAbbr from './ErrorAbbr';
+import ErrorAbbr from '../ErrorAbbr';
 import Link from './Link';
 import UserLink from './UserLink';
 
