@@ -24,6 +24,7 @@ import Diario from './routes/diario';
 import Members from './routes/members';
 import ErrorCatcher from './components/errorCatcher';
 import Stats from './routes/stats';
+import Box from './components/box';
 
 
 // noinspection JSUnusedGlobalSymbols
@@ -90,23 +91,17 @@ export default class Index extends Component {
 		return (
 			<div>
 				<RygNavbar pathname={this.state.pathname} loggedIn={this.state.logged_in}/>
-				<ErrorCatcher>
-					<Router onChange={this.onRouteChange} history={createHashHistory()}>
-						<Homepage path={"/"}/>
-						<Diario path={"/diario"}/>
-						<WikiList path={"/wiki"}/>
-						<WikiPageBox path={"/wiki/:pageId"}/>
-						<WikiEditBox path={"/wiki/:pageId/edit"} loggedIn={this.state.logged_in}/>
-						<WikiEditBox path={"/wiki/new"} pageId={null} loggedIn={this.state.logged_in}/>
-						<BrawlhallaDue path={"/ilmonarcadelvalhalla2"}/>
-						<UserProfile path={"/user/:userId"} loggedIn={this.state.logged_in}/>
-						<UserProfile path={"/user/me"} userId={this.state.logged_in ? this.state.logged_in.user.uid : null} loggedIn={this.state.logged_in} onLogoutClick={this.onLogoutClick}/>
-						<Members path={"/members"}/>
-						<Stats path={"/stats"}/>
-						<Login path={"/login"} onSuccessfulLogin={this.onSuccessfulLogin}/>
-						<Error default>Pagina non trovata.</Error>
-					</Router>
-				</ErrorCatcher>
+				<Box left={"Torno subito!"}>
+					<p>
+						Il sito della Royal Games è temporaneamente offline per aggiornamenti.
+					</p>
+					<p>
+						Torna tra qualche giorno!
+					</p>
+					<p>
+						<small>sorry</small>
+					</p>
+				</Box>
 			</div>
 		)
 	}
