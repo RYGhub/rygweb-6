@@ -1,4 +1,6 @@
 // Import debugging tools
+import InstanceSelectFooter from './components/Elements/InstanceSelectFooter';
+
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -44,15 +46,17 @@ import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
 import { RoyalnetInstanceUrl } from 'bluelib';
 import ErrorBox from './components/Elements/ErrorBox';
-import Wiki from './routes/Wiki';
+import InstanceSelect from './routes/InstanceSelect';
+import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
 
 
 export default function(props) {
 	let [currentPage, setCurrentPage] = useState(window.location.hash.substr(1));
-
 	const onPageChange = (event) => {
 		setCurrentPage(event.url);
 	};
+
+	let [royalnetInstanceUrl, setRoyalnetInstanceUrl] = useState("https://rygapi.steffo.eu");
 
 
 	let header = {
@@ -72,17 +76,21 @@ export default function(props) {
 
 	return (
 		<CurrentPage.Provider value={currentPage}>
-		<RoyalnetInstanceUrl.Provider value={"http://lo.steffo.eu:44445"}>
+		<RoyalnetInstanceUrl.Provider value={royalnetInstanceUrl}>
 
 		<div id="app" class={theme.bluelib}>
 			<Header left={header.left} right={header.right}/>
 			<Router history={createHashHistory()} onChange={onPageChange}>
 				<Home path={"/"} />
-				<Wiki path={"/w/:id"}/>
+				<InstanceSelect path={"/instanceselect"} onConfirm={setRoyalnetInstanceUrl}/>
 				<ErrorBox default error={new Error("Page not found")}/>
 			</Router>
 			<Footer>
-				<a href="https://github.com/Steffo99/ryg.steffo.eu">ryg.steffo.eu {process.env.RELEASE}</a>
+				<a href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</a>
+				&nbsp;-&nbsp;
+				<RoyalnetVersionFooter/>
+				&nbsp;@&nbsp;
+				<InstanceSelectFooter/>
 			</Footer>
 		</div>
 
