@@ -26,7 +26,7 @@ else if(process.env.NODE_ENV === "production") {
 
 // noinspection ES6UnusedImports
 import "bluelib/dist/index.css";
-import { theme } from 'bluelib';
+import { RoyalnetLoginStatus, theme, useLoginDataStorage } from 'bluelib';
 // noinspection ES6UnusedImports
 import _manifest from './meta/manifest.json';
 // noinspection ES6UnusedImports
@@ -48,6 +48,7 @@ import { RoyalnetInstanceUrl } from 'bluelib';
 import ErrorBox from './components/Elements/ErrorBox';
 import InstanceSelect from './routes/InstanceSelect';
 import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
+import Login from './routes/Login';
 
 
 export default function(props) {
@@ -56,8 +57,13 @@ export default function(props) {
 		setCurrentPage(event.url);
 	};
 
-	let [royalnetInstanceUrl, setRoyalnetInstanceUrl] = useState("https://rygapi.steffo.eu");
-
+	const [instanceUrl, loginStatus, storeValues, logout] = useLoginDataStorage("https://rygapi.steffo.eu");
+	function setInstanceUrl(value) {
+		storeValues(value, loginStatus);
+	}
+	function setLoginStatus(value) {
+		storeValues(instanceUrl, value);
+	}
 
 	let header = {
 		left: [
@@ -67,8 +73,8 @@ export default function(props) {
 			</Link>
 		],
 		right: [
-			<Link href={"#"}>
-				Utonto
+			<Link href={"/login"}>
+				Login
 				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} alt={"⭐ ️"}/>
 			</Link>
 		]
@@ -76,13 +82,15 @@ export default function(props) {
 
 	return (
 		<CurrentPage.Provider value={currentPage}>
-		<RoyalnetInstanceUrl.Provider value={royalnetInstanceUrl}>
+		<RoyalnetInstanceUrl.Provider value={instanceUrl}>
+		<RoyalnetLoginStatus.Provider value={loginStatus}>
 
 		<div id="app" class={theme.bluelib}>
 			<Header left={header.left} right={header.right}/>
 			<Router history={createHashHistory()} onChange={onPageChange}>
 				<Home path={"/"} />
-				<InstanceSelect path={"/instanceselect"} onConfirm={setRoyalnetInstanceUrl}/>
+				<InstanceSelect path={"/instanceselect"} onConfirm={setInstanceUrl}/>
+				<Login path={"/login"} onLogin={setLoginStatus}/>
 				<ErrorBox default error={new Error("Page not found")}/>
 			</Router>
 			<Footer>
@@ -94,6 +102,7 @@ export default function(props) {
 			</Footer>
 		</div>
 
+		</RoyalnetLoginStatus.Provider>
 		</RoyalnetInstanceUrl.Provider>
 		</CurrentPage.Provider>
 	);
