@@ -1,33 +1,47 @@
-import { useState } from 'preact/hooks';
-import useFormValidator from './useFormValidator';
+import { useContext, useState } from 'preact/hooks';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { RoyalnetInstanceUrl, useRoyalnetData, Validity } from 'bluelib';
+import { faCheck, faExclamationCircle, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function() {
 	const [username, setUsername] = useState("");
+	const [usernameCheckerAbort, setUsernameCheckerAbort] = useState(null);
+	const instanceUrl = useContext(RoyalnetInstanceUrl);
 
-	let filteredUsername = username.replace(/[^A-Za-z]/g, "");
+	let lowerUsername = username.toLowerCase();
+	let filteredUsername = lowerUsername.replace(/[^a-z]/g, "");
 
-	const usernameStatus = useFormValidator(filteredUsername, (value, setStatus) => {
-		if(value.length === 0) {
-			setStatus({
-				validity: null,
-				message: ""
-			});
-			return;
+	const [aliasData, aliasError] = useRoyalnetData("GET", "/api/user/find/v1", {"alias": filteredUsername});
+
+	let usernameStatus = {};
+
+	if(filteredUsername !== "") {
+		if(aliasError !== undefined) {
+			usernameStatus = {
+				validity: Validity.ERROR,
+				icon: <FontAwesomeIcon icon={faExclamationCircle}/>,
+				message: "Non esiste nessun utente con questo username."
+			}
 		}
-
-		if(!Boolean(/^[A-Za-z]+$/.test(value))) {
-			setStatus({
-				validity: false,
-				message: "L'username che hai inserito non è valido."
-			});
-			return;
+		else if(aliasData === undefined) {
+				usernameStatus = {
+					icon: <FontAwesomeIcon icon={faSpinner} pulse={true}/>,
+				}
 		}
+		else if(aliasData.username !== filteredUsername) {
+			usernameStatus = {
+				validity: Validity.ERROR,
+				icon: <FontAwesomeIcon icon={faExclamationCircle}/>,
+				message: <span>Hai sbagliato username! Il tuo username è <b>{aliasData.username}</b>.</span>,
+			}
+		}
+		else {
+			usernameStatus = {
+				validity: Validity.OK,
+				icon: <FontAwesomeIcon icon={faCheck}/>
+			}
+		}
+	}
 
-		setStatus({
-			validity: true,
-			message: "Sembra OK!"
-		});
-	});
-
-	return [filteredUsername, setUsername, usernameStatus]
+	return [filteredUsername, setUsername, usernameStatus];
 }

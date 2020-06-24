@@ -1,7 +1,8 @@
-import { Box, getEventValue, HButton, HInput, RoyalnetLoginStatus } from 'bluelib';
+import { Box, FormButton, FormInput, getEventValue, RoyalnetLoginStatus, Validity } from 'bluelib';
 import useFormInstanceUrl from '../../hooks/useFormInstanceUrl';
 import { useContext } from 'preact/hooks';
 import ErrorBox from './ErrorBox';
+import { route } from 'preact-router';
 
 export default function (props) {
 	const [instanceUrl, setInstanceUrl, instanceUrlStatus] = useFormInstanceUrl();
@@ -13,12 +14,13 @@ export default function (props) {
 
 	function change() {
 		props.onConfirm(instanceUrl);
+		route("/");
 	}
 
 	return (
 		<Box>
-			<HInput type={"text"} label={"Istanza"} onChange={getEventValue(setInstanceUrl)} validity={instanceUrlStatus.validity} value={instanceUrl}/>
-			<HButton label={""} onClick={change} disabled={!instanceUrlStatus.validity}>Cambia</HButton>
+			<FormInput type={"text"} label={"Istanza"} onChange={getEventValue(setInstanceUrl)} validity={instanceUrlStatus} value={instanceUrl}/>
+			<FormButton label={"Cambia"} onClick={change} disabled={!instanceUrlStatus.validity === Validity.OK}>Cambia</FormButton>
 		</Box>
 	);
 }

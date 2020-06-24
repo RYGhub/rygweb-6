@@ -49,6 +49,7 @@ import ErrorBox from './components/Elements/ErrorBox';
 import InstanceSelect from './routes/InstanceSelect';
 import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
 import Login from './routes/Login';
+import LoginProfile from './components/Elements/LoginProfile';
 
 
 export default function(props) {
@@ -73,10 +74,7 @@ export default function(props) {
 			</Link>
 		],
 		right: [
-			<Link href={"/login"}>
-				Login
-				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} alt={"⭐ ️"}/>
-			</Link>
+			<LoginProfile/>
 		]
 	};
 
@@ -94,7 +92,7 @@ export default function(props) {
 				<ErrorBox default error={new Error("Page not found")}/>
 			</Router>
 			<Footer>
-				<a href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</a>
+				<Link href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</Link>
 				&nbsp;-&nbsp;
 				<RoyalnetVersionFooter/>
 				&nbsp;@&nbsp;

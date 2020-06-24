@@ -1,28 +1,20 @@
 import { useState } from 'preact/hooks';
 import useFormValidator from './useFormValidator';
+import { Validity } from 'bluelib';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisH, faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 export default function() {
 	const [password, setPassword] = useState("");
 	const passwordStatus = useFormValidator(password, (value, setStatus) => {
 		if(value.length === 0) {
-			setStatus({
-				validity: null,
-				message: ""
-			});
-			return;
-		}
-
-		if(value.length < 12) {
-			setStatus({
-				validity: false,
-				message: "Le password di Royalnet in genere hanno almeno 12 caratteri..."
-			});
+			setStatus({});
 			return;
 		}
 
 		setStatus({
-			validity: true,
-			message: "Sembra OK!"
+			validity: Validity.OK,
+			icon: <FontAwesomeIcon icon={faQuestion}/>
 		});
 	});
 

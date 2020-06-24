@@ -22,8 +22,8 @@ export default function (props) {
 	}
 
 	return (
-		<a href={`https://github.com/Steffo99/royalnet/releases/tag/${data.semantic}`}>
+		<Link href={`https://github.com/Steffo99/royalnet/releases/tag/${data.semantic}`}>
 			Royalnet {data.semantic}
-		</a>
+		</Link>
 	);
 }
