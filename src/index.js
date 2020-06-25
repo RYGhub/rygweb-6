@@ -12,7 +12,7 @@ else if(process.env.NODE_ENV === "production") {
 	let SentryIntegrations = require("@sentry/integrations");
 	// noinspection JSUnresolvedVariable
 	Sentry.init({
-		dsn: "https://9f5089346fd14e04a6f412638474dfec@o40131.ingest.sentry.io/5255500",
+		dsn: "https://3220f9abc0c4451e9cb2443504fe2986@o40131.ingest.sentry.io/5282299",
 		release: process.env.RELEASE,
 		environment: "production",
 		beforeSend(event, hint) {
