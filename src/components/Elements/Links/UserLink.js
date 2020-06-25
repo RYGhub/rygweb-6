@@ -59,17 +59,6 @@ export default function (props) {
 		}
 	}
 
-	let avatar;
-	if(data.avatar_url) {
-		avatar = <Avatar src={data.avatar_url}/>;
-	}
-	else if(data.steam.length > 0 && data.steam[0].avatar) {
-		avatar = <Avatar src={data.steam[0].avatar}/>;
-	}
-	else {
-		avatar = <Avatar src={"https://combo.steffo.eu/open/ryg/GenericUser.png"}/>
-	}
-
 	let text = data.username;
 	if(props.children instanceof Array && props.children.length > 0) {
 		text = props.children;
@@ -77,7 +66,7 @@ export default function (props) {
 
 	return (
 		<Link href={`/u/${data.uid}`}>
-			{avatar} {text}
+			<Avatar data={data}/> {text}
 		</Link>
 	);
 }

@@ -11,7 +11,7 @@ import useFormUsername from '../../hooks/useFormUsername';
 import useFormPassword from '../../hooks/useFormPassword';
 import { route } from 'preact-router';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import AnyLink from './Links/AnyLink';
 
 export default function (props) {
@@ -43,6 +43,20 @@ export default function (props) {
 		})
 	}
 
+	let loginValidity = {};
+	if(loginWorking) {
+		loginValidity = {
+			icon: <FontAwesomeIcon icon={faSpinner} pulse={true}/>
+		}
+	}
+	else if(loginError) {
+		loginValidity = {
+			validity: Validity.ERROR,
+				icon: <FontAwesomeIcon icon={faExclamationCircle}/>,
+			message: loginError.message
+		}
+	}
+
 	return (
 		<Panel title={"Login"}>
 			<p>
@@ -52,11 +66,7 @@ export default function (props) {
 			<p>
 				<FormInput type={"text"} name={"username"} label={"Username"} onChange={getEventValue(setUsername)} validity={usernameStatus} value={username}/>
 				<FormInput type={"password"} label={"Password"} onChange={getEventValue(setPassword)} validity={passwordStatus} value={password}/>
-				<FormButton label={"Login"} onClick={login} disabled={loginWorking} validity={loginError ? {
-					validity: Validity.ERROR,
-					icon: <FontAwesomeIcon icon={faExclamationCircle}/>,
-					message: loginError.message
-				} : null}>Login</FormButton>
+				<FormButton label={"Login"} onClick={login} disabled={loginWorking} validity={loginValidity}>Login</FormButton>
 			</p>
 			<p>
 				<small>Facendo il login, verranno salvate nel tuo browser <AnyLink href={`${instanceUrl}/docs#operations-auth-ApiAuthLoginRoyalnetStar_post`}>alcune informazioni</AnyLink> relative al tuo account, permettendoti di non rifare il login per un po' di tempo.</small>

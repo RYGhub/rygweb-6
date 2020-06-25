@@ -50,6 +50,8 @@ import InstanceSelect from './routes/InstanceSelect';
 import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
 import Login from './routes/Login';
 import LoginProfile from './components/Elements/LoginProfile';
+import Profile from './routes/Profile';
+import Wiki from './routes/Wiki';
 
 
 export default function(props) {
@@ -89,6 +91,8 @@ export default function(props) {
 				<Home path={"/"} />
 				<InstanceSelect path={"/instanceselect"} onConfirm={setInstanceUrl}/>
 				<Login path={"/login"} onLogin={setLoginStatus}/>
+				<Profile path={"/u/:uid"} logout={logout}/>
+				<Wiki path={"/w/:pageId"}/>
 				<ErrorBox default error={new Error("Page not found")}/>
 			</Router>
 			<Footer>

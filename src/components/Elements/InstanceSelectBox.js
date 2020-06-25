@@ -1,4 +1,4 @@
-import { Box, FormButton, FormInput, getEventValue, RoyalnetLoginStatus, Validity } from 'bluelib';
+import { Box, FormButton, FormInput, getEventValue, Panel, RoyalnetLoginStatus, Section, Validity } from 'bluelib';
 import useFormInstanceUrl from '../../hooks/useFormInstanceUrl';
 import { useContext } from 'preact/hooks';
 import ErrorBox from './ErrorBox';
@@ -18,9 +18,9 @@ export default function (props) {
 	}
 
 	return (
-		<Box>
+		<Panel title={"Selezione istanza"}>
 			<FormInput type={"text"} label={"Istanza"} onChange={getEventValue(setInstanceUrl)} validity={instanceUrlStatus} value={instanceUrl}/>
 			<FormButton label={"Cambia"} onClick={change} disabled={!instanceUrlStatus.validity === Validity.OK}>Cambia</FormButton>
-		</Box>
+		</Panel>
 	);
 }
