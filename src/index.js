@@ -1,108 +1,111 @@
-import { Component } from 'preact';
+// Import debugging tools
+import InstanceSelectFooter from './components/Elements/InstanceSelectFooter';
 
-// noinspection ES6UnusedImports
-import style from "./index.less";
-// noinspection ES6UnusedImports
-import _manifest from "./meta/manifest.json";
-// noinspection ES6UnusedImports
-import _cname from "./meta/CNAME";
-// noinspection ES6UnusedImports
-import _nojekyll from "./meta/.nojekyll";
-
-import { Router, route } from 'preact-router';
-import { createHashHistory } from 'history';
-import Homepage from './routes/homepage';
-import RygNavbar from './routes/rygnavbar';
-import WikiPageBox from './components/wikipagebox';
-import WikiEditBox from './components/wikiEditBox';
-import BrawlhallaDue from './routes/brawlhalladue';
-import UserProfile from './routes/userprofile';
-import Error from './components/error';
-import WikiList from './routes/wikilist';
-import Login from './routes/login';
-import Diario from './routes/diario';
-import Members from './routes/members';
-import ErrorCatcher from './components/errorCatcher';
-import Stats from './routes/stats';
-import Box from './components/box';
-
-
-// noinspection JSUnusedGlobalSymbols
-export default class Index extends Component {
-	constructor() {
-		super();
-		this.state = {
-			"pathname": window.location.hash.substr(1),
-			"logged_in": null
+let Sentry = null;
+if(process.env.NODE_ENV === "development") {
+	console.debug("Initializing Preact Debugger...");
+	require("preact/debug");
+}
+else if(process.env.NODE_ENV === "production") {
+	console.debug("Initializing Sentry...");
+	Sentry = require("@sentry/browser");
+	let SentryIntegrations = require("@sentry/integrations");
+	// noinspection JSUnresolvedVariable
+	Sentry.init({
+		dsn: "https://9f5089346fd14e04a6f412638474dfec@o40131.ingest.sentry.io/5255500",
+		release: process.env.RELEASE,
+		environment: "production",
+		beforeSend(event, hint) {
+			if (event.exception) {
+				Sentry.showReportDialog({ eventId: event.event_id });
+			}
+			return event;
 		}
+	});
+}
+
+// noinspection ES6UnusedImports
+import "bluelib/dist/index.css";
+import { RoyalnetLoginStatus, theme, useLoginDataStorage } from 'bluelib';
+// noinspection ES6UnusedImports
+import _manifest from './meta/manifest.json';
+// noinspection ES6UnusedImports
+import _cname from './meta/CNAME';
+// noinspection ES6UnusedImports
+import _nojekyll from './meta/.nojekyll';
+
+import Router from 'preact-router';
+import {createHashHistory} from 'history';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
+import Home from './routes/Home';
+import HeaderIcon from './components/Elements/HeaderIcon';
+
+import Link from './components/Elements/Links/Link';
+import CurrentPage from './contexts/CurrentPage';
+import { useState } from 'preact/hooks';
+import { RoyalnetInstanceUrl } from 'bluelib';
+import ErrorBox from './components/Elements/ErrorBox';
+import InstanceSelect from './routes/InstanceSelect';
+import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
+import Login from './routes/Login';
+import LoginProfile from './components/Elements/LoginProfile';
+import Profile from './routes/Profile';
+import Wiki from './routes/Wiki';
+
+
+export default function(props) {
+	let [currentPage, setCurrentPage] = useState(window.location.hash.substr(1));
+	const onPageChange = (event) => {
+		setCurrentPage(event.url);
+	};
+
+	const [instanceUrl, loginStatus, storeValues, logout] = useLoginDataStorage("https://rygapi.steffo.eu");
+	function setInstanceUrl(value) {
+		storeValues(value, loginStatus);
+	}
+	function setLoginStatus(value) {
+		storeValues(instanceUrl, value);
 	}
 
-	componentDidMount() {
-		let login_store = JSON.parse(window.localStorage.getItem("logged_in"));
-		if(login_store !== null) {
-			console.log(`Found existing login token: ${login_store.token}`);
-			fetch(`https://rygapi.steffo.eu/api/token/info/v1?token=${login_store.token}`).then((response) => response.json()).then((j => {
-				let expiration = new Date(j.data.expiration);
-				console.log(`Login token expires: ${expiration}`);
-				let now = new Date();
-				if(expiration >= now ) {
-					console.log(`Login token is valid, logging in...`);
-					this.setState({
-						"logged_in": j.data
-					});
-					console.log(`Successfully logged in as ${j.data.user.username}!`);
-				}
-				else {
-					console.log(`Login token has expired, clearing...`);
-					window.localStorage.setItem("logged_in", null);
-				}
-			}))
-		}
-		else {
-			console.log(`No login token found.`)
-		}
+	let header = {
+		left: [
+			<Link href={"/"}>
+				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
+				&nbsp;Royal Games
+			</Link>
+		],
+		right: [
+			<LoginProfile/>
+		]
 	};
 
-	onRouteChange = e => {
-		this.setState({
-			"pathname": window.location.hash.substr(1)
-		});
-	};
+	return (
+		<CurrentPage.Provider value={currentPage}>
+		<RoyalnetInstanceUrl.Provider value={instanceUrl}>
+		<RoyalnetLoginStatus.Provider value={loginStatus}>
 
-	onSuccessfulLogin = data => {
-		window.localStorage.setItem("logged_in", JSON.stringify(data));
-		this.setState({
-			"logged_in": data
-		});
-		console.log(`Successfully logged in as ${data.user.username}!`);
-		route("/");
-	};
+		<div id="app" class={theme.bluelib}>
+			<Header left={header.left} right={header.right}/>
+			<Router history={createHashHistory()} onChange={onPageChange}>
+				<Home path={"/"} />
+				<InstanceSelect path={"/instanceselect"} onConfirm={setInstanceUrl}/>
+				<Login path={"/login"} onLogin={setLoginStatus}/>
+				<Profile path={"/u/:uid"} logout={logout}/>
+				<Wiki path={"/w/:pageId"}/>
+				<ErrorBox default error={new Error("Page not found")}/>
+			</Router>
+			<Footer>
+				<Link href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</Link>
+				&nbsp;-&nbsp;
+				<RoyalnetVersionFooter/>
+				&nbsp;@&nbsp;
+				<InstanceSelectFooter/>
+			</Footer>
+		</div>
 
-	onLogoutClick = e => {
-		window.localStorage.setItem("logged_in", null);
-		this.setState({
-			"logged_in": null
-		});
-		console.log(`Successfully logged out!`);
-		route("/");
-	};
-
-	render() {
-		return (
-			<div>
-				<RygNavbar pathname={this.state.pathname} loggedIn={this.state.logged_in}/>
-				<Box left={"Torno subito!"}>
-					<p>
-						Il sito della Royal Games è temporaneamente offline per aggiornamenti.
-					</p>
-					<p>
-						Torna tra qualche giorno!
-					</p>
-					<p>
-						<small>sorry</small>
-					</p>
-				</Box>
-			</div>
-		)
-	}
+		</RoyalnetLoginStatus.Provider>
+		</RoyalnetInstanceUrl.Provider>
+		</CurrentPage.Provider>
+	);
 }
