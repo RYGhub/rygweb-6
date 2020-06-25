@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"5/WR":function(a,i,n){"use strict";n.r(i),function(a){var o=n("WtJh"),t=n("mbOI"),d=n("GAEk"),l=n("WOcO");i.default=function(i){return a("div",null,a(t.a,null,a("button",{disabled:!1},a(d.a,{icon:l.i})," Visualizza"),a("button",{disabled:!0},a(d.a,{icon:l.l})," Modifica"),a("button",{disabled:!0},a(d.a,{icon:l.p})," Anteprima"),a("button",{disabled:!0},a(d.a,{icon:l.o})," Salva")),a(o.a,{pageId:i.pageId}))}}.call(this,n("hosL").h)}}]);
+//# sourceMappingURL=route-Wiki.chunk.af088.js.map

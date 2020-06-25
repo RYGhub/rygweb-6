@@ -18,7 +18,7 @@ export default function (props) {
 		return (
 			<Link href={`/u/${loginStatus.user.uid}`}>
 				{loginStatus.user.username}
-				<HeaderIcon src={loginStatus.user.avatar_url ?? "https://combo.steffo.eu/open/ryg/GenericUser.png"} alt={" 👤"}/>
+				<HeaderIcon src={loginStatus ? loginStatus.user.avatar_url : "https://combo.steffo.eu/open/ryg/GenericUser.png"} alt={" 👤"}/>
 			</Link>
 		);
 	}
