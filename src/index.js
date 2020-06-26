@@ -1,6 +1,4 @@
 // Import debugging tools
-import WikiNew from './components/Elements/Dynamic/WikiNew';
-
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -33,23 +31,25 @@ import "./styles/override-easymde.less"
 
 import Router from 'preact-router';
 import {createHashHistory} from 'history';
-import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
+import Header from './components/Static/Header';
+import Footer from './components/Static/Footer';
 import Home from './routes/Home';
-import HeaderIcon from './components/Elements/HeaderIcon';
-import Link from './components/Elements/Link';
+import HeaderIcon from './components/Static/HeaderIcon';
+import Link from './components/Dynamic/Link';
 import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
 import { RoyalnetLoginStatus, theme, useLoginDataStorage, RoyalnetInstanceUrl } from 'bluelib';
-import ErrorBox from './components/Elements/ErrorBox';
-import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
-import LoginProfile from './components/Elements/LoginProfile';
+import ErrorBox from './components/Static/ErrorBox';
+import RoyalnetVersionFooter from './components/Dynamic/RoyalnetVersionFooter';
+import LoginProfile from './components/Dynamic/LoginProfile';
 import Profile from './routes/Profile';
-import WikiExisting from './components/Elements/Dynamic/WikiExisting';
-import BasicContainer from './components/Layout/BasicContainer';
-import LoginBox from './components/Elements/LoginBox';
-import InstanceSelectBox from './components/Elements/InstanceSelectBox';
-import InstanceSelectFooter from './components/Elements/RoyalnetInstanceFooter';
+import WikiExisting from './components/Dynamic/WikiExisting';
+import BasicContainer from './components/Static/BasicContainer';
+import LoginBox from './components/Dynamic/LoginBox';
+import InstanceSelectBox from './components/Dynamic/InstanceSelectBox';
+import RoyalnetInstanceFooter from './components/Dynamic/RoyalnetInstanceFooter';
+import WikiList from './routes/WikiList';
+import WikiNew from './components/Dynamic/WikiNew';
 
 
 export default function(props) {
@@ -68,10 +68,14 @@ export default function(props) {
 
 	let header = {
 		left: [
-			<Link href={"/"}>
+			<Link href={"/"} icon={false}>
 				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
 				&nbsp;Royal Games
 			</Link>,
+			" | ",
+			<Link href={"/w/list"} icon={false}>
+				Wiki
+			</Link>
 		],
 		right: [
 			<LoginProfile/>
@@ -87,12 +91,13 @@ export default function(props) {
 			<BasicContainer>
 				<Header left={header.left} right={header.right}/>
 				<Router history={createHashHistory()} onChange={onPageChange}>
-					<Home path={"/"} />
+					<Home path={"/"}/>
 					<InstanceSelectBox path={"/instance"} onConfirm={setInstanceUrl}/>
 					<LoginBox path={"/login"} onLogin={setLoginStatus}/>
 					<Profile path={"/u/:uid"} logout={logout}/>
 					<WikiExisting full={true} path={"/w/:pageId"}/>
 					<WikiNew path={"/w/new"}/>
+					<WikiList path={"/w/list"}/>
 					<ErrorBox default error={new Error("Page not found")}/>
 				</Router>
 				<Footer>
@@ -100,7 +105,7 @@ export default function(props) {
 					&nbsp;-&nbsp;
 					<RoyalnetVersionFooter/>
 					&nbsp;@&nbsp;
-					<InstanceSelectFooter/>
+					<RoyalnetInstanceFooter/>
 				</Footer>
 			</BasicContainer>
 		</div>

@@ -1,12 +1,12 @@
 import { useContext } from 'preact/hooks';
 import { RoyalnetLoginStatus, useRoyalnetData } from 'bluelib';
-import LogoutBox from '../components/Elements/LogoutBox';
-import MainTitle from '../components/Elements/MainTitle';
+import LogoutBox from '../components/Dynamic/LogoutBox';
+import MainTitle from '../components/Static/MainTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import ErrorBox from '../components/Elements/ErrorBox';
-import Avatar from '../components/Elements/Avatar';
-import HZero from '../components/Elements/HZero';
+import ErrorBox from '../components/Static/ErrorBox';
+import Avatar from '../components/Static/Avatar';
+import HZero from '../components/Static/HZero';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
