@@ -61,7 +61,7 @@ export default function (props) {
 		<Panel title={"Login"}>
 			<p>
 				Stai facendo il login su <code>{instanceUrl}</code>.<br/>
-				<small>Vuoi usare <AnyLink href={"/instanceselect"}>un'istanza diversa</AnyLink>?</small>
+				<small>Vuoi usare <a href={"/instance"}>un'istanza diversa</a>?</small>
 			</p>
 			<p>
 				<FormInput type={"text"} name={"username"} label={"Username"} onChange={getEventValue(setUsername)} validity={usernameStatus} value={username}/>

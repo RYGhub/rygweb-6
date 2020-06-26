@@ -1,5 +1,5 @@
 import { useContext, useState } from 'preact/hooks';
-import useFormValidator from './useFormValidator';
+import {useFormValidator} from 'bluelib';
 import { royalnetApiRequest, RoyalnetInstanceUrl, Validity } from 'bluelib';
 
 export default function() {

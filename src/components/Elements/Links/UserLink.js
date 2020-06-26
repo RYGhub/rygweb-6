@@ -26,11 +26,11 @@ export default function (props) {
 
 	let apiMethod, apiBody;
 	if(props.uid) {
-		apiMethod = "/api/user/get/ryg/v1";
-		apiBody = {"id": props.uid};
+		apiMethod = "/api/user/ryg/v2";
+		apiBody = {"uid": props.uid};
 	}
 	else if(props.alias) {
-		apiMethod = "/api/user/find/ryg/v1";
+		apiMethod = "/api/user/ryg/v2";
 		apiBody = {"alias": props.alias.toLowerCase()};
 	}
 

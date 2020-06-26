@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import ErrorBox from '../components/Elements/ErrorBox';
 import Avatar from '../components/Elements/Avatar';
-import theme from "../styles/theme.less";
+import HZero from '../components/Elements/HZero';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
@@ -36,9 +36,9 @@ export default function (props) {
 
 	return (
 		<div>
-			<h0>
+			<HZero>
 				<Avatar data={userData}/> {userData.username}
-			</h0>
+			</HZero>
 			{logoutBox}
 		</div>
 	);

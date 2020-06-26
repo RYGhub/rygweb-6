@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import useFormValidator from './useFormValidator';
+import {useFormValidator} from 'bluelib';
 import { Validity } from 'bluelib';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH, faQuestion } from '@fortawesome/free-solid-svg-icons';

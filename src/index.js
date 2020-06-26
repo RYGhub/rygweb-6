@@ -1,6 +1,4 @@
 // Import debugging tools
-import InstanceSelectFooter from './components/Elements/InstanceSelectFooter';
-
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -40,18 +38,19 @@ import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import Home from './routes/Home';
 import HeaderIcon from './components/Elements/HeaderIcon';
-
 import Link from './components/Elements/Links/Link';
 import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
 import { RoyalnetInstanceUrl } from 'bluelib';
 import ErrorBox from './components/Elements/ErrorBox';
-import InstanceSelect from './routes/InstanceSelect';
 import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
-import Login from './routes/Login';
 import LoginProfile from './components/Elements/LoginProfile';
 import Profile from './routes/Profile';
-import Wiki from './routes/Wiki';
+import Wiki from './components/Elements/Wiki/Wiki';
+import BasicContainer from './components/Layout/BasicContainer';
+import LoginBox from './components/Elements/LoginBox';
+import InstanceSelectBox from './components/Elements/InstanceSelectBox';
+import InstanceSelectFooter from './components/Elements/RoyalnetInstanceFooter';
 
 
 export default function(props) {
@@ -86,22 +85,24 @@ export default function(props) {
 		<RoyalnetLoginStatus.Provider value={loginStatus}>
 
 		<div id="app" class={theme.bluelib}>
-			<Header left={header.left} right={header.right}/>
-			<Router history={createHashHistory()} onChange={onPageChange}>
-				<Home path={"/"} />
-				<InstanceSelect path={"/instanceselect"} onConfirm={setInstanceUrl}/>
-				<Login path={"/login"} onLogin={setLoginStatus}/>
-				<Profile path={"/u/:uid"} logout={logout}/>
-				<Wiki path={"/w/:pageId"}/>
-				<ErrorBox default error={new Error("Page not found")}/>
-			</Router>
-			<Footer>
-				<Link href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</Link>
-				&nbsp;-&nbsp;
-				<RoyalnetVersionFooter/>
-				&nbsp;@&nbsp;
-				<InstanceSelectFooter/>
-			</Footer>
+			<BasicContainer>
+				<Header left={header.left} right={header.right}/>
+				<Router history={createHashHistory()} onChange={onPageChange}>
+					<Home path={"/"} />
+					<InstanceSelectBox path={"/instance"} onConfirm={setInstanceUrl}/>
+					<LoginBox path={"/login"} onLogin={setLoginStatus}/>
+					<Profile path={"/u/:uid"} logout={logout}/>
+					<Wiki full={true} path={"/w/:pageId"}/>
+					<ErrorBox default error={new Error("Page not found")}/>
+				</Router>
+				<Footer>
+					<Link href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</Link>
+					&nbsp;-&nbsp;
+					<RoyalnetVersionFooter/>
+					&nbsp;@&nbsp;
+					<InstanceSelectFooter/>
+				</Footer>
+			</BasicContainer>
 		</div>
 
 		</RoyalnetLoginStatus.Provider>

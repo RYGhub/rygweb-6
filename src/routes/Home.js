@@ -1,16 +1,15 @@
-import { Box, Split, stripTabs } from 'bluelib';
-import { Fragment } from 'preact';
+import { Split } from 'bluelib';
 import MainTitle from '../components/Elements/MainTitle';
-import WikiBox from '../components/Elements/WikiBox';
+import Wiki from '../components/Elements/Wiki/Wiki';
 
 export default function (props) {
 	return (
 		<div>
 			<MainTitle src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐️ "}>Royal Games</MainTitle>
-			<WikiBox pageId={1}/>
+			<Wiki pageId={1}/>
 			<Split>
-				<WikiBox pageId={2}/>
-				<WikiBox pageId={3}/>
+				<Wiki pageId={2}/>
+				<Wiki pageId={3}/>
 			</Split>
 		</div>
 	);
