@@ -9,7 +9,7 @@ export default function (props) {
 	else if(props.data.avatar_url) {
 		avatar_url = props.data.avatar_url;
 	}
-	else if(props.data.steam.length > 0 && props.data.steam[0].avatar) {
+	else if(props.data.steam && props.data.steam.length > 0 && props.data.steam[0].avatar) {
 		avatar_url = props.data.steam[0].avatar;
 	}
 	else {

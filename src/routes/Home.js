@@ -7,6 +7,7 @@ import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'preact-router';
 import { useContext } from 'preact/hooks';
 import AnyLink from '../components/Elements/AnyLink';
+import MembersList from '../components/Elements/MembersList';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
@@ -24,6 +25,9 @@ export default function (props) {
 				<ul>
 					<li><AnyLink href={(loginStatus && loginStatus.user.roles.includes("member")) ? "/w/new" : "#"}><FontAwesomeIcon icon={faPlusSquare}/> Crea nuova</AnyLink></li>
 				</ul>
+			</Panel>
+			<Panel title={"Users"}>
+				<MembersList/>
 			</Panel>
 		</div>
 	);
