@@ -12,7 +12,7 @@ import useFormPassword from '../../hooks/useFormPassword';
 import { route } from 'preact-router';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import AnyLink from './Links/AnyLink';
+import AnyLink from './AnyLink';
 
 export default function (props) {
 	const [username, setUsername, usernameStatus] = useFormUsername();

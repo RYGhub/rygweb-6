@@ -3,7 +3,7 @@ import { route } from 'preact-router';
 import { useState } from 'preact/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import AnyLink from './Links/AnyLink';
+import AnyLink from './AnyLink';
 
 export default function (props) {
 	const [logoutWorking, setLogoutWorking] = useState(false);

@@ -15,23 +15,23 @@ export default function() {
 
 	let usernameStatus = {};
 
-	if(filteredUsername !== "") {
-		if(aliasError !== undefined) {
+	if (filteredUsername !== "") {
+		if (aliasError !== undefined) {
 			usernameStatus = {
 				validity: Validity.ERROR,
 				icon: <FontAwesomeIcon icon={faExclamationCircle}/>,
 				message: "Non esiste nessun utente con questo username."
 			}
 		}
-		else if(aliasData === undefined) {
-				usernameStatus = {
-					icon: <FontAwesomeIcon icon={faSpinner} pulse={true}/>,
-				}
-		}
-		else if(aliasData.username !== filteredUsername) {
+		else if (aliasData === undefined) {
 			usernameStatus = {
-				validity: Validity.ERROR,
-				icon: <FontAwesomeIcon icon={faExclamationCircle}/>,
+				icon: <FontAwesomeIcon icon={faSpinner} pulse={true}/>,
+			}
+		}
+		else if (aliasData.username !== filteredUsername) {
+			usernameStatus = {
+				validity: Validity.WARNING,
+				icon: <FontAwesomeIcon icon={faExclamationTriangle}/>,
 				message: <span>Hai sbagliato username! Il tuo username è <b>{aliasData.username}</b>.</span>,
 			}
 		}

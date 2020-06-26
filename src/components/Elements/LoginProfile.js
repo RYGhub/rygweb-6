@@ -1,6 +1,6 @@
 import { useContext } from 'preact/hooks';
 import { RoyalnetLoginStatus } from 'bluelib';
-import Link from './Links/Link';
+import Link from './Link';
 import HeaderIcon from './HeaderIcon';
 
 export default function (props) {

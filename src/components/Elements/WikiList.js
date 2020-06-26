@@ -2,7 +2,7 @@ import { Panel, useRoyalnetData } from 'bluelib';
 import ErrorBox from './ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import AnyLink from './Links/AnyLink';
+import AnyLink from './AnyLink';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/wiki/list/v2");
@@ -21,7 +21,7 @@ export default function (props) {
 		)
 	}
 
-	let items = data.forEach((page) => {
+	let items = data.map((page) => {
 		return (
 			<li>
 				<AnyLink href={`/w/${page.page_id}`}>{page.title}</AnyLink>

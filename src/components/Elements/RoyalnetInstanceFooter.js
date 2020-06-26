@@ -1,6 +1,6 @@
 import { useContext } from 'preact/hooks';
 import { RoyalnetInstanceUrl } from 'bluelib';
-import Link from './Links/Link';
+import Link from './Link';
 
 export default function (props) {
 	const royalnetInstanceUrl = useContext(RoyalnetInstanceUrl);

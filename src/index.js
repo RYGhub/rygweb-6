@@ -1,4 +1,6 @@
 // Import debugging tools
+import WikiNew from './components/Elements/Dynamic/WikiNew';
+
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -22,15 +24,12 @@ else if(process.env.NODE_ENV === "production") {
 	});
 }
 
-// noinspection ES6UnusedImports
 import "bluelib/dist/index.css";
-import { RoyalnetLoginStatus, theme, useLoginDataStorage } from 'bluelib';
-// noinspection ES6UnusedImports
-import _manifest from './meta/manifest.json';
-// noinspection ES6UnusedImports
-import _cname from './meta/CNAME';
-// noinspection ES6UnusedImports
-import _nojekyll from './meta/.nojekyll';
+import './meta/manifest.json';
+import './meta/CNAME';
+import './meta/.nojekyll';
+import "easymde/dist/easymde.min.css";
+import "./styles/override-easymde.less"
 
 import Router from 'preact-router';
 import {createHashHistory} from 'history';
@@ -38,15 +37,15 @@ import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import Home from './routes/Home';
 import HeaderIcon from './components/Elements/HeaderIcon';
-import Link from './components/Elements/Links/Link';
+import Link from './components/Elements/Link';
 import CurrentPage from './contexts/CurrentPage';
 import { useState } from 'preact/hooks';
-import { RoyalnetInstanceUrl } from 'bluelib';
+import { RoyalnetLoginStatus, theme, useLoginDataStorage, RoyalnetInstanceUrl } from 'bluelib';
 import ErrorBox from './components/Elements/ErrorBox';
 import RoyalnetVersionFooter from './components/Elements/RoyalnetVersionFooter';
 import LoginProfile from './components/Elements/LoginProfile';
 import Profile from './routes/Profile';
-import Wiki from './components/Elements/Wiki/Wiki';
+import WikiExisting from './components/Elements/Dynamic/WikiExisting';
 import BasicContainer from './components/Layout/BasicContainer';
 import LoginBox from './components/Elements/LoginBox';
 import InstanceSelectBox from './components/Elements/InstanceSelectBox';
@@ -59,7 +58,7 @@ export default function(props) {
 		setCurrentPage(event.url);
 	};
 
-	const [instanceUrl, loginStatus, storeValues, logout] = useLoginDataStorage("https://rygapi.steffo.eu");
+	const [instanceUrl, loginStatus, storeValues, logout] = useLoginDataStorage("https://api.ryg.steffo.eu");
 	function setInstanceUrl(value) {
 		storeValues(value, loginStatus);
 	}
@@ -72,7 +71,7 @@ export default function(props) {
 			<Link href={"/"}>
 				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
 				&nbsp;Royal Games
-			</Link>
+			</Link>,
 		],
 		right: [
 			<LoginProfile/>
@@ -92,7 +91,8 @@ export default function(props) {
 					<InstanceSelectBox path={"/instance"} onConfirm={setInstanceUrl}/>
 					<LoginBox path={"/login"} onLogin={setLoginStatus}/>
 					<Profile path={"/u/:uid"} logout={logout}/>
-					<Wiki full={true} path={"/w/:pageId"}/>
+					<WikiExisting full={true} path={"/w/:pageId"}/>
+					<WikiNew path={"/w/new"}/>
 					<ErrorBox default error={new Error("Page not found")}/>
 				</Router>
 				<Footer>

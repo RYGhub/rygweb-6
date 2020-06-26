@@ -1,6 +1,6 @@
 import { useRoyalnetData } from 'bluelib';
 import ErrorAbbr from './ErrorAbbr';
-import Link from './Links/Link';
+import Link from './Link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
