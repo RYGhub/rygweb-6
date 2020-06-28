@@ -63,7 +63,10 @@ export default function (props) {
 	if(props.icon !== false) {
 		let iconObj;
 
-		if (url.protocol === "http:") {
+		if(url.host === window.location.host) {
+			iconObj = null;
+		}
+		else if (url.protocol === "http:") {
 			iconObj = faLockOpen;
 		}
 		else if(url.protocol === "https:") {
