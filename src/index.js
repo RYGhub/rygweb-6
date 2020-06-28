@@ -1,4 +1,6 @@
 // Import debugging tools
+import MembersList from './routes/MembersList';
+
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -7,13 +9,12 @@ if(process.env.NODE_ENV === "development") {
 else if(process.env.NODE_ENV === "production") {
 	console.debug("Initializing Sentry...");
 	Sentry = require("@sentry/browser");
-	let SentryIntegrations = require("@sentry/integrations");
 	// noinspection JSUnresolvedVariable
 	Sentry.init({
 		dsn: "https://3220f9abc0c4451e9cb2443504fe2986@o40131.ingest.sentry.io/5282299",
 		release: process.env.RELEASE,
 		environment: "production",
-		beforeSend(event, hint) {
+		beforeSend(event) {
 			if (event.exception) {
 				Sentry.showReportDialog({ eventId: event.event_id });
 			}
@@ -26,6 +27,7 @@ import "bluelib/dist/index.css";
 import './meta/manifest.json';
 import './meta/CNAME';
 import './meta/.nojekyll';
+import './meta/favicon.ico';
 import "easymde/dist/easymde.min.css";
 import "./styles/override-easymde.less"
 
@@ -73,9 +75,13 @@ export default function(props) {
 				&nbsp;Royal Games
 			</Link>,
 			" | ",
-			<Link href={"/w/list"} icon={false}>
+			<Link href={"/u"} icon={false}>
+				Membri
+			</Link>,
+			" | ",
+			<Link href={"/w"} icon={false}>
 				Wiki
-			</Link>
+			</Link>,
 		],
 		right: [
 			<LoginProfile/>
@@ -95,9 +101,10 @@ export default function(props) {
 					<InstanceSelectBox path={"/instance"} onConfirm={setInstanceUrl}/>
 					<LoginBox path={"/login"} onLogin={setLoginStatus}/>
 					<Profile path={"/u/:uid"} logout={logout}/>
+					<MembersList path={"/u"}/>
 					<WikiExisting full={true} path={"/w/:pageId"}/>
 					<WikiNew path={"/w/new"}/>
-					<WikiList path={"/w/list"}/>
+					<WikiList path={"/w"}/>
 					<ErrorBox default error={new Error("Page not found")}/>
 				</Router>
 				<Footer>

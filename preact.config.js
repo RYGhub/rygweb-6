@@ -29,6 +29,15 @@ export default function (config, env, helpers) {
 			}
 		}
 	);
+	config.module.rules.push(
+		{
+			test: /favicon\.ico$/,
+			loader: 'file-loader',
+			options: {
+				name: 'favicon.ico'
+			}
+		}
+	);
 
 	config.plugins.push(
 		new DefinePlugin({"process.env.RELEASE": `"${process.env.npm_package_version}"`})
