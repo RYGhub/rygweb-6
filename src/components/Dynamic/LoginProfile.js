@@ -9,10 +9,10 @@ export default function (props) {
 
 	if(loginStatus === null) {
 		return (
-			<Link href={"/login"}>
+			<BaseLink href={"/login"}>
 				Login
 				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} alt={" 👤"}/>
-			</Link>
+			</BaseLink>
 		);
 	}
 	else {
