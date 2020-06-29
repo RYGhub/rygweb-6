@@ -1,12 +1,12 @@
 import { useContext } from 'preact/hooks';
-import { RoyalnetLoginStatus, useRoyalnetData } from 'bluelib';
+import { Panel, RoyalnetLoginStatus, useRoyalnetData } from 'bluelib';
 import LogoutBox from '../components/Dynamic/LogoutBox';
-import MainTitle from '../components/Static/MainTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import ErrorBox from '../components/Static/ErrorBox';
 import Avatar from '../components/Static/Avatar';
 import HZero from '../components/Static/HZero';
+import RoyalMarkdown from '../components/Static/RoyalMarkdown';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
@@ -34,11 +34,23 @@ export default function (props) {
 		)
 	}
 
+	let bioBox = null;
+	if(userData.bio) {
+		bioBox = (
+			<Panel title={"Bio"}>
+				<RoyalMarkdown>
+					{userData.bio.contents}
+				</RoyalMarkdown>
+			</Panel>
+		)
+	}
+
 	return (
 		<div>
 			<HZero>
 				<Avatar data={userData}/> {userData.username}
 			</HZero>
+			{bioBox}
 			{logoutBox}
 		</div>
 	);
