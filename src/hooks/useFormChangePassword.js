@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import {useFormValidator} from 'bluelib';
 import { Validity } from 'bluelib';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisH, faExclamationTriangle, faKey, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faEllipsisH, faExclamationTriangle, faKey, faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 export default function() {
 	const [password, setPassword] = useState("");
@@ -14,9 +14,18 @@ export default function() {
 			return;
 		}
 
+		if(value.length <= 12) {
+			setStatus({
+				validity: Validity.WARNING,
+				icon: <FontAwesomeIcon icon={faExclamationTriangle}/>,
+				message: "La password è un po' corta... Cerca di farla lunga almeno 12 caratteri.",
+			});
+			return;
+		}
+
 		setStatus({
-			validity: Validity.NONE,
-			icon: <FontAwesomeIcon icon={faKey}/>
+			validity: Validity.OK,
+			icon: <FontAwesomeIcon icon={faCheck}/>
 		});
 	});
 

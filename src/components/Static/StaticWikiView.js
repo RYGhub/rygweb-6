@@ -4,7 +4,7 @@ import ErrorBox from './ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Link from '../Dynamic/Link';
-import HZero from './HZero';
+import { HZero } from 'bluelib';
 
 export default function (props) {
 

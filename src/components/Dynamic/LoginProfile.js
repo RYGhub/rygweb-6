@@ -2,7 +2,7 @@ import { useContext } from 'preact/hooks';
 import { RoyalnetLoginStatus } from 'bluelib';
 import Link from './Link';
 import HeaderIcon from '../Static/HeaderIcon';
-import BaseLink from '../Static/BaseLink';
+import { BaseLink } from 'bluelib';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);

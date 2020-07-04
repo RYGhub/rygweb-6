@@ -1,6 +1,5 @@
 import Avatar from './Avatar';
-import Link from '../Dynamic/Link';
-import BaseLink from './BaseLink';
+import { BaseLink } from 'bluelib';
 
 export default function (props) {
 	return (

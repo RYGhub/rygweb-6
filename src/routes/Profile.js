@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import ErrorBox from '../components/Static/ErrorBox';
 import Avatar from '../components/Static/Avatar';
-import HZero from '../components/Static/HZero';
+import { HZero } from 'bluelib';
 import RoyalMarkdown from '../components/Static/RoyalMarkdown';
+import ChangePasswordBox from '../components/Dynamic/ChangePasswordBox';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
@@ -14,11 +15,13 @@ export default function (props) {
 		uid: props.uid
 	});
 
+	let changePasswdBox = null;
 	let logoutBox = null;
 	if(loginStatus) {
 		// noinspection EqualityComparisonWithCoercionJS
 		if(loginStatus.user.uid == props.uid) {
-			logoutBox = <LogoutBox logout={props.logout}/>
+			changePasswdBox = <ChangePasswordBox/>;
+			logoutBox = <LogoutBox logout={props.logout}/>;
 		}
 	}
 
@@ -51,6 +54,7 @@ export default function (props) {
 				<Avatar data={userData}/> {userData.username}
 			</HZero>
 			{bioBox}
+			{changePasswdBox}
 			{logoutBox}
 		</div>
 	);

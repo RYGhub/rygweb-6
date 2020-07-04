@@ -12,7 +12,7 @@ import {
 import { faExternalLinkAlt, faLockOpen, faMagnet, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import WikiLink from './WikiLink';
-import BaseLink from '../Static/BaseLink';
+import { BaseLink } from 'bluelib';
 
 const userIdRegex = /^\/u\/([0-9]+)$/;
 const userAliasRegex = /^\/u\/([A-Za-z]+)$/;

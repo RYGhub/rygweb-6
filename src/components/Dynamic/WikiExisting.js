@@ -10,7 +10,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faEye, faPencilAlt, faSave, faSearch, faSpinner, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useState } from 'preact/hooks';
-import LeftRight from '../Static/LeftRight';
+import { LeftRight } from 'bluelib';
 import ErrorBox from '../Static/ErrorBox';
 import useWikiEdit from '../../hooks/useWikiEdit';
 import StaticWikiView from '../Static/StaticWikiView';

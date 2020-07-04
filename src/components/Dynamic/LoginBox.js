@@ -28,7 +28,6 @@ export default function (props) {
 	}
 
 	function login() {
-		console.log("Logging in...");
 		setLoginWorking(true);
 		royalnetApiRequest(instanceUrl, "POST", "/api/auth/login/royalnet/v1", {
 			username: username,

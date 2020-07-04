@@ -1,5 +1,5 @@
 import style from "./MainTitle.less"
-import HZero from './HZero';
+import { HZero } from 'bluelib';
 
 export default function(props) {
     return (

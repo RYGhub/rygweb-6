@@ -46,7 +46,7 @@ import RoyalnetVersionFooter from './components/Dynamic/RoyalnetVersionFooter';
 import LoginProfile from './components/Dynamic/LoginProfile';
 import Profile from './routes/Profile';
 import WikiExisting from './components/Dynamic/WikiExisting';
-import BasicContainer from './components/Static/BasicContainer';
+import { BasicContainer } from 'bluelib';
 import LoginBox from './components/Dynamic/LoginBox';
 import InstanceSelectBox from './components/Dynamic/InstanceSelectBox';
 import RoyalnetInstanceFooter from './components/Dynamic/RoyalnetInstanceFooter';
