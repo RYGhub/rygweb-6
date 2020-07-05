@@ -37,6 +37,7 @@ export default function (props) {
 		)
 	}
 
+	/*
 	let bioBox = null;
 	if(userData.bio) {
 		bioBox = (
@@ -47,13 +48,13 @@ export default function (props) {
 			</Panel>
 		)
 	}
+    */
 
 	return (
 		<div>
 			<HZero>
 				<Avatar data={userData}/> {userData.username}
 			</HZero>
-			{bioBox}
 			{changePasswdBox}
 			{logoutBox}
 		</div>
