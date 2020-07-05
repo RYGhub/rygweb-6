@@ -15,7 +15,9 @@ import Avatar from '../Static/Avatar';
 import style from "./ChangeAvatarBox.less"
 
 export default function (props) {
-	const [avatarUrl, setAvatarUrl, avatarUrlStatus] = useUrl(props.currentAvatar);
+	let defaultAvatar = props.currentAvatar ? props.currentAvatar : "";
+
+	const [avatarUrl, setAvatarUrl, avatarUrlStatus] = useUrl(defaultAvatar);
 	const [validity, setValidity] = useState({});
 	const instanceUrl = useContext(RoyalnetInstanceUrl);
 	const loginStatus = useContext(RoyalnetLoginStatus);
