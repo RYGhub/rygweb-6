@@ -1,6 +1,4 @@
 // Import debugging tools
-import MembersList from './routes/MembersList';
-
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -32,26 +30,25 @@ import "easymde/dist/easymde.min.css";
 import "./styles/override-easymde.less"
 
 import Router from 'preact-router';
-import {createHashHistory} from 'history';
 import Header from './components/Static/Header';
 import Footer from './components/Static/Footer';
 import Home from './routes/Home';
 import HeaderIcon from './components/Static/HeaderIcon';
 import Link from './components/Dynamic/Link';
-import CurrentPage from './contexts/CurrentPage';
-import { useState } from 'preact/hooks';
-import { RoyalnetLoginStatus, theme, useLoginDataStorage, RoyalnetInstanceUrl } from 'bluelib';
 import ErrorBox from './components/Static/ErrorBox';
 import RoyalnetVersionFooter from './components/Dynamic/RoyalnetVersionFooter';
 import LoginProfile from './components/Dynamic/LoginProfile';
 import Profile from './routes/Profile';
 import WikiExisting from './components/Dynamic/WikiExisting';
-import { BasicContainer } from 'bluelib';
 import LoginBox from './components/Dynamic/LoginBox';
 import InstanceSelectBox from './components/Dynamic/InstanceSelectBox';
 import RoyalnetInstanceFooter from './components/Dynamic/RoyalnetInstanceFooter';
 import WikiList from './routes/WikiList';
 import WikiNew from './components/Dynamic/WikiNew';
+import MembersList from './routes/MembersList';
+import { createHashHistory } from 'history';
+import { useState } from 'preact/hooks';
+import { RoyalnetLoginStatus, theme, useLoginDataStorage, RoyalnetInstanceUrl, BasicContainer, CurrentPage } from 'bluelib';
 
 
 export default function(props) {

@@ -6,7 +6,7 @@ export default function (props) {
 	if(props.src) {
 		avatar_url = props.src;
 	}
-	else if(props.data.avatar_url) {
+	else if(props.data && props.data.avatar_url) {
 		avatar_url = props.data.avatar_url;
 	}
 	else {

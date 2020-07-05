@@ -45,7 +45,7 @@ export default function (props) {
 	return (
 		<Panel title={"Cambia password"}>
 			<p>
-				Cambiare password ti disconnetterà da tutte le sessioni tranne questa. Sei sicuro di voler procedere?
+				Cambiare password è come cambiare le chiavi di casa: tutti i browser che prima avevano le chiavi ora dovranno farne una nuova copia, e quindi dovrai rifare il login ovunque. Sei sicuro di voler procedere?
 			</p>
 			<p>
 				<FormInput type={"password"} name={"password"} label={"Nuova password"} onChange={getEventValue(setPassword)} validity={passwordStatus} value={password}/>
