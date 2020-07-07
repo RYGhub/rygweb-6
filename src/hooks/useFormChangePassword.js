@@ -14,7 +14,7 @@ export default function() {
 			return;
 		}
 
-		if(value.length <= 12) {
+		if(value.length < 12) {
 			setStatus({
 				validity: Validity.WARNING,
 				icon: <FontAwesomeIcon icon={faExclamationTriangle}/>,
