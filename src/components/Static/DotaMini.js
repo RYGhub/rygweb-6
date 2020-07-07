@@ -7,9 +7,11 @@ export default function (props) {
 
 	let medal = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_0.png`;
 	let stars = "";
+	let text = "Unranked";
 	if(props.data.dota.rank) {
 		medal = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${Math.floor(props.data.dota.rank.raw / 10)}.png`;
 		stars = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_${props.data.dota.rank.raw % 10}.png`;
+		text = `${props.data.dota.rank.medal.toLowerCase()} ${props.data.dota.rank.rank}`
 	}
 
 	return (
@@ -48,7 +50,7 @@ export default function (props) {
 						 src={medal}/>
 				</div>
 				<div className={style.name}>
-					{props.data.dota.rank.medal.toLowerCase()} {props.data.dota.rank.rank}
+					{text}
 				</div>
 			</div>
 		</Mini>
