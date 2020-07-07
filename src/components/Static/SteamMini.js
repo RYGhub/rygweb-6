@@ -5,20 +5,19 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function (props) {
+
 	return (
 		<Mini class={style.steam}>
-			<div class={style.title}>
-				Steam
-			</div>
-			<div class={style.name}>
-				<a href={props.data.profile_url}>
-					<div className={style.avatarframe}>
-						<img className={style.avatar} src={props.data.avatar} alt={""}/>
-					</div>
-					&nbsp;{props.data.persona_name}
+			<div class={style.sectionName}>
+				<a class={style.contents} href={props.data.profile_url}>
+					<span class={style.frame}>
+						<img class={style.avatar} src={props.data.avatar} alt={""}/>
+					</span>
+					&nbsp;
+					{props.data.persona_name}
 				</a>
 			</div>
-			<div class={style.accountcreationdate}>
+			<div class={style.sectionAccCreation}>
 				<div class={style.caption}>
 					Account creato il
 				</div>
@@ -28,7 +27,7 @@ export default function (props) {
 					</time>
 				</div>
 			</div>
-			<div class={style.buttons}>
+			<div class={style.sectionButtons}>
 				<a href={`steam://friends/add/${props.data.steamid}`}>
 					<div class={style.button}>
 						<div class={style.buttoncontent}>
