@@ -5,8 +5,12 @@ import Link from '../Dynamic/Link';
 
 export default function (props) {
 
-	let medal = Math.floor(props.data.dota.rank.raw / 10);
-	let stars = props.data.dota.rank.raw % 10;
+	let medal = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_0.png`;
+	let stars = "";
+	if(props.data.dota.rank) {
+		medal = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${Math.floor(props.data.dota.rank.raw / 10)}.png`;
+		stars = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_${props.data.dota.rank.raw % 10}.png`;
+	}
 
 	return (
 		<Mini class={style.dota}>
@@ -36,12 +40,12 @@ export default function (props) {
 			</div>
 			<div className={style.sectionRank}>
 				<div className={style.full}>
-					<img className={style.medal}
-						 alt={""}
-						 src={`https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_${stars}.png`}/>
 					<img className={style.stars}
 						 alt={""}
-						 src={`https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${medal}.png`}/>
+						 src={stars}/>
+					<img className={style.medal}
+						 alt={""}
+						 src={medal}/>
 				</div>
 				<div className={style.name}>
 					{props.data.dota.rank.medal.toLowerCase()} {props.data.dota.rank.rank}
