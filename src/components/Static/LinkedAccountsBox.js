@@ -9,6 +9,10 @@ export default function (props) {
 		minis.push(<SteamMini data={steam}/>);
 	}
 
+	if(minis.length === 0) {
+		return null;
+	}
+
 	return (
 		<Panel title={"Account connessi"}>
 			<div class={style.flex}>
