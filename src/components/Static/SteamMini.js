@@ -2,6 +2,7 @@ import style from './SteamMini.less';
 import Mini from './Mini';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import Link from '../Dynamic/Link';
 
 
 export default function (props) {
@@ -9,13 +10,13 @@ export default function (props) {
 	return (
 		<Mini class={style.steam}>
 			<div class={style.sectionName}>
-				<a class={style.contents} href={props.data.profile_url}>
+				<Link icon={false} class={style.contents} href={props.data.profile_url}>
 					<span class={style.frame}>
 						<img class={style.avatar} src={props.data.avatar} alt={""}/>
 					</span>
 					&nbsp;
 					{props.data.persona_name}
-				</a>
+				</Link>
 			</div>
 			<div class={style.sectionAccCreation}>
 				<div class={style.caption}>

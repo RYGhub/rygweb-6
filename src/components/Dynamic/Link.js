@@ -90,21 +90,21 @@ export default function (props) {
 	let userIdMatch = url.pathname.match(userIdRegex);
 	if(userIdMatch) {
 		return (
-			<UserLink uid={userIdMatch[1]}>{props.children}</UserLink>
+			<UserLink class={props.class} disabled={props.disabled} uid={userIdMatch[1]}>{props.children}</UserLink>
 		)
 	}
 
 	// User by Alias
 	let userAliasMatch = url.pathname.match(userAliasRegex);
 	if(userAliasMatch) {
-		return <UserLink alias={userAliasMatch[1]}>{props.children}</UserLink>
+		return <UserLink class={props.class} disabled={props.disabled} alias={userAliasMatch[1]}>{props.children}</UserLink>
 	}
 
 	// Wiki ID link
 	let wikiIdMatch = url.pathname.match(wikiIdRegex);
 	if(wikiIdMatch) {
-		return <WikiLink pageId={wikiIdMatch[1]}>{props.children}</WikiLink>
+		return <WikiLink class={props.class} disabled={props.disabled} pageId={wikiIdMatch[1]}>{props.children}</WikiLink>
 	}
 
-	return <BaseLink href={props.href}>{[...iconEl, props.children]}</BaseLink>;
+	return <BaseLink class={props.class} disabled={props.disabled} href={props.href}>{[...iconEl, props.children]}</BaseLink>;
 }
