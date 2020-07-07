@@ -9,6 +9,7 @@ import { HZero } from 'bluelib';
 import RoyalMarkdown from '../components/Static/RoyalMarkdown';
 import ChangePasswordBox from '../components/Dynamic/ChangePasswordBox';
 import ChangeAvatarBox from '../components/Dynamic/ChangeAvatarBox';
+import LinkedAccountsBox from '../components/Static/LinkedAccountsBox';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
@@ -58,6 +59,7 @@ export default function (props) {
 			<HZero>
 				<Avatar data={userData}/> {userData.username}
 			</HZero>
+			<LinkedAccountsBox data={userData}/>
 			{changeAvatarBox}
 			{changePasswdBox}
 			{logoutBox}
