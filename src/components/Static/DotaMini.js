@@ -41,6 +41,9 @@ export default function (props) {
 				</div>
 			</div>
 			<div className={style.sectionRank}>
+				<div className={style.name}>
+					{text}
+				</div>
 				<div className={style.full}>
 					<img className={style.stars}
 						 alt={""}
@@ -48,9 +51,6 @@ export default function (props) {
 					<img className={style.medal}
 						 alt={""}
 						 src={medal}/>
-				</div>
-				<div className={style.name}>
-					{text}
 				</div>
 			</div>
 		</Mini>
