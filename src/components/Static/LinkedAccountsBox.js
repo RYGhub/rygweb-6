@@ -2,6 +2,7 @@ import { Panel, Section } from 'bluelib';
 import SteamMini from './SteamMini';
 import style from './LinkedAccountsBox.less';
 import DotaMini from './DotaMini';
+import BrawlhallaMini from './BrawlhallaMini';
 
 export default function (props) {
 	const minis = [];
@@ -11,6 +12,10 @@ export default function (props) {
 
 		if(steam.dota) {
 			minis.push(<DotaMini data={steam}/>);
+		}
+
+		if(steam.brawlhalla) {
+			minis.push(<BrawlhallaMini data={steam.brawlhalla}/>);
 		}
 	}
 

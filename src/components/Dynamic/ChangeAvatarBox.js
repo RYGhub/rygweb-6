@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../Static/Avatar';
 import style from "./ChangeAvatarBox.less"
+import UserLink from './UserLink';
 
 export default function (props) {
 	let defaultAvatar = props.currentAvatar ? props.currentAvatar : "";
@@ -61,6 +62,9 @@ export default function (props) {
 			</p>
 			<blockquote>
 				Non sai dove hostare il tuo avatar? Prova <a href={"https://imgur.com/upload?beta"}>imgur</a>!
+			</blockquote>
+			<blockquote>
+				<UserLink uid={29}>Viktya</UserLink> mi ha fatto scoprire che funzionano anche le gif. Sbizzaritevi!
 			</blockquote>
 		</Panel>
 	);

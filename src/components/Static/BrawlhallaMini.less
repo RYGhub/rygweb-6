@@ -1,0 +1,53 @@
+@import "../../styles/constants.less";
+
+@bg: #0e3e5b;
+@fg: white;
+@ec: #dd7917;
+
+.brawlhalla {
+    background-color: @bg;
+    color: @fg;
+    border-color: @ec;
+    font-family: "Lato", sans-serif;
+}
+
+.sectionName {
+    margin: 8px 0;
+    overflow: hidden;
+    width: 144px;
+
+    .contents {
+        white-space: nowrap;
+        text-wrap: none;
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 0 !important;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+.section1v1 {
+    margin: 8px 0;
+}
+
+.section2v2 {
+    margin: 8px 0;
+}
+
+.caption {
+    font-size: smaller;
+    text-align: center;
+}
+
+.value {
+    font-size: x-large;
+    text-align: center;
+}
+
+.mmr {
+    font-size: xx-small;
+}
