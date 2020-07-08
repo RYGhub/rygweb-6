@@ -21,7 +21,7 @@ export default function (props) {
 					</div>
 					<div>
 						<span className={style.value}>
-							{props.data["1v1"].rating}
+							{props.data["1v1"] ? props.data["1v1"].rating : "-"}
 						</span>
 					</div>
 				</Link>
@@ -32,7 +32,7 @@ export default function (props) {
 				</div>
 				<div>
 					<span className={style.value}>
-						{props.data["2v2"].rating}
+						{props.data["2v2"] ? props.data["2v2"].rating : "-"}
 					</span>
 				</div>
 			</div>
