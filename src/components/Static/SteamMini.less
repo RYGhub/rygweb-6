@@ -11,35 +11,32 @@
     border-color: @steamec;
 }
 
-.sectionName {
-    margin: 8px 0;
-    overflow: hidden;
-    width: 144px;
-    align-self: start;
+.header {
+    white-space: nowrap;
+    text-wrap: none;
 
-    .contents {
-        white-space: nowrap;
-        text-wrap: none;
+    .frame {
+        background: linear-gradient( to bottom, #53a4c4 5%, #458097 95%);
+        width: 34px;
+        height: 34px;
+        padding: 1px;
+        display: inline-block;
+        vertical-align: middle;
 
-        .frame {
-            background: linear-gradient( to bottom, #53a4c4 5%, #458097 95%);
-            width: 34px;
-            height: 34px;
-            padding: 1px;
-            display: inline-block;
-            vertical-align: middle;
-
-            .avatar {
-                background: linear-gradient( to bottom, #41778f 5%, #3d697b 95%);
-                width: 32px;
-                height: 32px;
-                border-radius: 0 !important;
-            }
+        .avatar {
+            background: linear-gradient( to bottom, #41778f 5%, #3d697b 95%);
+            width: 32px;
+            height: 32px;
+            border-radius: 0 !important;
         }
+    }
+
+    .personaName {
+        margin-left: 4px;
     }
 }
 
-.sectionAccCreation {
+.keyvalue {
     margin: 4px 0;
 
     .caption {
@@ -54,9 +51,10 @@
     }
 }
 
-.sectionButtons {
-    align-self: start;
+.buttons {
     margin-top: auto;
+
+    align-self: end;
 
     .button {
         width: 32px;

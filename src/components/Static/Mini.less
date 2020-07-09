@@ -1,16 +1,57 @@
 @import "../../styles/constants.less";
 
 .mini {
-    padding: 8px;
+    padding: 4px 8px;
+
     height: 300px;
     width: 160px;
+
     border-top-width: 2px;
     border-top-style: solid;
 
     flex-shrink: 0;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 
     border-radius: 4px;
+}
+
+.top {
+    margin-bottom: 12px;
+
+    font-size: x-small;
+
+    display: flex;
+
+    .user {
+
+    }
+
+    .icon {
+        width: 1.2em;
+        height: 1.2em;
+        border-radius: 0 !important;
+        margin-left: auto;
+
+        vertical-align: text-bottom;
+    }
+}
+
+.header {
+    margin: 4px 0;
+
+    overflow: hidden;
+    align-self: start;
+}
+
+.body {
+    margin: 4px 0;
+
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }

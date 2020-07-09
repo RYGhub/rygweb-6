@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown/with-html';
 import AnyLink from '../Dynamic/Link';
 import { Image } from 'bluelib';
 

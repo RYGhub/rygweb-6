@@ -16,26 +16,20 @@
     border-color: @ec;
 }
 
-.sectionName {
-    margin: 8px 0;
-    overflow: hidden;
-    width: 144px;
+.header {
+    white-space: nowrap;
+    text-wrap: none;
 
-    .contents {
-        white-space: nowrap;
-        text-wrap: none;
-
-        .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 0 !important;
-            display: inline-block;
-            vertical-align: middle;
-        }
+    .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 0 !important;
+        display: inline-block;
+        vertical-align: middle;
     }
 }
 
-.sectionWl {
+.wl {
     display: grid;
     text-align: center;
     margin: 4px;
@@ -79,10 +73,19 @@
 }
 
 
-.sectionRank {
+.rank {
     margin-top: auto;
 
-    .full {
+    .name {
+        text-transform: capitalize;
+        text-align: center;
+
+        margin-bottom: 8px;
+    }
+
+    .fullMedal {
+        margin: 8px auto 0;
+
         width: 100px;
         height: 100px;
 
@@ -100,10 +103,5 @@
             top: -104px;
             border-radius: 0 !important;
         }
-    }
-
-    .name {
-        text-transform: capitalize;
-        text-align: center;
     }
 }
