@@ -21,7 +21,7 @@ export default function (props) {
 					1v1
 				</div>
 				<div class={style.value}>
-					{props.steam.brawlhalla["1v1"] ? props.steam.brawlhalla["1v1"].rating : "-"}
+					{props.steam.brawlhalla["1v1"] ? props.steam.brawlhalla["1v1"].rating : "-"} <small class={style.mmr}>MMR</small>
 				</div>
 			</div>
 			<div className={style.section2v2}>
@@ -29,7 +29,7 @@ export default function (props) {
 					2v2
 				</div>
 				<div class={style.value}>
-					{props.steam.brawlhalla["2v2"] ? props.steam.brawlhalla["2v2"].rating : "-"}
+					{props.steam.brawlhalla["2v2"] ? props.steam.brawlhalla["2v2"].rating : "-"} <small class={style.mmr}>MMR</small>
 				</div>
 			</div>
 		</Fragment>

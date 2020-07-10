@@ -19,7 +19,7 @@ export default function (props) {
 	if(data === undefined) {
 		return (
 			<Panel>
-				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Loading pages list...
+				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Caricamento...
 			</Panel>
 		)
 	}

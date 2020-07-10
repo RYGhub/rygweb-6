@@ -1,8 +1,8 @@
 import { Panel, Section } from 'bluelib';
 import SteamMini from './SteamMini';
-import style from './LinkedAccountsBox.less';
 import DotaMini from './DotaMini';
 import BrawlhallaMini from './BrawlhallaMini';
+import MiniHolder from './MiniHolder';
 
 export default function (props) {
 	const minis = [];
@@ -25,9 +25,9 @@ export default function (props) {
 
 	return (
 		<Panel title={"Account connessi"}>
-			<div class={style.flex}>
+			<MiniHolder>
 				{minis}
-			</div>
+			</MiniHolder>
 		</Panel>
 	);
 }

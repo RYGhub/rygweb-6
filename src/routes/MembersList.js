@@ -17,9 +17,9 @@ export default function (props) {
 
 	if(data === undefined) {
 		return (
-			<p>
-				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Loading members list...
-			</p>
+			<Panel>
+				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Caricamento...
+			</Panel>
 		)
 	}
 

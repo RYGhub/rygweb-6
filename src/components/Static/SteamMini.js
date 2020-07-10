@@ -21,14 +21,30 @@ export default function (props) {
 
 	const body = (
 		<Fragment>
-			<div class={style.keyvalue}>
-				<div class={style.caption}>
-					Account creato il
+			<div className={style.keyvalue}>
+				<div className={style.caption}>
+					Livello
 				</div>
-				<div class={style.value}>
-					<time dateTime={new Date(props.steam.account_creation_date).toISOString()}>
-						{new Date(props.steam.account_creation_date).toLocaleDateString()}
-					</time>
+				<div className={style.value}>
+					{props.steam.account_level}
+				</div>
+			</div>
+			<div className={style.keyvalue}>
+				<div className={style.caption}>
+					Giochi posseduti
+				</div>
+				<div className={style.value}>
+					{props.steam.owned_games_count}
+				</div>
+			</div>
+			<div className={style.keyvalue}>
+				<div className={style.caption}>
+					Più giocato (2 sett.)
+				</div>
+				<div className={style.value}>
+					<a href={`https://store.steampowered.com/app/${props.steam.most_played_game_2weeks}/`}>
+						<img class={style.mostplayed} src={`https://steamcdn-a.akamaihd.net/steam/apps/${props.steam.most_played_game_2weeks}/header.jpg`} alt={""}/>
+					</a>
 				</div>
 			</div>
 			<div class={style.buttons}>

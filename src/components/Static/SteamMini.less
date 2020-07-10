@@ -1,14 +1,15 @@
 @import "../../styles/constants.less";
 
-@steambg: #1B2838;
-@steamfg: #8F98A0;
-@steamec: #66C0F4;
+@bg: #1B2838;
+@minor: #8F98A0;
+@major: white;
+@title: #66C0F4;
 
 .steam {
-    background-color: @steambg;
-    color: @steamfg;
+    background-color: @bg;
+    color: @minor;
     font-family: "Arial", sans-serif;
-    border-color: @steamec;
+    border-color: @title;
 }
 
 .header {
@@ -46,7 +47,7 @@
 
     .value {
         font-size: large;
-        color: @steamec;
+        color: @major;
         text-align: center;
     }
 }
@@ -65,7 +66,7 @@
         color: #9d9c9b;
 
         &:hover, &:active {
-            background-color: fade(@steamec, 40%);
+            background-color: fade(@title, 40%);
             color: white;
         }
 
@@ -76,4 +77,9 @@
             top: 7px;
         }
     }
+}
+
+.mostplayed {
+    width: 120px;
+    margin-top: 4px;
 }

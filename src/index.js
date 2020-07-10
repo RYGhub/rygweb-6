@@ -1,4 +1,6 @@
 // Import debugging tools
+import Leaderboards from './routes/Leaderboards';
+
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
 	console.debug("Initializing Preact Debugger...");
@@ -79,6 +81,10 @@ export default function(props) {
 			<Link href={"/w"} icon={false}>
 				Wiki
 			</Link>,
+			" | ",
+			<Link href={"/leaderboards"} icon={false}>
+				Classifiche
+			</Link>,
 		],
 		right: [
 			<LoginProfile/>
@@ -103,6 +109,7 @@ export default function(props) {
 					<WikiNew path={"/w/new"}/>
 					<WikiList path={"/w"}/>
 					<ErrorBox default error={new Error("Page not found")}/>
+					<Leaderboards path={"/leaderboards"}/>
 				</Router>
 				<Footer>
 					<Link href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</Link>

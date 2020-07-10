@@ -15,6 +15,40 @@ export default function (props) {
 		text = `${props.steam.dota.rank.medal.toLowerCase()} ${props.steam.dota.rank.rank}`
 	}
 
+	let rank;
+	if(props.steam.dota.rank) {
+		rank = (
+			<Fragment>
+				<div className={style.name}>
+					{`${props.steam.dota.rank.medal.toLowerCase()} ${props.steam.dota.rank.rank}`}
+				</div>
+				<div className={style.fullMedal}>
+					<img className={style.medal}
+						 alt={""}
+						 src={`https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${Math.floor(props.steam.dota.rank.raw / 10)}.png`}/>
+					<img className={style.stars}
+						 alt={""}
+						 src={`https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_${props.steam.dota.rank.raw % 10}.png`}/>
+				</div>
+			</Fragment>
+		);
+	}
+	else {
+		rank = (
+			<Fragment>
+				<div className={style.name}>
+					{text}
+				</div>
+				<div className={style.fullMedal}>
+					<img className={style.medal}
+						 alt={""}
+						 src={`https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_0.png`}/>
+				</div>
+			</Fragment>
+		);
+	}
+
+
 	const header = (
 		<Link icon={false} class={style.header} href={`https://www.opendota.com/players/${props.steam.steamid32}`}>
 			<img class={style.avatar} src={props.steam.avatar} alt={""}/>
@@ -43,17 +77,7 @@ export default function (props) {
 				</div>
 			</div>
 			<div className={style.rank}>
-				<div className={style.name}>
-					{text}
-				</div>
-				<div className={style.fullMedal}>
-					<img className={style.stars}
-						 alt={""}
-						 src={stars}/>
-					<img className={style.medal}
-						 alt={""}
-						 src={medal}/>
-				</div>
+				{rank}
 			</div>
 		</Fragment>
 	);
