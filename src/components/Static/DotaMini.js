@@ -16,7 +16,7 @@ export default function (props) {
 	}
 
 	const header = (
-		<Link icon={false} class={style.contents} href={`https://www.opendota.com/players/${props.steam.steamid32}`}>
+		<Link icon={false} class={style.header} href={`https://www.opendota.com/players/${props.steam.steamid32}`}>
 			<img class={style.avatar} src={props.steam.avatar} alt={""}/>
 			&nbsp;
 			{props.steam.persona_name}
