@@ -1,0 +1,136 @@
+@bg: #0a1428;
+@fg: #c8aa6e;
+@ec: white;
+
+@font-face {
+    font-family: "Beaufort for LOL";
+    src: url("https://s.lolstatic.com/awesomefonts/1.0.0/Fonts/BeaufortforLOL-Bold.eot?#iefix") format("eot"), url("https://s.lolstatic.com/awesomefonts/1.0.0/Fonts/BeaufortforLOL-Bold.woff") format("woff"), url("https://s.lolstatic.com/awesomefonts/1.0.0/Fonts/BeaufortforLOL-Bold.ttf") format("truetype"), url("https://s.lolstatic.com/awesomefonts/1.0.0/Fonts/BeaufortforLOL-Bold.svg#") format("svg");
+    font-style: normal;
+    font-weight: 700;
+}
+
+.mini {
+    background-color: @bg;
+    color: @fg;
+    font-family: "Radiance", sans-serif;
+    border-color: @fg;
+}
+
+.header {
+    white-space: nowrap;
+    text-wrap: none;
+
+    .frame {
+        width: 32px;
+        height: 32px;
+        border-radius: 36px !important;
+        padding: 2px;
+        display: inline-block;
+
+        &.grey {
+            background-color: #aaaaaa;
+        }
+
+        &.white {
+            background-color: white;
+        }
+
+        &.green {
+            background-color: #bdee59;
+        }
+
+        &.blue {
+            background-color: #88ffff;
+        }
+
+        &.red {
+            background-color: #ff8e57;
+        }
+
+        .avatar {
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 32px !important;
+        }
+    }
+}
+
+.level {
+    text-align: center;
+    margin: 12px 0;
+
+    .text {
+        font-size: smaller;
+        margin-right: 4px;
+    }
+
+    .value {
+        background-color: @bg;
+        color: @ec;
+        margin-left: 4px;
+
+
+        font-size: larger;
+
+        &.grey {
+            color: #aaaaaa;
+        }
+
+        &.white {
+            color: white;
+        }
+
+        &.green {
+            color: #bdee59;
+        }
+
+        &.blue {
+            color: #88ffff;
+        }
+
+        &.red {
+            color: #ff8e57;
+        }
+    }
+}
+
+.rank {
+    display: grid;
+    grid-template-columns: 52px auto;
+
+    align-items: center;
+    justify-items: center;
+
+    margin: 4px 0;
+
+    .img {
+        border-radius: 0 !important;
+
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column: 1;
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .queue {
+        color: @fg;
+
+        grid-row: 1;
+        grid-column: 2;
+
+        font-size: smaller;
+    }
+
+    .name {
+        color: @ec;
+
+        grid-row: 2;
+        grid-column: 2;
+
+        font-size: large;
+    }
+}

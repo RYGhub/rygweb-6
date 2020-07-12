@@ -3,6 +3,7 @@ import SteamMini from './SteamMini';
 import DotaMini from './DotaMini';
 import BrawlhallaMini from './BrawlhallaMini';
 import MiniHolder from './MiniHolder';
+import LeagueMini from './LeagueMini';
 
 export default function (props) {
 	const minis = [];
@@ -17,6 +18,10 @@ export default function (props) {
 		if(steam.brawlhalla) {
 			minis.push(<BrawlhallaMini user={props.data} steam={steam}/>);
 		}
+	}
+
+	for(let league of props.data.leagueoflegends) {
+		minis.push(<LeagueMini user={props.data} league={league}/>);
 	}
 
 	if(minis.length === 0) {

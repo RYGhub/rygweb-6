@@ -9,6 +9,7 @@ import DotaMini from '../components/Static/DotaMini';
 import BrawlhallaMini from '../components/Static/BrawlhallaMini';
 import MiniHolder from '../components/Static/MiniHolder';
 import { Fragment } from 'preact';
+import LeagueMini from '../components/Static/LeagueMini';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/user/ryg/list/v1");
@@ -30,6 +31,7 @@ export default function (props) {
 	let steamMinis = [];
 	let dotaMinis = [];
 	let brawlhallaMinis = [];
+	let leagueMinis = [];
 
 	for(let user of data) {
 		for(let steam of user.steam) {
@@ -42,6 +44,10 @@ export default function (props) {
 			if(steam.brawlhalla) {
 				brawlhallaMinis.push(<BrawlhallaMini user={user} steam={steam}/>);
 			}
+		}
+
+		for(let league of user.leagueoflegends) {
+			leagueMinis.push(<LeagueMini user={user} league={league}/>);
 		}
 	}
 
@@ -99,6 +105,18 @@ export default function (props) {
 		}
 	});
 
+	leagueMinis.sort((a, b) => {
+		if(a.props.league.summoner_level > b.props.league.summoner_level) {
+			return -1;
+		}
+		else if(a.props.league.summoner_level === b.props.league.summoner_level) {
+			return 0;
+		}
+		else {
+			return 1;
+		}
+	});
+
 	return (
 		<Fragment>
 			<Panel title={"Steam"}>
@@ -114,6 +132,11 @@ export default function (props) {
 			<Panel title={"Brawlhalla"}>
 				<MiniHolder>
 					{brawlhallaMinis}
+				</MiniHolder>
+			</Panel>
+			<Panel title={"League of Legends"}>
+				<MiniHolder>
+					{leagueMinis}
 				</MiniHolder>
 			</Panel>
 		</Fragment>
