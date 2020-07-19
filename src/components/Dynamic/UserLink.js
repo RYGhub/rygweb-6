@@ -16,7 +16,7 @@ export default function (props) {
 	let loadingText;
 	if(!props.children) {
 		if(props.uid) {
-			loadingText = props.uid;
+			loadingText = `/u/${props.uid}`;
 		}
 		else if(props.alias) {
 			loadingText = props.alias;
