@@ -33,7 +33,7 @@ export default function (props) {
 
 	return (
 		<StaticWikiLink data={data}>
-			{props.child}
+			{props.children ? props.children : data.title}
 		</StaticWikiLink>
 	);
 }
