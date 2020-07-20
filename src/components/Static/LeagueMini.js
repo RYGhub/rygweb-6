@@ -74,26 +74,13 @@ export default function (props) {
 
 	);
 
-	const tftq = (
-		<div className={style.rank}>
-			<img class={style.img} alt={""}
-				 src={`https://combo.steffo.eu/open/lol/Emblem_${props.league.tftq.tier}.png`}/>
-			<div className={style.queue}>
-				TFT
-			</div>
-			<div className={style.name}>
-				{ props.league.tftq.wins !== null ? props.league.tftq.tier + " " + props.league.tftq.rank : "-" }
-			</div>
-		</div>
-
-	);
-
 	const body = (
 		<Fragment>
 			{level}
-			{soloq}
-			{flexq}
-			{tftq}
+			<div class={style.ranks}>
+				{soloq}
+				{flexq}
+			</div>
 		</Fragment>
 	);
 
