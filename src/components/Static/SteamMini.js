@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import Link from '../Dynamic/Link';
 import { Fragment } from 'preact';
+import { concatClass } from 'bluelib';
 
 
 export default function (props) {
@@ -37,7 +38,7 @@ export default function (props) {
 					{props.steam.owned_games_count}
 				</div>
 			</div>
-			<div className={style.keyvalue}>
+			<div className={concatClass(style.keyvalue, style.bottom)}>
 				<div className={style.caption}>
 					Più giocato (2 sett.)
 				</div>
@@ -46,15 +47,6 @@ export default function (props) {
 						<img class={style.mostplayed} src={`https://steamcdn-a.akamaihd.net/steam/apps/${props.steam.most_played_game_2weeks}/header.jpg`} alt={""}/>
 					</a>
 				</div>
-			</div>
-			<div class={style.buttons}>
-				<a href={`steam://friends/add/${props.steam.steamid64}`}>
-					<div class={style.button}>
-						<div class={style.buttoncontent}>
-							<FontAwesomeIcon icon={faUserPlus}/>
-						</div>
-					</div>
-				</a>
 			</div>
 		</Fragment>
 	);
