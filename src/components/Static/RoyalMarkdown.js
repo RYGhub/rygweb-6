@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown/with-html';
 import AnyLink from '../Dynamic/Link';
 import { Image } from 'bluelib';
 import style from './RoyalMarkdown.less';
@@ -13,6 +13,7 @@ export default function (props) {
 					"image": Image
 				}}
 				escapeHtml={false}
+				skipHtml={false}
 			/>
 		</div>
 	);
