@@ -5,6 +5,7 @@ import { faPlusSquare, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Link from '../components/Dynamic/Link';
 import { useContext } from 'preact/hooks';
 import StaticWikiLink from '../components/Static/StaticWikiLink';
+import IconUl from '../components/Static/IconUl';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/wiki/list/v2");
@@ -44,9 +45,9 @@ export default function (props) {
 		}
 		panels.push(
 			<Panel title={category}>
-				<ul>
+				<IconUl>
 					{pages}
-				</ul>
+				</IconUl>
 			</Panel>
 		)
 	}

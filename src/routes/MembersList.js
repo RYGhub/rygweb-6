@@ -1,10 +1,11 @@
-import { Panel, useRoyalnetData } from 'bluelib';
+import { Panel, Section, Split, useRoyalnetData } from 'bluelib';
 import ErrorBox from '../components/Static/ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import AnyLink from '../components/Dynamic/Link';
 import StaticUserLink from '../components/Static/StaticUserLink';
 import QuadriColumnList from '../components/Static/QuadriColumnList';
+import Wiki from '../components/Dynamic/WikiExisting';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/user/ryg/list/v1");
@@ -37,17 +38,16 @@ export default function (props) {
 	});
 	let items = users.map((user) => {
 		return (
-			<li>
-				<StaticUserLink data={user}>{user.username}</StaticUserLink>
-			</li>
+			<Panel title={<StaticUserLink data={user}>{user.username}</StaticUserLink>}/>
 		)
 	});
 
 	return (
-		<Panel title={"Membri"}>
-			<QuadriColumnList>
+		<Fragment>
+			<Wiki pageId={85}/>
+			<Section>
 				{items}
-			</QuadriColumnList>
-		</Panel>
+			</Section>
+		</Fragment>
 	);
 }

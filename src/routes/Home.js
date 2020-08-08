@@ -7,12 +7,19 @@ import MembersList from './MembersList';
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
 
+	let left;
+	if(loginStatus) {
+		left = <Wiki pageId={84}/>;
+	}
+	else {
+		left = <Wiki pageId={1}/>;
+	}
+
 	return (
 		<div>
 			<MainTitle src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐️ "}>Royal Games</MainTitle>
-			<Wiki pageId={1}/>
 			<Split>
-				<Wiki pageId={2}/>
+				{left}
 				<Wiki pageId={3}/>
 			</Split>
 		</div>

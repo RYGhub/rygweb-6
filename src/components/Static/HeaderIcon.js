@@ -1,4 +1,4 @@
-import style from "./Header.less";
+import style from "./Navbar.less";
 import { concatClass } from 'bluelib';
 
 

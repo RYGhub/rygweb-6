@@ -1,5 +1,6 @@
 // Import debugging tools
-import Leaderboards from './routes/Leaderboards';
+
+import NavbarDiv from './components/Static/NavbarDiv';
 
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
@@ -32,7 +33,8 @@ import "easymde/dist/easymde.min.css";
 import "./styles/override-easymde.less"
 
 import Router from 'preact-router';
-import Header from './components/Static/Header';
+import Leaderboards from './routes/Leaderboards';
+import Navbar from './components/Static/Navbar';
 import Footer from './components/Static/Footer';
 import Home from './routes/Home';
 import HeaderIcon from './components/Static/HeaderIcon';
@@ -67,30 +69,6 @@ export default function(props) {
 		storeValues(instanceUrl, value);
 	}
 
-	let header = {
-		left: [
-			<Link href={"/"} icon={false}>
-				<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
-				&nbsp;Royal Games
-			</Link>,
-			" | ",
-			<Link href={"/u"} icon={false}>
-				Membri
-			</Link>,
-			" | ",
-			<Link href={"/w"} icon={false}>
-				Wiki
-			</Link>,
-			" | ",
-			<Link href={"/leaderboards"} icon={false}>
-				Classifiche
-			</Link>,
-		],
-		right: [
-			<LoginProfile/>
-		]
-	};
-
 	return (
 		<CurrentPage.Provider value={currentPage}>
 		<RoyalnetInstanceUrl.Provider value={instanceUrl}>
@@ -98,7 +76,35 @@ export default function(props) {
 
 		<div id="app" class={theme.bluelib}>
 			<BasicContainer>
-				<Header left={header.left} right={header.right}/>
+				<Navbar>
+					<NavbarDiv href={"/"}>
+						<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
+						&nbsp;Royal Games
+					</NavbarDiv>
+					<NavbarDiv href={"/u"}>
+						Membri
+					</NavbarDiv>
+					<NavbarDiv href={"/w"}>
+						Wiki
+					</NavbarDiv>
+					<NavbarDiv href={"/leaderboards"}>
+						Statistiche
+					</NavbarDiv>
+					<NavbarDiv disabled={true}>
+						Diario
+					</NavbarDiv>
+					<NavbarDiv disabled={true}>
+						Chat
+					</NavbarDiv>
+					<NavbarDiv disabled={true}>
+						Matchmaking
+					</NavbarDiv>
+					<NavbarDiv disabled={true}>
+						Votazioni
+					</NavbarDiv>
+
+					<LoginProfile/>
+				</Navbar>
 				<Router history={createHashHistory()} onChange={onPageChange}>
 					<Home path={"/"}/>
 					<InstanceSelectBox path={"/instance"} onConfirm={setInstanceUrl}/>
