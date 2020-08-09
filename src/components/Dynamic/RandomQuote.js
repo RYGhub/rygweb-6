@@ -1,78 +1,28 @@
-const citazioni = [
-	"Questa non è skill, è un &hearts;&hearts;&hearts;&hearts;&hearts; &hearts;&hearts;&hearts;",
-	"Basta rallentare internet con i porno!",
-	"Viva STIM!",
-	"Ma la mela... ha la barba?",
-	"Igor è il migliore a Dota.",
-	"Cosa fa un'ape su una foglia? Apeggia!",
-	<span>Il tappeto ha i <b>PELETTI</b>!</span>,
-	"Seeee seeee seeeeeeeeeeeeeeeeeee",
-	<span>Quel tipo <b>NON MUORE</b>!</span>,
-	<b>FAI SCENDERE QUESTA NAVE!</b>,
-	"Questo sito usa AIMBOT.",
-	<span>Sensei<small>sei<small>sei</small></small></span>,
-	"Igor è ora Senza Codino.",
-	"Ste! Ste! I GLITCH!",
-	"Ste, prendi gli orologi, non i braccialetti!",
-	"Ah non lo so io!",
-	"Questo è bello!",
-	"Beh sì, capolavoro!",
-	<span>Nel <b>MAREEEEEE</b></span>,
-	"Ma che oh!",
-	"Alè AIMBOT WALLHACK!",
-	<span>WhaaaaAAAAAAAA<b>AAAAAAA</b>AAAAAAAaaaat</span>,
-	<a href="https://www.youtube.com/watch?v=WUhOnX8qt3I\">Do you believe in magic?</a>,
-	"Ma è bellissimo!",
-	"Furbuffissimo!",
-	"Capitan Balu!",
-	<span>Basta, io qui <b>cambio gilda</b>!</span>,
-	"Non paga mai nessuno l'affitto!",
-	"Grafica: c'è. Troppa acqua. 9/10 IGN",
-	"Heroes of the Storm: Come Skyrim, con i cavalli. 9/11 IGN",
-	"Il tuo PC è pieno di virus cinesi!",
-	"ORA VA SKYRIM SUL MIO PC!",
-	"Zuppa",
-	"Frank è una banana.",
-	"Max è uno shoppone!",
-	"C'è del pepe!",
-	"0 in gioco, 0 online, 5 in chat",
-	"Coming soon at a PC near you.",
-	<span>Voi volete fare solo <b>big money</b></span>,
-	"Moneygrabber",
-	<a href="http://pastebin.com/raw.php?i=7nKgG10c\">Vendere sul mercato è come pagare le tasse!</a>,
-	"FSHHHCRRRCHFSSSSSSSSSS",
-	"Hai vinto la Fascia del Maestro!",
-	"Hai vinto la Medaglia del Gran Maestro!",
-	"Hai vinto il Medaglione del Maestro Supremo!",
-	"Hai vinto un Medaglione di Pollo!",
-	"Frank happens.",
-	"Frank being Frank",
-	"Allah VACBAAAAN",
-	"Muscatello plis",
-	"La password non é admin!",
-	"VAC BANNED",
-	"Ehiiii, Argento Dueeee",
-	"Ehiiii, Argento Treeee",
-	"Spari sì o no?",
-	"Tranquilli, sono deboli",
-	"Chorus of Icarus Online",
-	"Mumble o Steam?",
-	"Votchic",
-	"Votkik",
-	"Votekick",
-	"Consiglio #206",
-	"Perchè fanno server London e non server Piumazzo?!",
-	"Non è Wallhack! E' di più! Di più!",
-	"Sono finalmente usciti i server Piumazzo su Dota!",
-	"*rumore di ventilatore*",
-	"QUEL VENTILATORE!!!",
-	"Overthrow o Dota Imba?",
-	"Ho la Z appiccicosa",
-	"Il messaggio passa"
-];
+import { useRoyalnetData } from 'bluelib';
+import ErrorAbbr from '../Static/ErrorAbbr';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function(props) {
-	const n = Math.floor(Math.random() * citazioni.length);
+	const [data, error] = useRoyalnetData("GET", "/api/diario/random/v1", {
+		amount: 1
+	});
 
-	return <span class={props.class}>"{citazioni[n]}"</span>;
+	if(error !== undefined) {
+		return (
+			<ErrorAbbr error={error}>Errore</ErrorAbbr>
+		);
+	}
+
+	if(data === undefined) {
+		return (
+			<span>
+				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Loading...
+			</span>
+		);
+	}
+
+	const quote = data[0];
+
+	return <a href={`/d/${quote.diario_id}`} class={props.class}>"{quote.text}"</a>;
 }

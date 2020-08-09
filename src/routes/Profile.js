@@ -10,24 +10,13 @@ import RoyalMarkdown from '../components/Static/RoyalMarkdown';
 import ChangePasswordBox from '../components/Dynamic/ChangePasswordBox';
 import ChangeAvatarBox from '../components/Dynamic/ChangeAvatarBox';
 import LinkedAccountsBox from '../components/Static/LinkedAccountsBox';
+import ChangeBioBox from '../components/Dynamic/ChangeBioBox';
 
 export default function (props) {
 	const loginStatus = useContext(RoyalnetLoginStatus);
-	const [userData, userError] = useRoyalnetData("GET", "/api/user/ryg/v2", {
+	const [userData, userError, refresh] = useRoyalnetData("GET", "/api/user/ryg/v2", {
 		uid: props.uid
 	});
-
-	let changeAvatarBox = null;
-	let changePasswdBox = null;
-	let logoutBox = null;
-	if(loginStatus) {
-		// noinspection EqualityComparisonWithCoercionJS
-		if(loginStatus.user.uid == props.uid) {
-			changeAvatarBox = <ChangeAvatarBox currentAvatar={loginStatus.user.avatar_url}/>;
-			changePasswdBox = <ChangePasswordBox/>;
-			logoutBox = <LogoutBox logout={props.logout}/>;
-		}
-	}
 
 	if(userError !== undefined) {
 		return (
@@ -41,28 +30,43 @@ export default function (props) {
 		)
 	}
 
-	/*
+
+	let settings = null;
+	if(loginStatus) {
+		// noinspection EqualityComparisonWithCoercionJS
+		if(loginStatus.user.uid == props.uid) {
+			settings = (
+				<Fragment>
+					<hr/>
+					<h1>
+						Impostazioni
+					</h1>
+					<ChangeBioBox refresh={refresh} initial={userData.bio ? userData.bio.contents : ""}/>
+					<ChangeAvatarBox currentAvatar={loginStatus.user.avatar_url}/>
+					<ChangePasswordBox/>
+					<LogoutBox logout={props.logout}/>
+				</Fragment>
+			)
+		}
+	}
+
 	let bioBox = null;
 	if(userData.bio) {
 		bioBox = (
 			<Panel title={"Bio"}>
-				<RoyalMarkdown>
-					{userData.bio.contents}
-				</RoyalMarkdown>
+				{userData.bio.contents}
 			</Panel>
 		)
 	}
-    */
 
 	return (
 		<div>
 			<HZero>
 				<Avatar data={userData}/> {userData.username}
 			</HZero>
+			{bioBox}
 			<LinkedAccountsBox data={userData}/>
-			{changeAvatarBox}
-			{changePasswdBox}
-			{logoutBox}
+			{settings}
 		</div>
 	);
 }
