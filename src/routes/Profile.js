@@ -1,12 +1,11 @@
 import { useContext } from 'preact/hooks';
-import { Panel, RoyalnetLoginStatus, useRoyalnetData } from 'bluelib';
+import { Panel, RoyalnetLoginStatus, Section, useRoyalnetData } from 'bluelib';
 import LogoutBox from '../components/Dynamic/LogoutBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import ErrorBox from '../components/Static/ErrorBox';
 import Avatar from '../components/Static/Avatar';
 import { HZero } from 'bluelib';
-import RoyalMarkdown from '../components/Static/RoyalMarkdown';
 import ChangePasswordBox from '../components/Dynamic/ChangePasswordBox';
 import ChangeAvatarBox from '../components/Dynamic/ChangeAvatarBox';
 import LinkedAccountsBox from '../components/Static/LinkedAccountsBox';
@@ -43,8 +42,10 @@ export default function (props) {
 					</h1>
 					<ChangeBioBox refresh={refresh} initial={userData.bio ? userData.bio.contents : ""}/>
 					<ChangeAvatarBox currentAvatar={loginStatus.user.avatar_url}/>
-					<ChangePasswordBox/>
-					<LogoutBox logout={props.logout}/>
+					<Section>
+						<ChangePasswordBox/>
+						<LogoutBox logout={props.logout}/>
+					</Section>
 				</Fragment>
 			)
 		}
