@@ -1,10 +1,6 @@
-import { Box, Panel, useRoyalnetData } from 'bluelib';
+import { Panel } from 'bluelib';
 import RoyalMarkdown from './RoyalMarkdown';
 import ErrorBox from './ErrorBox';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import Link from '../Dynamic/Link';
-import { HZero } from 'bluelib';
 
 export default function (props) {
 
@@ -25,7 +21,7 @@ export default function (props) {
 	if(props.full) {
 		return (
 			<Panel>
-				<HZero>{props.data.title}</HZero>
+				<h1>{props.data.title}</h1>
 				{wikiContents}
 			</Panel>
 		);

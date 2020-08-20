@@ -52,7 +52,15 @@ import WikiNew from './components/Dynamic/WikiNew';
 import MembersList from './routes/MembersList';
 import { createHashHistory } from 'history';
 import { useState } from 'preact/hooks';
-import { RoyalnetLoginStatus, theme, useLoginDataStorage, RoyalnetInstanceUrl, BasicContainer, CurrentPage } from 'bluelib';
+import {
+	RoyalnetLoginStatus,
+	theme,
+	useLoginDataStorage,
+	RoyalnetInstanceUrl,
+	BasicContainer,
+	CurrentPage,
+	Bluelib
+} from 'bluelib';
 
 
 export default function(props) {
@@ -61,7 +69,7 @@ export default function(props) {
 		setCurrentPage(event.url);
 	};
 
-	const [instanceUrl, loginStatus, storeValues, logout] = useLoginDataStorage("https://api.ryg.steffo.eu");
+	const [instanceUrl, loginStatus, storeValues, logout] = useLoginDataStorage("https://rygapi.steffo.eu");
 	function setInstanceUrl(value) {
 		storeValues(value, loginStatus);
 	}
@@ -74,11 +82,11 @@ export default function(props) {
 		<RoyalnetInstanceUrl.Provider value={instanceUrl}>
 		<RoyalnetLoginStatus.Provider value={loginStatus}>
 
-		<div id="app" class={theme.bluelib}>
+		<Bluelib>
 			<BasicContainer>
 				<Navbar>
 					<NavbarDiv href={"/"}>
-						<HeaderIcon src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐ ️"}/>
+						<HeaderIcon src={"https://ryg.s3.fr-par.scw.cloud/logos/blue/logo.svg"} alt={"⭐ ️"}/>
 						&nbsp;Royal Games
 					</NavbarDiv>
 					<NavbarDiv href={"/u"}>
@@ -125,7 +133,7 @@ export default function(props) {
 					<RoyalnetInstanceFooter/>
 				</Footer>
 			</BasicContainer>
-		</div>
+		</Bluelib>
 
 		</RoyalnetLoginStatus.Provider>
 		</RoyalnetInstanceUrl.Provider>

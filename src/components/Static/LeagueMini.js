@@ -50,7 +50,7 @@ export default function (props) {
 
 	const soloq = (
 		<div class={style.rank}>
-			<img class={style.img} alt={""} src={`https://combo.steffo.eu/open/lol/Emblem_${props.league.soloq.tier}.png`}/>
+			<img class={style.img} alt={""} src={`https://ryg.s3.fr-par.scw.cloud/resources/lol/Emblem_${props.league.soloq.tier}.png`}/>
 			<div class={style.queue}>
 				Solo/Duo
 			</div>
@@ -63,7 +63,7 @@ export default function (props) {
 	const flexq = (
 		<div className={style.rank}>
 			<img class={style.img} alt={""}
-				 src={`https://combo.steffo.eu/open/lol/Emblem_${props.league.flexq.tier}.png`}/>
+				 src={`https://ryg.s3.fr-par.scw.cloud/resources/lol/Emblem_${props.league.flexq.tier}.png`}/>
 			<div className={style.queue}>
 				Flex
 			</div>
@@ -85,7 +85,7 @@ export default function (props) {
 	);
 
 	const icon = (
-		<img src={""} alt={""}/>
+		<img src={"https://ryg.s3.fr-par.scw.cloud/resources/lol/icon.webp"} alt={""}/>
 	);
 
 	return (

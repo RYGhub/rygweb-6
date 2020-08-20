@@ -1,4 +1,4 @@
-import { Box, Panel, Section, Split, useRoyalnetData } from 'bluelib';
+import { Box, Panel, useRoyalnetData } from 'bluelib';
 import ErrorBox from '../components/Static/ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -45,9 +45,6 @@ export default function (props) {
 
 	return (
 		<div>
-			<Box color={BoxColors.YELLOW}>
-				<FontAwesomeIcon icon={faExclamationTriangle}/> Questa pagina fa uso di <Link href={"https://github.com/w3c/csswg-drafts/issues/4650"}>funzionalità sperimentali</Link> dei browser e potrebbe non essere visualizzata correttamente.
-			</Box>
 			<Wiki pageId={85}/>
 			<Masonry>
 				{items}

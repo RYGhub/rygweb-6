@@ -52,7 +52,7 @@ export default function (props) {
 	);
 
 	const icon = (
-		<img src={"https://combo.steffo.eu/open/steam.svg"} alt={""}/>
+		<img src={"https://ryg.s3.fr-par.scw.cloud/resources/steam/steam.svg"} alt={""}/>
 	);
 
 	return (

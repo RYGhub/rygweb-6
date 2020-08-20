@@ -1,18 +1,4 @@
 .masonry {
-    display: grid;
     /*noinspection CssInvalidPropertyValue*/
     grid-template-rows: masonry;
-    grid-template-columns: 25% 25% 25% 25%;
-}
-
-@media only screen and (max-width: 1024px) {
-    .masonry {
-        grid-template-columns: 50% 50%;
-    }
-}
-
-@media only screen and (max-width: 512px) {
-    .masonry {
-        grid-template-columns: 100%;
-    }
 }

@@ -17,7 +17,7 @@ export default function (props) {
 
 	return (
 		<div>
-			<MainTitle src={"https://combo.steffo.eu/open/ryg/LogoRoyalGames.svg"} alt={"⭐️ "}>Royal Games</MainTitle>
+			<MainTitle src={"https://ryg.s3.fr-par.scw.cloud/logos/blue/logo.svg"} alt={"⭐️ "}>Royal Games</MainTitle>
 			<Split>
 				{left}
 				<Wiki pageId={3}/>

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import ErrorBox from '../components/Static/ErrorBox';
 import Avatar from '../components/Static/Avatar';
-import { HZero } from 'bluelib';
 import ChangePasswordBox from '../components/Dynamic/ChangePasswordBox';
 import ChangeAvatarBox from '../components/Dynamic/ChangeAvatarBox';
 import LinkedAccountsBox from '../components/Static/LinkedAccountsBox';
@@ -62,9 +61,9 @@ export default function (props) {
 
 	return (
 		<div>
-			<HZero>
+			<h1>
 				<Avatar data={userData}/> {userData.username}
-			</HZero>
+			</h1>
 			{bioBox}
 			<LinkedAccountsBox data={userData}/>
 			{settings}

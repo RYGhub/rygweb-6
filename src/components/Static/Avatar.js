@@ -10,7 +10,7 @@ export default function (props) {
 		avatar_url = props.data.avatar_url;
 	}
 	else {
-		avatar_url = "https://combo.steffo.eu/open/ryg/GenericUser.png";
+		avatar_url = "https://ryg.s3.fr-par.scw.cloud/logos/blue/groups/no-avatar.png";
 	}
 
 	return (

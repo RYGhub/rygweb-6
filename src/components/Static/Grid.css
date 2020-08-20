@@ -1,0 +1,16 @@
+.grid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (max-width: 512px) {
+    .grid {
+        grid-template-columns: 100%;
+    }
+}

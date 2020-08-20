@@ -8,7 +8,7 @@ export default function (props) {
 
 	const header = (
 		<Link class={style.header} icon={false} href={`https://www.brawlhalla.com/rankings/1v1/?p=${props.steam.brawlhalla.name}`}>
-			<img className={style.avatar} src={"https://combo.steffo.eu/open/brawlhalla/BrawlhallaStandard.png"} alt={""}/>
+			<img className={style.avatar} src={"https://ryg.s3.fr-par.scw.cloud/resources/brawlhalla/BrawlhallaStandard.png"} alt={""}/>
 			&nbsp;
 			{props.steam.brawlhalla.name}
 		</Link>

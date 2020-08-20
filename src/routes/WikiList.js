@@ -6,8 +6,7 @@ import Link from '../components/Dynamic/Link';
 import { useContext } from 'preact/hooks';
 import StaticWikiLink from '../components/Static/StaticWikiLink';
 import IconUl from '../components/Static/IconUl';
-import Masonry from '../components/Static/Masonry';
-import { BoxColors } from 'bluelib/dist/index.modern';
+import Grid from '../components/Static/Grid';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/wiki/list/v2");
@@ -56,15 +55,12 @@ export default function (props) {
 
 	return (
 		<div>
-			<Box color={BoxColors.YELLOW}>
-				<FontAwesomeIcon icon={faExclamationTriangle}/> Questa pagina fa uso di <Link href={"https://github.com/w3c/csswg-drafts/issues/4650"}>funzionalità sperimentali</Link> dei browser e potrebbe non essere visualizzata correttamente.
-			</Box>
 			<Panel>
 				<Link icon={false} disabled={!(loginStatus && loginStatus.user.roles.includes("member"))} href={"/w/new"}><FontAwesomeIcon icon={faPlusSquare}/> Crea nuova</Link>
 			</Panel>
-			<Masonry>
+			<Grid>
 				{panels}
-			</Masonry>
+			</Grid>
 		</div>
 	);
 }
