@@ -1,7 +1,5 @@
 import style from './SteamMini.less';
 import Mini from './Mini';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import Link from '../Dynamic/Link';
 import { Fragment } from 'preact';
 import { concatClass } from 'bluelib';

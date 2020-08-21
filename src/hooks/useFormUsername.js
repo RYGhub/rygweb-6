@@ -1,5 +1,5 @@
 import { useContext, useState } from 'preact/hooks';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RoyalnetInstanceUrl, useRoyalnetData, Validity } from 'bluelib';
 import { faCheck, faExclamationCircle, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 

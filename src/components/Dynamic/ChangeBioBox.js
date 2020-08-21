@@ -2,7 +2,8 @@ import {
 	FormButton,
 	FormInput,
 	getEventValue,
-	Panel, royalnetApiRequest,
+	Panel,
+	royalnetApiRequest,
 	RoyalnetInstanceUrl,
 	RoyalnetLoginStatus,
 	Validity

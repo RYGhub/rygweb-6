@@ -1,4 +1,4 @@
-import style from "./QuadriColumnList.less";
+import style from './QuadriColumnList.less';
 
 export default function (props) {
 	return (

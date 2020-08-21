@@ -1,36 +1,13 @@
 // Import debugging tools
 
 import NavbarDiv from './components/Static/NavbarDiv';
-
-let Sentry = null;
-if(process.env.NODE_ENV === "development") {
-	console.debug("Initializing Preact Debugger...");
-	require("preact/debug");
-}
-else if(process.env.NODE_ENV === "production") {
-	console.debug("Initializing Sentry...");
-	Sentry = require("@sentry/browser");
-	// noinspection JSUnresolvedVariable
-	Sentry.init({
-		dsn: "https://3220f9abc0c4451e9cb2443504fe2986@o40131.ingest.sentry.io/5282299",
-		release: process.env.RELEASE,
-		environment: "production",
-		beforeSend(event) {
-			if (event.exception) {
-				Sentry.showReportDialog({ eventId: event.event_id });
-			}
-			return event;
-		}
-	});
-}
-
-import "bluelib/dist/index.css";
+import 'bluelib/dist/index.css';
 import './meta/manifest.json';
 import './meta/CNAME';
 import './meta/.nojekyll';
 import './meta/favicon.ico';
-import "easymde/dist/easymde.min.css";
-import "./styles/override-easymde.less"
+import 'easymde/dist/easymde.min.css';
+import './styles/override-easymde.less';
 
 import Router from 'preact-router';
 import Leaderboards from './routes/Leaderboards';
@@ -53,14 +30,35 @@ import MembersList from './routes/MembersList';
 import { createHashHistory } from 'history';
 import { useState } from 'preact/hooks';
 import {
-	RoyalnetLoginStatus,
-	theme,
-	useLoginDataStorage,
-	RoyalnetInstanceUrl,
 	BasicContainer,
+	Bluelib,
 	CurrentPage,
-	Bluelib
+	RoyalnetInstanceUrl,
+	RoyalnetLoginStatus,
+	useLoginDataStorage
 } from 'bluelib';
+
+let Sentry = null;
+if(process.env.NODE_ENV === "development") {
+	console.debug("Initializing Preact Debugger...");
+	require("preact/debug");
+}
+else if(process.env.NODE_ENV === "production") {
+	console.debug("Initializing Sentry...");
+	Sentry = require("@sentry/browser");
+	// noinspection JSUnresolvedVariable
+	Sentry.init({
+		dsn: "https://3220f9abc0c4451e9cb2443504fe2986@o40131.ingest.sentry.io/5282299",
+		release: process.env.RELEASE,
+		environment: "production",
+		beforeSend(event) {
+			if (event.exception) {
+				Sentry.showReportDialog({ eventId: event.event_id });
+			}
+			return event;
+		}
+	});
+}
 
 
 export default function(props) {

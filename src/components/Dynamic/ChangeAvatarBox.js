@@ -3,7 +3,8 @@ import {
 	FormButton,
 	FormInput,
 	getEventValue,
-	Panel, royalnetApiRequest,
+	Panel,
+	royalnetApiRequest,
 	RoyalnetInstanceUrl,
 	RoyalnetLoginStatus,
 	Validity
@@ -12,7 +13,7 @@ import { useContext, useState } from 'preact/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../Static/Avatar';
-import style from "./ChangeAvatarBox.less"
+import style from './ChangeAvatarBox.less';
 import UserLink from './UserLink';
 
 export default function (props) {

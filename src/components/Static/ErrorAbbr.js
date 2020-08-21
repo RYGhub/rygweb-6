@@ -1,4 +1,4 @@
-import style from "./ErrorAbbr.less"
+import style from './ErrorAbbr.less';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

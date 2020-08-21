@@ -1,4 +1,4 @@
-import style from "./NavbarDiv.less";
+import style from './NavbarDiv.less';
 import { BaseLink } from 'bluelib';
 
 export default function(props) {

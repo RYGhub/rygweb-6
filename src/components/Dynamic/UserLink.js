@@ -1,9 +1,8 @@
-import {useRoyalnetData} from 'bluelib';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSpinner} from '@fortawesome/free-solid-svg-icons';
+import { BaseLink, useRoyalnetData } from 'bluelib';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import ErrorAbbr from '../Static/ErrorAbbr';
 import StaticUserLink from '../Static/StaticUserLink';
-import { BaseLink } from 'bluelib';
 
 
 export default function (props) {

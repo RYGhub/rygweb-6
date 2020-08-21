@@ -1,4 +1,4 @@
-import { Box, FormButton, FormInput, getEventValue, Panel, RoyalnetLoginStatus, Section, Validity } from 'bluelib';
+import { FormButton, FormInput, getEventValue, Panel, RoyalnetLoginStatus, Validity } from 'bluelib';
 import useFormInstanceUrl from '../../hooks/useFormInstanceUrl';
 import { useContext } from 'preact/hooks';
 import ErrorBox from '../Static/ErrorBox';

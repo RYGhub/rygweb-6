@@ -1,4 +1,4 @@
-import style from "./MainTitle.less"
+import style from './MainTitle.less';
 import RandomQuote from '../Dynamic/RandomQuote';
 
 export default function(props) {

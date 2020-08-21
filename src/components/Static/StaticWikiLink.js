@@ -1,6 +1,5 @@
 import { useContext } from 'preact/hooks';
-import { RoyalnetLoginStatus } from 'bluelib';
-import { BaseLink } from 'bluelib';
+import { BaseLink, RoyalnetLoginStatus } from 'bluelib';
 import { canView } from '../../utils/wikiPermissions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faLock } from '@fortawesome/free-solid-svg-icons';

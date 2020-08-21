@@ -1,4 +1,4 @@
-import style from "./Masonry.css";
+import style from './Masonry.css';
 import Grid from './Grid';
 import { concatClass } from 'bluelib';
 

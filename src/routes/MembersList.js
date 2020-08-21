@@ -1,12 +1,10 @@
-import { Box, Panel, useRoyalnetData } from 'bluelib';
+import { Panel, useRoyalnetData } from 'bluelib';
 import ErrorBox from '../components/Static/ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Wiki from '../components/Dynamic/WikiExisting';
 import StaticUserBioBox from '../components/Static/StaticUserBioBox';
 import Masonry from '../components/Static/Masonry';
-import { BoxColors } from 'bluelib/dist/index.modern';
-import Link from '../components/Dynamic/Link';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/user/ryg/list/v1");

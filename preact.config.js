@@ -1,4 +1,5 @@
-import SentryCliPlugin from "@sentry/webpack-plugin";
+import SentryCliPlugin from '@sentry/webpack-plugin';
+
 const DefinePlugin = require("webpack/lib/DefinePlugin");
 const ProvidePlugin = require("webpack/lib/ProvidePlugin");
 

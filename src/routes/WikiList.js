@@ -1,7 +1,7 @@
-import { Box, Panel, RoyalnetLoginStatus, Split, useRoyalnetData } from 'bluelib';
+import { Panel, RoyalnetLoginStatus, useRoyalnetData } from 'bluelib';
 import ErrorBox from '../components/Static/ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle, faPlusSquare, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Link from '../components/Dynamic/Link';
 import { useContext } from 'preact/hooks';
 import StaticWikiLink from '../components/Static/StaticWikiLink';

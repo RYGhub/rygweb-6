@@ -4,10 +4,10 @@ import {
 	getEventValue,
 	Panel,
 	royalnetApiRequest,
-	RoyalnetInstanceUrl, RoyalnetLoginStatus,
+	RoyalnetInstanceUrl,
+	RoyalnetLoginStatus,
 	Validity
 } from 'bluelib';
-import useFormPassword from '../../hooks/useFormPassword';
 import { useContext, useState } from 'preact/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';

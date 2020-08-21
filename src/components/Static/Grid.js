@@ -1,4 +1,4 @@
-import style from "./Grid.css";
+import style from './Grid.css';
 import { concatClass } from 'bluelib';
 
 export default function(props) {

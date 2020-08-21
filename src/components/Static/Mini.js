@@ -1,5 +1,5 @@
 import style from './Mini.less';
-import { concatClass, LeftRight } from 'bluelib';
+import { concatClass } from 'bluelib';
 import StaticUserLink from './StaticUserLink';
 
 

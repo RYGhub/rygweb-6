@@ -1,8 +1,7 @@
 import { useState } from 'preact/hooks';
-import {useFormValidator} from 'bluelib';
-import { Validity } from 'bluelib';
+import { useFormValidator, Validity } from 'bluelib';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faEllipsisH, faExclamationTriangle, faKey, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 export default function() {
 	const [password, setPassword] = useState("");

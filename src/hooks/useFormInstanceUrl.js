@@ -1,6 +1,5 @@
 import { useContext, useState } from 'preact/hooks';
-import {useFormValidator} from 'bluelib';
-import { royalnetApiRequest, RoyalnetInstanceUrl, Validity } from 'bluelib';
+import { royalnetApiRequest, RoyalnetInstanceUrl, useFormValidator, Validity } from 'bluelib';
 
 export default function() {
 	const defaultInstanceUrl = useContext(RoyalnetInstanceUrl);

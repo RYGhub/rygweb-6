@@ -3,7 +3,9 @@ import UserLink from './UserLink';
 import {
 	faDiscord,
 	faGithub,
-	faRedditAlien, faSteam, faTelegram,
+	faRedditAlien,
+	faSteam,
+	faTelegram,
 	faTwitch,
 	faTwitter,
 	faWikipediaW,

@@ -2,8 +2,6 @@ import { Panel, useRoyalnetData } from 'bluelib';
 import ErrorBox from '../components/Static/ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import StaticUserLink from '../components/Static/StaticUserLink';
-import QuadriColumnList from '../components/Static/QuadriColumnList';
 import SteamMini from '../components/Static/SteamMini';
 import DotaMini from '../components/Static/DotaMini';
 import BrawlhallaMini from '../components/Static/BrawlhallaMini';

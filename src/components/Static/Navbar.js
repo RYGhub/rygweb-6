@@ -1,5 +1,5 @@
-import style from "./Navbar.less";
-import { Box, concatClass } from 'bluelib';
+import style from './Navbar.less';
+import { concatClass } from 'bluelib';
 
 
 export default function (props) {

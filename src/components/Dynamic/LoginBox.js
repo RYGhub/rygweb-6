@@ -1,16 +1,19 @@
 import {
-	Box, FormButton, FormInput,
-	getEventValue, Panel,
+	FormButton,
+	FormInput,
+	getEventValue,
+	Panel,
 	royalnetApiRequest,
 	RoyalnetInstanceUrl,
-	RoyalnetLoginStatus, Validity
+	RoyalnetLoginStatus,
+	Validity
 } from 'bluelib';
 import { useContext, useState } from 'preact/hooks';
 import ErrorBox from '../Static/ErrorBox';
 import useFormUsername from '../../hooks/useFormUsername';
 import useFormPassword from '../../hooks/useFormPassword';
 import { route } from 'preact-router';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import AnyLink from './Link';
 

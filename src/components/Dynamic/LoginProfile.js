@@ -1,6 +1,5 @@
 import { useContext } from 'preact/hooks';
 import { RoyalnetLoginStatus } from 'bluelib';
-import Link from './Link';
 import HeaderIcon from '../Static/HeaderIcon';
 import NavbarDiv from '../Static/NavbarDiv';
 

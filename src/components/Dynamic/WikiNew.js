@@ -1,8 +1,7 @@
-import { Box, Panel, royalnetApiRequest, RoyalnetInstanceUrl, RoyalnetLoginStatus, useRoyalnetData } from 'bluelib';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faCloudUploadAlt, faEye, faPencilAlt, faSave, faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { Box, LeftRight, royalnetApiRequest, RoyalnetInstanceUrl, RoyalnetLoginStatus } from 'bluelib';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUploadAlt, faPencilAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useState } from 'preact/hooks';
-import { LeftRight } from 'bluelib';
 import useWikiEdit from '../../hooks/useWikiEdit';
 import StaticWikiView from '../Static/StaticWikiView';
 import StaticWikiEdit from '../Static/StaticWikiEdit';

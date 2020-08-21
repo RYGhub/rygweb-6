@@ -1,4 +1,4 @@
-import { Panel, Section } from 'bluelib';
+import { Panel } from 'bluelib';
 import SteamMini from './SteamMini';
 import DotaMini from './DotaMini';
 import BrawlhallaMini from './BrawlhallaMini';

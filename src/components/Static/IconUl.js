@@ -1,5 +1,5 @@
 import { concatClass } from 'bluelib';
-import style from "./IconUl.less";
+import style from './IconUl.less';
 
 export default function(props) {
 	return (
