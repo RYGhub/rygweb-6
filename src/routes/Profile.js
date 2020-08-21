@@ -24,7 +24,7 @@ export default function (props) {
 
 	if(userData === undefined) {
 		return (
-			<h0><Avatar src={"https://combo.steffo.eu/open/ryg/GenericUser.png"} alt={""}/><FontAwesomeIcon icon={faSpinner} pulse={true}/></h0>
+			<h1><Avatar/> <FontAwesomeIcon icon={faSpinner} pulse={true}/></h1>
 		)
 	}
 
