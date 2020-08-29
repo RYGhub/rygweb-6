@@ -1,6 +1,3 @@
-// Import debugging tools
-
-import NavbarDiv from './components/Static/NavbarDiv';
 import 'bluelib/dist/index.css';
 import './meta/manifest.json';
 import './meta/CNAME';
@@ -8,7 +5,6 @@ import './meta/.nojekyll';
 import './meta/favicon.ico';
 import 'easymde/dist/easymde.min.css';
 import './styles/override-easymde.less';
-
 import Router from 'preact-router';
 import Leaderboards from './routes/Leaderboards';
 import Navbar from './components/Static/Navbar';
@@ -27,6 +23,7 @@ import RoyalnetInstanceFooter from './components/Dynamic/RoyalnetInstanceFooter'
 import WikiList from './routes/WikiList';
 import WikiNew from './components/Dynamic/WikiNew';
 import MembersList from './routes/MembersList';
+import NavbarDiv from './components/Static/NavbarDiv';
 import { createHashHistory } from 'history';
 import { useState } from 'preact/hooks';
 import {
@@ -37,6 +34,8 @@ import {
 	RoyalnetLoginStatus,
 	useLoginDataStorage
 } from 'bluelib';
+import Diario from './routes/Diario';
+import DiarioSlice from './routes/DiarioSlice';
 
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
@@ -94,9 +93,9 @@ export default function(props) {
 						Wiki
 					</NavbarDiv>
 					<NavbarDiv href={"/leaderboards"}>
-						Statistiche
+						Classifiche
 					</NavbarDiv>
-					<NavbarDiv disabled={true}>
+					<NavbarDiv href={"/d"}>
 						Diario
 					</NavbarDiv>
 					<NavbarDiv disabled={true}>
@@ -120,6 +119,8 @@ export default function(props) {
 					<WikiExisting full={true} path={"/w/:pageId"}/>
 					<WikiNew path={"/w/new"}/>
 					<WikiList path={"/w"}/>
+					<Diario path={"/d"}/>
+					<DiarioSlice path={"/d/:highlight"}/>
 					<ErrorBox default error={new Error("Page not found")}/>
 					<Leaderboards path={"/leaderboards"}/>
 				</Router>

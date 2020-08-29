@@ -1,8 +1,7 @@
-import { useRoyalnetData } from 'bluelib';
+import { BaseLink, useRoyalnetData } from 'bluelib';
 import ErrorAbbr from '../Static/ErrorAbbr';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import Link from './Link';
 
 export default function(props) {
 	const [data, error] = useRoyalnetData("GET", "/api/diario/random/v1", {
@@ -25,5 +24,5 @@ export default function(props) {
 
 	const quote = data[0];
 
-	return <Link disabled={true} href={`/d/${quote.diario_id}`} class={props.class}>"{quote.text}"</Link>;
+	return <BaseLink href={`/d/${quote.diario_id}`} class={props.class}>"{quote.text}"</BaseLink>;
 }

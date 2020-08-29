@@ -21,7 +21,7 @@ export default function (props) {
 	if(data === undefined) {
 		return (
 			<Panel>
-				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Caricamento...
+				<FontAwesomeIcon icon={faSpinner} pulse={true}/> Loading...
 			</Panel>
 		)
 	}

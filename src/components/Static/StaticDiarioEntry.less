@@ -1,0 +1,73 @@
+@import "../../styles/constants.less";
+
+.diarioEntry {
+    display: grid;
+    grid-row-gap: 6px;
+    grid-column-gap: 16px;
+
+    .content {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: 1;
+        align-self: start;
+        text-align: left;
+    }
+
+    .authorInfo {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: end;
+        text-align: left;
+    }
+
+    @media (max-width: 792px) {
+        .saveInfo {
+            grid-column: 2;
+            grid-row: 3;
+            align-self: end;
+            text-align: right;
+        }
+    }
+
+    @media (min-width: 793px) {
+        .saveInfo {
+            grid-column: 2;
+            grid-row: 2;
+            align-self: end;
+            text-align: right;
+        }
+    }
+
+    .id {
+        font-family: @mono;
+    }
+
+    .author {
+        font-size: small;
+    }
+
+    font-size: x-small;
+
+    .text {
+        font-size: medium;
+    }
+
+    &.spoilerEntry {
+        filter: blur(4px);
+
+        &:hover {
+            filter: none;
+        }
+    }
+
+    &.highlightedEntry {
+        color: @yellow;
+        border-left: 3px solid fade(@yellow, 20%);
+        background-color: fade(@yellow, 5%);
+
+        .text {
+            font-size: x-large;
+        }
+    }
+
+}

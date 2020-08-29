@@ -2,7 +2,7 @@ import { Panel, useRoyalnetData } from 'bluelib';
 import ErrorBox from '../components/Static/ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import Wiki from '../components/Dynamic/WikiExisting';
+import WikiExisting from '../components/Dynamic/WikiExisting';
 import StaticUserBioBox from '../components/Static/StaticUserBioBox';
 import Masonry from '../components/Static/Masonry';
 
@@ -43,7 +43,7 @@ export default function (props) {
 
 	return (
 		<div>
-			<Wiki pageId={85}/>
+			<WikiExisting pageId={85}/>
 			<Masonry>
 				{items}
 			</Masonry>

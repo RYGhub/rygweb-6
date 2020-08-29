@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "rygweb",
-  "version": "0.7.28",
+  "version": "0.7.29",
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "preact watch --template src/template.html",
@@ -21,7 +21,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@sentry/browser": "^5.20.1",
     "@sentry/integrations": "^5.20.1",
-    "bluelib": "^0.15.1",
+    "bluelib": "^0.15.2",
     "chart.js": "^2.9.3",
     "css-loader": "^3.6.0",
     "domhandler": "^3.0.0",
