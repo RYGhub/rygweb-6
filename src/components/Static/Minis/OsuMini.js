@@ -69,16 +69,16 @@ export default function (props) {
 			}
 		}
 		else if(name === "catch") {
-			if(gm.pp >= 8000) {
+			if(gm.pp >= 3600) {
 				difficulty = "expert-plus";
 			}
-			else if(gm.pp >= 3600) {
+			else if(gm.pp >= 1800) {
 				difficulty = "expert";
 			}
-			else if(gm.pp >= 1800) {
+			else if(gm.pp >= 700) {
 				difficulty = "insane";
 			}
-			else if(gm.pp >= 600) {
+			else if(gm.pp >= 450) {
 				difficulty = "hard";
 			}
 			else if(gm.pp >= 150) {
