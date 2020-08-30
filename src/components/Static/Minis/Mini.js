@@ -1,6 +1,6 @@
 import style from './Mini.less';
 import { concatClass } from 'bluelib';
-import StaticUserLink from './StaticUserLink';
+import StaticUserLink from '../StaticUserLink';
 
 
 export default function (props) {

@@ -1,6 +1,6 @@
 import style from './BrawlhallaMini.less';
 import Mini from './Mini';
-import Link from '../Dynamic/Link';
+import Link from '../../Dynamic/Link';
 import { Fragment } from 'preact';
 
 
@@ -36,7 +36,7 @@ export default function (props) {
 	);
 
 	const icon = (
-		<img src={"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/291550/c43fac31b8bf8821764603a14d09412bc3d45f66.jpg"} alt={""}/>
+		<img src={"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/291550/c43fac31b8bf8821764603a14d09412bc3d45f66.jpg"} alt={""} title={"Brawlhalla"}/>
 	);
 
 	return (

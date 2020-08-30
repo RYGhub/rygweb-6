@@ -2,12 +2,13 @@ import { Panel, useRoyalnetData } from 'bluelib';
 import ErrorBox from '../components/Static/ErrorBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import SteamMini from '../components/Static/SteamMini';
-import DotaMini from '../components/Static/DotaMini';
-import BrawlhallaMini from '../components/Static/BrawlhallaMini';
+import SteamMini from '../components/Static/Minis/SteamMini';
+import DotaMini from '../components/Static/Minis/DotaMini';
+import BrawlhallaMini from '../components/Static/Minis/BrawlhallaMini';
 import MiniHolder from '../components/Static/MiniHolder';
 import { Fragment } from 'preact';
-import LeagueMini from '../components/Static/LeagueMini';
+import LeagueMini from '../components/Static/Minis/LeagueMini';
+import OsuMini from '../components/Static/Minis/OsuMini';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/user/ryg/list/v1");
@@ -30,6 +31,7 @@ export default function (props) {
 	let dotaMinis = [];
 	let brawlhallaMinis = [];
 	let leagueMinis = [];
+	let osuMinis = [];
 
 	for(let user of data) {
 		for(let steam of user.steam) {
@@ -46,6 +48,10 @@ export default function (props) {
 
 		for(let league of user.leagueoflegends) {
 			leagueMinis.push(<LeagueMini user={user} league={league}/>);
+		}
+
+		for(let osu of user.osu) {
+			osuMinis.push(<OsuMini user={user} osu={osu}/>);
 		}
 	}
 
@@ -115,6 +121,18 @@ export default function (props) {
 		}
 	});
 
+	osuMinis.sort((a, b) => {
+		if(a.props.osu.standard.pp > b.props.osu.standard.pp) {
+			return -1;
+		}
+		else if(a.props.osu.standard.pp === b.props.osu.standard.pp) {
+			return 0;
+		}
+		else {
+			return 1;
+		}
+	});
+
 	return (
 		<Fragment>
 			<Panel title={"Steam"}>
@@ -135,6 +153,11 @@ export default function (props) {
 			<Panel title={"League of Legends"}>
 				<MiniHolder>
 					{leagueMinis}
+				</MiniHolder>
+			</Panel>
+			<Panel title={"osu!"}>
+				<MiniHolder>
+					{osuMinis}
 				</MiniHolder>
 			</Panel>
 		</Fragment>

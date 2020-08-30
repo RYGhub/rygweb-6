@@ -1,0 +1,113 @@
+@bg: rgb(42, 34, 38);
+@fg: white;
+@ec: rgb(255, 102, 171);
+
+
+.mini {
+    background-color: @bg;
+    color: @fg;
+    font-family: sans-serif;
+    border-color: @ec;
+}
+
+.icon {
+    background-color: @ec !important;
+    border-radius: 100% !important;
+}
+
+.header {
+    white-space: nowrap;
+    text-wrap: none;
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 25% !important;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+    .gamemode {
+        margin-left: auto;
+        margin-right: auto;
+        width: 128px;
+        display: grid;
+        grid-column-gap: 4px;
+        grid-template-columns: 32px 56px 32px;
+        align-items: center;
+
+        &.none {
+            opacity: 0.1;
+        }
+
+        &.easy {
+            color: #c8ff00;
+        }
+
+        &.normal {
+            color: #66ccff;
+        }
+
+        &.hard {
+            color: #ffcc22;
+        }
+
+        &.insane {
+            color: #ff66aa;
+        }
+
+        &.expert {
+            color: #aa88ff;
+        }
+
+        &.expert-plus {
+            color: #ffffff;
+        }
+
+        .gmicon {
+            grid-row: 1;
+            grid-column: 1;
+            font-size: xx-large;
+        }
+
+        .performance {
+            grid-row: 1;
+            grid-column: 2;
+            text-align: right;
+            font-size: large;
+            color: @fg;
+        }
+
+        .pp {
+            grid-row: 1;
+            grid-column: 3;
+            text-align: left;
+            font-size: xx-small;
+        }
+    }
+
+// Icons config
+@font-face {
+    font-family: "Osu Extra";
+    src: url("https://ryg.s3.fr-par.scw.cloud/resources/osu/extra.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+}
+.fae {
+    font-family: "Osu Extra", fantasy;
+    display: inline-block;
+    border-radius: 100%;
+}
+.standard .fae::before {
+    content: '\e800';
+}
+.catch .fae::before {
+    content: '\e801';
+}
+.mania .fae::before {
+    content: '\e802';
+}
+.taiko .fae::before {
+    content: '\e803';
+}

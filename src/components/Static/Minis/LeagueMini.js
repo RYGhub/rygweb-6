@@ -1,6 +1,6 @@
 import style from './LeagueMini.less';
 import Mini from './Mini';
-import Link from '../Dynamic/Link';
+import Link from '../../Dynamic/Link';
 import { Fragment } from 'preact';
 import { concatClass } from 'bluelib';
 
@@ -85,7 +85,7 @@ export default function (props) {
 	);
 
 	const icon = (
-		<img src={"https://ryg.s3.fr-par.scw.cloud/resources/lol/icon.webp"} alt={""}/>
+		<img src={"https://ryg.s3.fr-par.scw.cloud/resources/lol/icon.webp"} alt={""} title={"League of Legends"}/>
 	);
 
 	return (

@@ -1,6 +1,6 @@
 import style from './DotaMini.less';
 import Mini from './Mini';
-import Link from '../Dynamic/Link';
+import Link from '../../Dynamic/Link';
 import { Fragment } from 'preact';
 
 
@@ -83,7 +83,7 @@ export default function (props) {
 	);
 
 	const icon = (
-		<img src={"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/570/0bbb630d63262dd66d2fdd0f7d37e8661a410075.jpg"} alt={""}/>
+		<img src={"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/570/0bbb630d63262dd66d2fdd0f7d37e8661a410075.jpg"} alt={""} title={"Dota 2"}/>
 	);
 
 	return (

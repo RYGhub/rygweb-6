@@ -1,9 +1,10 @@
 import { Panel } from 'bluelib';
-import SteamMini from './SteamMini';
-import DotaMini from './DotaMini';
-import BrawlhallaMini from './BrawlhallaMini';
+import SteamMini from './Minis/SteamMini';
+import DotaMini from './Minis/DotaMini';
+import BrawlhallaMini from './Minis/BrawlhallaMini';
 import MiniHolder from './MiniHolder';
-import LeagueMini from './LeagueMini';
+import LeagueMini from './Minis/LeagueMini';
+import OsuMini from './Minis/OsuMini';
 
 export default function (props) {
 	const minis = [];
@@ -22,6 +23,10 @@ export default function (props) {
 
 	for(let league of props.data.leagueoflegends) {
 		minis.push(<LeagueMini user={props.data} league={league}/>);
+	}
+
+	for(let osu of props.data.osu) {
+		minis.push(<OsuMini user={props.data} osu={osu}/>);
 	}
 
 	if(minis.length === 0) {
