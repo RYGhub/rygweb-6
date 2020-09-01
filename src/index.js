@@ -1,8 +1,8 @@
 import 'bluelib/dist/index.css';
-import './meta/manifest.json';
-import './meta/CNAME';
-import './meta/.nojekyll';
-import './meta/favicon.ico';
+import './assets/manifest.json';
+import './assets/CNAME';
+import './assets/.nojekyll';
+import './assets/favicon.ico';
 import 'easymde/dist/easymde.min.css';
 import './styles/override-easymde.less';
 import Router from 'preact-router';
