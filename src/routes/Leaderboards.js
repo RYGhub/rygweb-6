@@ -9,6 +9,8 @@ import MiniHolder from '../components/Static/MiniHolder';
 import { Fragment } from 'preact';
 import LeagueMini from '../components/Static/Minis/LeagueMini';
 import OsuMini from '../components/Static/Minis/OsuMini';
+import Halloween2020Mini from '../components/Static/Minis/Halloween2020Mini';
+import Mini from '../components/Static/Minis/Mini';
 
 export default function (props) {
 	const [data, error] = useRoyalnetData("GET", "/api/user/ryg/list/v1");
@@ -27,11 +29,12 @@ export default function (props) {
 		)
 	}
 
-	let steamMinis = [];
-	let dotaMinis = [];
-	let brawlhallaMinis = [];
-	let leagueMinis = [];
-	let osuMinis = [];
+	const steamMinis = [];
+	const dotaMinis = [];
+	const brawlhallaMinis = [];
+	const leagueMinis = [];
+	const osuMinis = [];
+	const halloweenMinis = [];
 
 	for(let user of data) {
 		for(let steam of user.steam) {
@@ -52,6 +55,10 @@ export default function (props) {
 
 		for(let osu of user.osu) {
 			osuMinis.push(<OsuMini user={user} osu={osu}/>);
+		}
+
+		if(user.halloween2020) {
+			halloweenMinis.push(<Halloween2020Mini user={user} data={user.halloween2020}/>);
 		}
 	}
 
@@ -133,8 +140,25 @@ export default function (props) {
 		}
 	});
 
+	halloweenMinis.sort((a, b) => {
+		if(a.props.data.total > b.props.data.total) {
+			return -1;
+		}
+		else if(a.props.data.total === a.props.data.total) {
+			return 0;
+		}
+		else {
+			return 1;
+		}
+	});
+
 	return (
 		<Fragment>
+			<Panel title={"Halloween 2020"}>
+				<MiniHolder>
+					{halloweenMinis}
+				</MiniHolder>
+			</Panel>
 			<Panel title={"Steam"}>
 				<MiniHolder>
 					{steamMinis}

@@ -16,36 +16,55 @@
     border-color: @ec;
 }
 
+a.header {
+    text-shadow: 0 0 0.1em #00caca;
+}
+
 .header {
+    font-family: "Exocet", sans-serif;
+    text-shadow: 0 0 0.1em #ff7f00;
+    font-size: larger;
     white-space: nowrap;
     text-wrap: none;
 
     .avatar {
         width: 32px;
         height: 32px;
-        border-radius: 0 !important;
+        border-radius: 100% !important;
         display: inline-block;
         vertical-align: middle;
     }
 }
 
-.tarotTitle {
-    font-family: "Exocet", sans-serif;
-    text-shadow: 0 0 0.1em #ff7f00;
-    font-weight: bolder;
-
-    font-size: 24px;
-    text-align: center;
-}
-
 .tarotList {
     font-family: "Exocet", sans-serif;
-    text-shadow: 0 0 0.1em #ff7f00;
     font-weight: bolder;
 
     display: grid;
     grid-template-columns: auto auto auto;
     text-align: center;
     grid-row-gap: 2px;
+}
+
+.tarot {
+    cursor: help;
+
+    &.zawarudo {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 12px;
+
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    &.owned {
+        text-shadow: 0 0 0.1em #ff7f00;
+        color: white;
+    }
+
+    &.missing {
+        color: #4d4d4d;
+    }
 }
 

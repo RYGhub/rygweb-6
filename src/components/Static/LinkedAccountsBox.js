@@ -30,6 +30,11 @@ export default function (props) {
 		minis.push(<OsuMini user={props.data} osu={osu}/>);
 	}
 
+	if(props.data.halloween2020) {
+		let halloween2020 = props.data.halloween2020;
+		minis.push(<Halloween2020Mini user={props.data} data={halloween2020}/>)
+	}
+
 	if(minis.length === 0) {
 		return null;
 	}
@@ -38,7 +43,6 @@ export default function (props) {
 		<Panel title={"Account connessi"}>
 			<MiniHolder>
 				{minis}
-				<Halloween2020Mini user={props.data}/>
 			</MiniHolder>
 		</Panel>
 	);
