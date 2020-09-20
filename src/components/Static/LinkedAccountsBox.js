@@ -5,6 +5,7 @@ import BrawlhallaMini from './Minis/BrawlhallaMini';
 import MiniHolder from './MiniHolder';
 import LeagueMini from './Minis/LeagueMini';
 import OsuMini from './Minis/OsuMini';
+import Halloween2020Mini from './Minis/Halloween2020Mini';
 
 export default function (props) {
 	const minis = [];
@@ -37,6 +38,7 @@ export default function (props) {
 		<Panel title={"Account connessi"}>
 			<MiniHolder>
 				{minis}
+				<Halloween2020Mini user={props.data}/>
 			</MiniHolder>
 		</Panel>
 	);

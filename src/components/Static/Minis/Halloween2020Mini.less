@@ -1,0 +1,51 @@
+@import "../../../styles/constants.less";
+
+@bg: #240000;
+@fg: white;
+@ec: #ff7f00;
+
+@font-face {
+    font-family: "Exocet";
+    src: url("https://ryg.s3.fr-par.scw.cloud/resources/halloween2020/exocet.font-sfnt") format("truetype");
+}
+
+
+.halloween {
+    background-color: @bg;
+    color: @fg;
+    border-color: @ec;
+}
+
+.header {
+    white-space: nowrap;
+    text-wrap: none;
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 0 !important;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.tarotTitle {
+    font-family: "Exocet", sans-serif;
+    text-shadow: 0 0 0.1em #ff7f00;
+    font-weight: bolder;
+
+    font-size: 24px;
+    text-align: center;
+}
+
+.tarotList {
+    font-family: "Exocet", sans-serif;
+    text-shadow: 0 0 0.1em #ff7f00;
+    font-weight: bolder;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    grid-row-gap: 2px;
+}
+
