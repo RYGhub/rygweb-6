@@ -47,6 +47,10 @@ export default function (props) {
 			if(steam.brawlhalla) {
 				brawlhallaMinis.push(<BrawlhallaMini user={user} steam={steam}/>);
 			}
+
+			if(steam.trionfistatus) {
+				halloweenMinis.push(<Halloween2020Mini user={user} steam={steam}/>);
+			}
 		}
 
 		for(let league of user.leagueoflegends) {
@@ -55,10 +59,6 @@ export default function (props) {
 
 		for(let osu of user.osu) {
 			osuMinis.push(<OsuMini user={user} osu={osu}/>);
-		}
-
-		if(user.halloween2020) {
-			halloweenMinis.push(<Halloween2020Mini user={user} data={user.halloween2020}/>);
 		}
 	}
 
@@ -141,10 +141,10 @@ export default function (props) {
 	});
 
 	halloweenMinis.sort((a, b) => {
-		if(a.props.data.total > b.props.data.total) {
+		if(a.props.steam.trionfistatus.total > b.props.steam.trionfistatus.total) {
 			return -1;
 		}
-		else if(a.props.data.total === a.props.data.total) {
+		else if(a.props.steam.trionfistatus.total === a.props.steam.trionfistatus.total) {
 			return 0;
 		}
 		else {

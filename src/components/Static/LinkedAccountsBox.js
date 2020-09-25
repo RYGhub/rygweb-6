@@ -20,6 +20,10 @@ export default function (props) {
 		if(steam.brawlhalla) {
 			minis.push(<BrawlhallaMini user={props.data} steam={steam}/>);
 		}
+
+		if(steam.trionfistatus) {
+			minis.push(<Halloween2020Mini user={props.data} steam={steam}/>)
+		}
 	}
 
 	for(let league of props.data.leagueoflegends) {
@@ -28,11 +32,6 @@ export default function (props) {
 
 	for(let osu of props.data.osu) {
 		minis.push(<OsuMini user={props.data} osu={osu}/>);
-	}
-
-	if(props.data.halloween2020) {
-		let halloween2020 = props.data.halloween2020;
-		minis.push(<Halloween2020Mini user={props.data} data={halloween2020}/>)
 	}
 
 	if(minis.length === 0) {

@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Exocet";
+    src: url("https://ryg.s3.fr-par.scw.cloud/resources/halloween2020/exocet.font-sfnt") format("truetype");
+}
+
+
+.diablo() {
+    font-family: "Exocet", serif;
+    font-weight: bold;
+}
+
+.dim() {
+    color: #4d4d4d;
+
+    a {
+        color: #008080;
+
+        &:hover {
+            color: #0ff;
+        }
+
+        &:active {
+            color: #a0ffff;
+        }
+    }
+}
+
+.lit() {
+    text-shadow: 0 0 0.1em #ff7f00;
+
+    a {
+        text-shadow: 0 0 0.1em #00caca;
+    }
+}
+
+.halloween2020 {
+    background-color: #240000;
+    color: white;
+    border: 4px solid black;
+    border-radius: 4px;
+
+    hr {
+        &.owned {
+            border: 1px solid white;
+            box-shadow: 0 0 0.1em #ff7f00;
+        }
+
+        &.missing {
+            border: 1px solid #4d4d4d;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        .diablo();
+        .lit();
+
+        &.largerTitle {
+            font-size: 64px;
+        }
+    }
+
+    .loading {
+        .diablo();
+        .lit();
+    }
+
+    .tarotContainer {
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+        .tarotGrid {
+            display: grid;
+            align-items: center;
+
+            @media (max-width: 792px) {
+                grid-template-columns: 96px 1fr;
+            }
+            @media (min-width: 793px) {
+                grid-template-columns: 192px 1fr;
+            }
+
+            grid-template-rows: auto 1fr;
+
+            grid-column-gap: 8px;
+
+            .tarotTitle {
+                .diablo();
+
+                @media (max-width: 792px) {
+                    font-size: 32px;
+                }
+                @media (min-width: 793px) {
+                    font-size: 64px;
+                }
+
+                justify-self: center;
+
+                grid-column: 1;
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+
+            .tarotName {
+                .diablo();
+                font-size: x-large;
+
+                @media (max-width: 792px) {
+                    margin-top: 4px;
+                }
+                @media (min-width: 793px) {
+                    margin-top: 8px;
+                }
+
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .tarotObjective {
+                grid-column: 2;
+                grid-row: 2;
+
+                @media (max-width: 792px) {
+                    margin-bottom: 4px;
+                }
+                @media (min-width: 793px) {
+                    margin-bottom: 8px;
+                }
+            }
+
+            &.owned {
+                .lit();
+            }
+
+            &.missing {
+                .dim();
+            }
+        }
+    }
+
+}
+

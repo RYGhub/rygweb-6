@@ -36,6 +36,7 @@ import {
 } from 'bluelib';
 import Diario from './routes/Diario';
 import DiarioSlice from './routes/DiarioSlice';
+import Halloween2020 from './components/Static/Halloween2020';
 
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
@@ -123,6 +124,7 @@ export default function(props) {
 					<DiarioSlice path={"/d/:highlight"}/>
 					<ErrorBox default error={new Error("Page not found")}/>
 					<Leaderboards path={"/leaderboards"}/>
+					<Halloween2020 path={"/2020/o"}/>
 				</Router>
 				<Footer>
 					<Link href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</Link>
