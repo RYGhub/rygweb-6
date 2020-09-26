@@ -154,11 +154,13 @@ export default function (props) {
 
 	return (
 		<Fragment>
-			<Panel title={"Halloween 2020"}>
-				<MiniHolder>
-					{halloweenMinis}
-				</MiniHolder>
-			</Panel>
+			{halloweenMinis.length >= 1 ?
+				<Panel title={"Trionfi Reali"}>
+					<MiniHolder>
+						{halloweenMinis}
+					</MiniHolder>
+				</Panel>
+			: null}
 			<Panel title={"Steam"}>
 				<MiniHolder>
 					{steamMinis}

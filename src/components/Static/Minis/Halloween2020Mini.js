@@ -21,7 +21,7 @@ export default function (props) {
 		if(trionfistatus.trionfi.hasOwnProperty(tkey)) {
 			const tdata = trionfistatus.trionfi[tkey];
 
-			const towned = tdata.completed_on ? style.owned : style.missing;
+			const towned = tdata.completed_on ? style.lit : style.dim;
 
 			let zawarudo = null;
 			if(tdata.roman === "XXI") {
