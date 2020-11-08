@@ -37,6 +37,7 @@ import {
 import Diario from './routes/Diario';
 import DiarioSlice from './routes/DiarioSlice';
 import Halloween2020 from './components/Static/Halloween2020';
+import Stats from './routes/Stats';
 
 let Sentry = null;
 if(process.env.NODE_ENV === "development") {
@@ -99,14 +100,8 @@ export default function(props) {
 					<NavbarDiv href={"/d"}>
 						Diario
 					</NavbarDiv>
-					<NavbarDiv disabled={true}>
-						Chat
-					</NavbarDiv>
-					<NavbarDiv disabled={true}>
-						Matchmaking
-					</NavbarDiv>
-					<NavbarDiv disabled={true}>
-						Votazioni
+					<NavbarDiv href={"/stats"}>
+						Statistiche
 					</NavbarDiv>
 
 					<LoginProfile/>
@@ -125,6 +120,7 @@ export default function(props) {
 					<ErrorBox default error={new Error("Page not found")}/>
 					<Leaderboards path={"/leaderboards"}/>
 					<Halloween2020 path={"/2020/o"}/>
+					<Stats path={"/stats"}/>
 				</Router>
 				<Footer>
 					<Link href={"https://github.com/Steffo99/ryg.steffo.eu"}>ryg.steffo.eu {process.env.RELEASE}</Link>
